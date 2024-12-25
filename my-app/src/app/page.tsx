@@ -1,0 +1,439 @@
+"use client";
+
+import Image from "next/image";
+import Nav from "../app/components/nav";
+import GlobalButton from "./components/button";
+import CheckBox from "./components/checkbox";
+import ContactPopup from "./components/ContactPopup";
+import { useState } from "react";
+
+export default function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="">
+      <Nav />
+
+      <main className="h-[100vh]">
+        <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
+
+        <header className="header-bg relative">
+          <div className="overlay"></div> {/* Added overlay div */}
+          <video
+            autoPlay
+            loop
+            muted
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="assets/AI_BG.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="oversslay"></div> {/* Added overlay div */}
+          <div className="px-4 md:px-28 flex flex-col gap-[30px] items-start justify-start text-left relative z-10 mr-auto max-w-[1080px]">
+            <h1 className="!text-left text-white">
+              Serving our clients infrastructure and asset management needs
+            </h1>
+            <p>Preeminent Professional Services</p>
+            <button
+              className="global-btn"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              CONTACT US
+            </button>
+          </div>
+        </header>
+
+        <section id="about" className="top-section bg-white">
+          <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
+            <div className="flex flex-col gap-2">
+              <span className="text-black"> About us</span>
+              <div className="flex flex-col md:flex-row gap-[25px] md:gap-0">
+                <h1 className="text-black w-full md:w-[70%]">
+                  Transform your environment with us, enhancing assets,
+                  improving strategies
+                </h1>
+                <button
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                  className="global-btn border text-[15px] border-black border-0.5 w-[180px] md:w-[169px] h-[39px]"
+                >
+                  CONTACT US
+                </button>
+              </div>
+
+              <p className="text-black">
+                Our team, provides professional-grade environmental, facilities
+                maintenance & management services. Our services are structured
+                to take into account the health and well-being of the client's
+                total physical environment, and how the maintenance of that
+                environment impacts those who work within it. We value clear cut
+                analysis of the process from start to completion.
+              </p>
+            </div>
+
+            <div
+              id="services"
+              className="flex flex-col md:flex-row justify-center items-center md:items-center py-[50px] gap-[24px]"
+            >
+              <div
+                className="card bg-white shadow-md rounded-lg max-w-xs
+            text-black
+            "
+              >
+                <div className="relative ">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <img
+                    src="assets/Fac.png"
+                    alt="Description 1"
+                    className="w-full h-auto rounded-t-lg"
+                  />
+                </div>
+
+                <div className="p-3 flex flex-col  ">
+                  <h2 className="text-lg font-bold mt-2">
+                    Preeminent Professional + Technical Services
+                  </h2>
+                  <p className="flex-1">
+                    Property Management Companies, Real Estate Developers,
+                    Industrial and/or commercial properties, Hot-Spot Discovery
+                    and evaluation
+                  </p>
+                  <a href="/technicalServices" className="text-blue-500">
+                    Learn more →
+                  </a>
+                </div>
+              </div>
+
+              <div
+                className="card bg-white shadow-md rounded-lg  max-w-xs      text-black
+"
+              >
+                <div className="relative">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <img
+                    src="assets/Health.png"
+                    alt="Description 2"
+                    className="w-full h-auto rounded-t-lg"
+                  />
+                </div>
+
+                <div className="p-3 flex flex-col w-full ">
+                  <h2 className="text-lg font-bold mt-2">
+                    Preeminent Environment Services
+                  </h2>
+                  <p className="flex-1">
+                    Environmental Sustainability or Risk Assessment Services.
+                  </p>
+                  <a href="/environmentServices" className="text-blue-500">
+                    Learn more →
+                  </a>
+                </div>
+              </div>
+
+              <div className="card bg-white shadow-md rounded-lg max-w-xs      text-black">
+                <div className="relative">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <img
+                    src="assets/Events.png"
+                    alt="Description 3"
+                    className="w-full h-auto rounded-t-lg"
+                  />
+                </div>
+
+                <div className="p-3 flex flex-col ">
+                  <h2 className="text-lg font-bold mt-2">
+                    Preeminent Professional Events and Staffing
+                  </h2>
+                  <p className="flex-1">MEP, Electrical, Civil, Structural</p>
+                  <a href="/eventAndStaffing" className="text-blue-500">
+                    Learn more →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="industries"
+          className="employment relative h-[50vh] flex items-center justify-center "
+        >
+          <div className="overlay"></div> {/* Added overlay div */}
+          <div className="flex flex-col items-center justify-center relative z-10">
+            <span>Now Hiring</span>
+            <h1 className="text-center">Seeking employment considerations? </h1>
+            <p className="text-center">
+              Join us a Preeminent ProfessionalServices, for opportunity to make
+              collective impactful change
+            </p>
+
+            <div className="mt-8 text-center">
+              <GlobalButton text="SEE CAREERS" />
+            </div>
+          </div>
+        </section>
+
+        <section className="top-section bg-white">
+          <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
+            <div className="flex flex-col gap-2">
+              <span className="text-black"> Industries we serve</span>
+              <div className="flex flex-col gap-[50px] md:flex-row">
+                <h1 className="text-black">
+                  If you serve people, we serve you.
+                </h1>
+                <button className="global-btn border text-[15px] border-black border-0.5 w-[169px] h-[39px]">
+                  SEE INDUSTRIES
+                </button>
+              </div>
+
+              <p className="text-black">
+                We create experiences that matter wherever people work, learn,
+                recover, and play.
+              </p>
+            </div>
+
+            <div className="flex-col flex justify-center py-[50px] gap-[24px] md:flex-row">
+              <div
+                className="card h-[426px] bg-white shadow-md rounded-lg max-w-xs w-full md:max-w-full md:w-full
+            text-black
+            "
+              >
+                <div className="relative card-1 h-full flex items-center px-4 text-white justify-center flex-col  ">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="z-10 flex flex-col gap-[10px]">
+                    <h2>Commercial Real Estate and Property Owners</h2>
+                    <p>
+                      Facilities maintenance and environmental consulting
+                      services.
+                    </p>
+
+                    <a
+                      onClick={() => {
+                        setIsOpen(!isOpen);
+                      }}
+                      href="#"
+                      className="mt-[5px]"
+                    >
+                      Contact Us
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="card h-[426px] bg-white shadow-md rounded-lg max-w-xs w-full md:max-w-full md:w-full
+            text-black
+            "
+              >
+                <div className="relative card-2 h-full flex items-center px-4 text-white justify-center flex-col  ">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="z-10 flex flex-col gap-[10px]">
+                    <h2>Commercial Real Estate and Property Owners</h2>
+                    <p>
+                      Facilities maintenance and environmental consulting
+                      services.
+                    </p>
+
+                    <a
+                      onClick={() => {
+                        setIsOpen(!isOpen);
+                      }}
+                      href="#"
+                      className="mt-[5px]"
+                    >
+                      Contact Us
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="card h-[426px] bg-white shadow-md rounded-lg max-w-xs w-full md:max-w-full md:w-full
+            text-black
+            "
+              >
+                <div className="relative card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="z-10 flex flex-col gap-[10px]">
+                    <h2>Commercial Real Estate and Property Owners</h2>
+                    <p>
+                      Facilities maintenance and environmental consulting
+                      services.
+                    </p>
+
+                    <a
+                      onClick={() => {
+                        setIsOpen(!isOpen);
+                      }}
+                      href="#"
+                      className="mt-[5px]"
+                    >
+                      Contact Us
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="industries"
+          className=" bg-[#000E3C] relative h-[25vh] flex items-center justify-center "
+        >
+          <div className="overlay"></div> {/* Added overlay div */}
+          <div className="flex flex-col items-center justify-center relative z-10">
+            <span>Our impact by the numbers</span>
+            <h1>Value in the Analysis </h1>
+
+            <div
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+              className="mt-8"
+            >
+              <GlobalButton text="CONTACT US" />
+            </div>
+          </div>
+        </section>
+
+        <section className="top-section bg-white">
+          <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
+            <div className="flex flex-col gap-2">
+              <span className="text-black"> Update the Industry</span>
+              <div className="flex flex-col gap-[50px] md:flex-row">
+                <div className="flex-col flex max-w-full md:max-w-[60%]">
+                  <h1 className="text-black">
+                    Preeminent Professional Services
+                  </h1>
+                  <p className="text-black">
+                    We strive to bring eons old industry to the 21st century
+                    through process, technology, & impact. We provide a unique
+                    process engineering skills to developer non-traditional
+                    approach to facilities maintenance & management, utilizing
+                    service models with technological advancements
+                  </p>
+
+                  <div className="flex flex-col mt-4 gap-[7px]">
+                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                      <CheckBox />
+                      OSHA 10 & OSHA 30
+                    </div>
+                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                      <CheckBox />
+                      EPA 608 Certification
+                    </div>
+                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                      <CheckBox />
+                      City of Philadelphia – Engineering Licenses
+                    </div>
+                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                      <CheckBox />
+                      CSIA Certification (#1197)
+                    </div>
+                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                      <CheckBox />
+                      ServSafe Food/Facilities Management Certification
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-[10px]">
+                  <h3 className="text-black">Square footage counter </h3>
+                  <div className="flex items-start justify-start">
+                    <div className="w-24 h-24 bg-white rounded-full border border-black border-0.5 flex items-center justify-center">
+                      <span className="text-black text-lg font-bold">
+                        10,000
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start justify-start items-end flex-1">
+                    <button className="border-b-0.5 border-black flex items-center pointer">
+                      <span
+                        onClick={() => {
+                          setIsOpen(!isOpen);
+                        }}
+                        className="text-black"
+                      >
+                        Contact us
+                      </span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 ml-2"
+                        viewBox="0 0 20 20"
+                        fill="black"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 3a1 1 0 0 0-1 1v6.586l-3.293-3.293a1 1 0 1 0-1.414 1.414l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L11 10.586V4a1 1 0 0 0-1-1z"
+                        />
+                        <path
+                          fillRule="evenodd"
+                          d="M3 13a1 1 0 0 0 1 1h12a1 1 0 0 0 0-2H4a1 1 0 0 0-1 1z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-row flex justify-center py-[50px] gap-[24px]"></div>
+          </div>
+        </section>
+
+        <footer className="px-[20px] flex items-center py-[80px] mx-[20px] border-t border-black border-0.5 h-auto">
+          <div className="flex flex-col md:flex-row justify-between gap-[30px] w-full text-black">
+            <div className="flex-row">
+              <img src="assets/Logo.png" />
+
+              <h2>Preeminent Professional Services</h2>
+            </div>
+
+            <div className="flex flex-col gap-[8px]">
+              <div>
+                <span className="font-bold">Discover</span>
+              </div>
+
+              <span className=" global-span cursor-pointer">Home</span>
+              <span className=" global-span  cursor-pointer">Our services</span>
+              <span className=" global-span  cursor-pointer">
+                Industries we serve
+              </span>
+            </div>
+
+            <div className="flex flex-col w-full md:max-w-[25%] gap-[10px]">
+              <div>
+                <span className="font-bold">Subscribe to our newsletter </span>
+              </div>
+
+              <p className="text-[#979797]">
+                Want to stay up to date with news and updates about our team?
+              </p>
+
+              <input
+                type="email"
+                placeholder="Enter your email here"
+                className="border border-gray-300 border-opacity-50 rounded-md p-2"
+              />
+
+              <p className="text-[15px] text-[#979797]">
+                By subscribing to our newsletter you agree to our privacy policy
+                and will get commercial communication.{" "}
+              </p>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}

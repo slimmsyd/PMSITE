@@ -1,0 +1,7 @@
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/technicalServices/page": "app/technicalServices/page.js",
+  "/environmentServices/page": "app/environmentServices/page.js",
+  "/eventAndStaffing/page": "app/eventAndStaffing/page.js",
+  "/page": "app/page.js"
+}
