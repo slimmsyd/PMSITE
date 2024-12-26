@@ -430,7 +430,7 @@ export default function Home() {
                   <h3 className="text-black">Square footage counter</h3>
                   <div className="flex items-start justify-start">
                     <motion.div
-                      className="w-24 h-24 bg-white rounded-full border border-black border-0.5 flex items-center justify-center"
+                      className="w-[10rem] h-[10rem] bg-white rounded-full border border-black border-0.5 flex items-center justify-center"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5 }}
@@ -440,6 +440,10 @@ export default function Home() {
                         <span className="text-black text-lg font-bold">
                           {count}{" "}
                         </span>
+                        <span className="text-gray-300 text-[14px] transform relative text-lg font-bold" style={{ transform: 'translateY(-10px)' }}>
+                        Sqft
+                        </span>
+                        
                       </div>
                     </motion.div>
                   </div>
