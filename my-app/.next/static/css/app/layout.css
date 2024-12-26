@@ -614,6 +614,9 @@ video {
 .top-0 {
   top: 0px;
 }
+.bottom-\[-33px\] {
+  bottom: -33px;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1456,6 +1459,10 @@ textarea{
 }
 
 @media (min-width: 768px) {
+
+  .md\:bottom-0 {
+    bottom: 0px;
+  }
 
   .md\:mt-0 {
     margin-top: 0px;

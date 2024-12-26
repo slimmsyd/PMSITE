@@ -85,7 +85,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
   return (
     <div>
       {isOpen && (
-        <div className="fixed bottom-0 w-[488px] right-0 m-4 p-4 bg-white shadow-lg rounded-lg z-50 text-black max-w-[350px]">
+        <div className="fixed bottom-0 w-[488px] right-0 m-4 p-4 bg-white shadow-lg rounded-lg z-50 text-black max-w-[350px] md:bottom-0 bottom-[-33px]">
           <div className="mt-4 mb-4">
             <div className="flex items-center w-[55px]">
               <Link href="/">
