@@ -367,7 +367,7 @@ export default function Home() {
 
         <section
           id="industries"
-          className=" bg-[#000E3C] relative h-[25vh] md:h-full flex items-center justify-center "
+          className=" bg-[#000E3C] py-[20px] relative h-[25vh] md:h-full flex items-center justify-center "
         >
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="flex flex-col items-center justify-center relative z-10">
