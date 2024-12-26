@@ -83,7 +83,7 @@ export default function Home() {
             autoPlay
             loop
             muted
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute pointer-events-none inset-0 w-full h-full object-cover"
           >
             <source src="assets/AI_BG.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -367,12 +367,12 @@ export default function Home() {
 
         <section
           id="industries"
-          className=" bg-[#000E3C] relative h-[25vh] flex items-center justify-center "
+          className=" bg-[#000E3C] relative h-[25vh] md:h-full flex items-center justify-center "
         >
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="flex flex-col items-center justify-center relative z-10">
             <span>Our impact by the numbers</span>
-            <h1>Value in the Analysis </h1>
+            <h1 className = "text-center">Value in the Analysis </h1>
 
             <div
               onClick={() => {

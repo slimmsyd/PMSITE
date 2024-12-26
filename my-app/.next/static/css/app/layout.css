@@ -578,6 +578,9 @@ video {
     max-width: 1536px;
   }
 }
+.pointer-events-none {
+  pointer-events: none;
+}
 .fixed {
   position: fixed;
 }
@@ -1468,6 +1471,10 @@ textarea{
 
   .md\:h-\[176px\] {
     height: 176px;
+  }
+
+  .md\:h-full {
+    height: 100%;
   }
 
   .md\:w-\[169px\] {
