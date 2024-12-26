@@ -286,7 +286,34 @@ export default function Home() {
             text-black
             "
               >
-                <div className="relative card-1 h-full flex items-center px-4 text-white justify-center flex-col  ">
+                <div className="relative card-1 min-h-[300px] flex items-center px-4 text-white justify-center flex-col  ">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="z-10 flex flex-col gap-[10px]">
+                    <h2>Commercial Real Estate and Property Owners</h2>
+                    <p>
+                      Facilities maintenance and environmental consulting
+                      services.
+                    </p>
+
+                    <a
+                      onClick={() => {
+                        setIsOpen(!isOpen);
+                      }}
+                      href="#"
+                      className="mt-[5px]"
+                    >
+                      Contact Us
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="card  h-[426px] bg-white shadow-md rounded-lg max-w-xs w-full md:max-w-full md:w-full
+            text-black
+            "
+              >
+                <div className="relative  min-h-[300px]  card-2 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Commercial Real Estate and Property Owners</h2>
@@ -313,34 +340,7 @@ export default function Home() {
             text-black
             "
               >
-                <div className="relative card-2 h-full flex items-center px-4 text-white justify-center flex-col  ">
-                  <div className="overlay"></div> {/* Added overlay div */}
-                  <div className="z-10 flex flex-col gap-[10px]">
-                    <h2>Commercial Real Estate and Property Owners</h2>
-                    <p>
-                      Facilities maintenance and environmental consulting
-                      services.
-                    </p>
-
-                    <a
-                      onClick={() => {
-                        setIsOpen(!isOpen);
-                      }}
-                      href="#"
-                      className="mt-[5px]"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="card h-[426px] bg-white shadow-md rounded-lg max-w-xs w-full md:max-w-full md:w-full
-            text-black
-            "
-              >
-                <div className="relative card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
+                <div className="relative  min-h-[300px]  card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Commercial Real Estate and Property Owners</h2>
@@ -448,7 +448,7 @@ export default function Home() {
                     </motion.div>
                   </div>
 
-                  <div className="flex items-start justify-start items-end flex-1">
+                  <div className="flex items-start justify-start items-end flex-1 mt-40 md:mt-0">
                     <button className="border-b-0.5 border-black flex items-center pointer">
                       <span
                         onClick={() => {

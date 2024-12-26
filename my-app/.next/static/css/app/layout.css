@@ -674,6 +674,9 @@ video {
 .mt-\[5px\] {
   margin-top: 5px;
 }
+.mt-40 {
+  margin-top: 10rem;
+}
 .flex {
   display: flex;
 }
@@ -724,6 +727,9 @@ video {
 }
 .h-\[10rem\] {
   height: 10rem;
+}
+.min-h-\[300px\] {
+  min-height: 300px;
 }
 .w-24 {
   width: 6rem;
@@ -1428,6 +1434,10 @@ textarea{
 }
 
 @media (min-width: 768px) {
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
 
   .md\:flex {
     display: flex;

@@ -1,5 +1,4 @@
 {
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/hiring/page": "app/hiring/page.js",
   "/hiring/Job1/page": "app/hiring/Job1/page.js",
   "/page": "app/page.js",
