@@ -1,48 +1,43 @@
-"use client"
-import Services from "../Services"
-import React from "react"
+"use client";
+import Services from "../Services";
+import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import CheckBox from "../components/checkbox";
 import Footer from "../components/Footer";
 import ContactPopup from "../components/ContactPopup";
-export default function TechincalServices() 
+export default function TechincalServices() {
+  const bgImage = 'assets/TailerBG.png"';
+  const spanText = " Professional Events and Staffing";
+  const headerText = "Preeminent Event & Staffing Services";
 
-{
+  const [isOpen, setIsOpen] = useState(false);
 
-    const bgImage = 'assets/TailerBG.png"'
-    const spanText = " Professional Events and Staffing"
-     const headerText = "Preeminent Event & Staffing Services"
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
-     const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Services
+        backgroundImage={bgImage}
+        spanText={spanText}
+        headerText={headerText}
+        bgClass="event"
+        text="     We offer professional environmental facilites maintenance & management services. Our strength lies in our process & project managment approach to provding services. We utilized the experiene/backgrounds of  our Managment and Advisory Teams to develop effective solutions for our clients."
+      />
+      <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
 
-     const togglePopup = () => {
-       setIsOpen(!isOpen);
-     };
-   
-
-
-    return ( 
-        <>
-            <Services
-            backgroundImage = {bgImage}
-            spanText = {spanText}
-            headerText = {headerText}
-            />
-            <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
-
-
-
-            <div className="bg-[#003DFA] py-[40px] px-[80px] md:h-[176px]">
-            <div className="flex flex-col md:flex-row justify-between gap-[10px]">        
-            <h2 className="max-w-full md:max-w-[75%]">
+      <div className="bg-[#003DFA] py-[40px] px-[80px] md:h-[176px]">
+        <div className="flex flex-col md:flex-row justify-between gap-[10px]">
+          <h2 className="max-w-full md:max-w-[75%]">
             Find out how Preeminent Professional Services can help you care for
             the people, spaces, and places that are important to you.
           </h2>
+          <p></p>
           <button
-                     onClick = {() => setIsOpen(!isOpen)}
-
-            className=" w-[130px] h-[50px] text-[15px]"
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-[130px] h-[50px] text-[15px] hover:bg-white hover:text-black"
             style={{ borderRadius: "8px", border: "0.5px solid white" }}
           >
             GET IN TOUCH
@@ -51,95 +46,76 @@ export default function TechincalServices()
       </div>
       <section className="relative w-full py-12 md:py-24 lg:py-20 xl:py-10 max-w-[500px] m-auto  text-black">
         <div className="container mx-auto px-4 max-w-6xl">
-
-
-        <div className="space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className=" text-black ">
-            Event Staffing Services           
-             </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h2 className=" text-black ">
-            General Labor Staffing Services
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <h2 className=" text-black ">
-            Security Services
-            </h2>
-          </motion.div>
-
-
-
-          <div className="flex flex-col mt-4 gap-[7px]">
-                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
-                      <CheckBox />
-                      Project management experience on large scale projects.
-                    </div>
-                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
-                      <CheckBox />
-                      Planning & Logistics with our implementation of “Quality Control”.
-                    </div>
-                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
-                      <CheckBox />
-                      Communication with our clients
-                                          </div>
-                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
-                      <CheckBox />
-                      Commercial Cleaning/Environmental Services; implemented with “process and                    </div>
-                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
-                      <CheckBox />
-                      Discipline”. Managed with “quality control” measures, and executed purposeful and detailed use of selected products, and the application of technology is critical to achieving objectives.                   
-                      
-                       </div>
-                  </div>
-  
-          <div className="flex justify-start flex-row gap-4">
-            <a
-              href="https://calendly.com/0ncode-info/30min"
-              target="_blank"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Next
-            </a>
-            <a
-              href="#pricing"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
+              <h2 className=" text-black ">Event Staffing Services</h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
+              <h2 className=" text-black ">General Labor Staffing Services</h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <h2 className=" text-black ">Security Services</h2>
+            </motion.div>
+
+            <div className="flex flex-col mt-4 gap-[7px]">
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                Project management experience on large scale projects.
+              </div>
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                Planning & Logistics with our implementation of “Quality
+                Control”.
+              </div>
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                Fleet Electrication Services: Consulting, Technical Assistance, and brokering the procurement Charging infrastructure.
+              </div>
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                  Renewable Energy Service; Consulting, infrastructure installation
+              </div>
+         
+            </div>
+
+            <div className="flex justify-start flex-row gap-4">
+              <a
+                  href="/technicalServices" 
+                  target="_blank"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
+              >
+                Next
+              </a>
+              <a
+ href="/eventAndStaffing"                
+ 
+ className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
+              >
                 Previous
-            </a>
+              </a>
+            </div>
           </div>
-        </div>
-
-
-
         </div>
       </section>
 
       <Footer />
-
-            
-        
-        </>
-
-
-    )
+    </>
+  );
 }

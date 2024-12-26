@@ -6,6 +6,7 @@ export default function CheckBox() {
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className = "min-w-[16px] m-h-[16px]"
     >
       <g clip-path="url(#clip0_312_211)">
         <path

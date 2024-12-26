@@ -5,19 +5,76 @@ import Nav from "../app/components/nav";
 import GlobalButton from "./components/button";
 import CheckBox from "./components/checkbox";
 import ContactPopup from "./components/ContactPopup";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const isCountingRef = useRef(false);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const startCounting = () => {
+    if (isCountingRef.current) return; // Prevent multiple counts
+    isCountingRef.current = true;
+
+    let start = 0;
+    const end = 10000;
+    const duration = 2000; // Duration of the animation in milliseconds
+    const increment = end / ((duration / 1000) * 60); // Calculate increment per frame
+
+    const animate = () => {
+      start += increment;
+      if (start < end) {
+        setCount(Math.floor(start));
+        console.log("Current count:", Math.floor(start));
+        requestAnimationFrame(animate);
+      } else {
+        setCount(end); // Ensure it ends at 10000
+        console.log("Final count:", end);
+      }
+    };
+
+    animate();
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log("Element is in view, starting count...");
+          startCounting();
+          observer.disconnect(); // Stop observing after counting starts
+        } else {
+          console.log("Element is not in view.");
+        }
+      });
+    });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+      console.log("Observer is set up.");
+    }
+
+    return () => {
+      observer.disconnect(); // Cleanup observer on unmount
+    };
+  }, []);
+
   return (
     <div className="">
-      <Nav />
+      <Nav
+      scrollToSection = {scrollToSection}
+      />
 
       <main className="h-[100vh]">
         <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
@@ -34,13 +91,13 @@ export default function Home() {
             Your browser does not support the video tag.
           </video>
           <div className="oversslay"></div> {/* Added overlay div */}
-          <div className="px-4 md:px-28 flex flex-col gap-[30px] items-start justify-start text-left relative z-10 mr-auto max-w-[1080px]">
+          <div className="px-4 md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
             <h1 className="!text-left text-white">
               Serving our clients infrastructure and asset management needs
             </h1>
-            <p>Preeminent Professional Services</p>
+            <p>     We strive to bring an eons old industry into the 21st century through process, technology, & impact. We provide a unique approach to facilities maintenance* managment, utilzing process engineering skills to develop non-traditional services models with technological advancments.</p>
             <button
-              className="global-btn"
+              className="global-btn max-w-[180px]"
               onClick={() => {
                 setIsOpen(!isOpen);
               }}
@@ -52,7 +109,9 @@ export default function Home() {
 
         <section id="about" className="top-section bg-white">
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
-            <div className="flex flex-col gap-2">
+            <div
+            
+            className="flex flex-col gap-2">
               <span className="text-black"> About us</span>
               <div className="flex flex-col md:flex-row gap-[25px] md:gap-0">
                 <h1 className="text-black w-full md:w-[70%]">
@@ -86,7 +145,7 @@ export default function Home() {
               <div
                 className="card bg-white shadow-md rounded-lg max-w-xs
             text-black
-            "
+            transition-all duration-500 ease-in-out transform hover:scale-110"
               >
                 <div className="relative ">
                   <div className="overlay"></div> {/* Added overlay div */}
@@ -113,8 +172,9 @@ export default function Home() {
               </div>
 
               <div
-                className="card bg-white shadow-md rounded-lg  max-w-xs      text-black
-"
+                className="card bg-white shadow-md rounded-lg max-w-xs
+            text-black
+            transition-all duration-500 ease-in-out transform hover:scale-110"
               >
                 <div className="relative">
                   <div className="overlay"></div> {/* Added overlay div */}
@@ -137,8 +197,11 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-
-              <div className="card bg-white shadow-md rounded-lg max-w-xs      text-black">
+              <div
+                className="card bg-white shadow-md rounded-lg max-w-xs
+            text-black
+            transition-all duration-500 ease-in-out transform hover:scale-110"
+              >
                 <div className="relative">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <img
@@ -163,7 +226,7 @@ export default function Home() {
         </section>
 
         <section
-          id="industries"
+          id="careers"
           className="employment relative h-[50vh] flex items-center justify-center "
         >
           <div className="overlay"></div> {/* Added overlay div */}
@@ -347,13 +410,21 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col gap-[10px]">
-                  <h3 className="text-black">Square footage counter </h3>
+                  <h3 className="text-black">Square footage counter</h3>
                   <div className="flex items-start justify-start">
-                    <div className="w-24 h-24 bg-white rounded-full border border-black border-0.5 flex items-center justify-center">
-                      <span className="text-black text-lg font-bold">
-                        10,000
-                      </span>
-                    </div>
+                    <motion.div
+                      className="w-24 h-24 bg-white rounded-full border border-black border-0.5 flex items-center justify-center"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5 }}
+                      onViewportEnter={startCounting}
+                    >
+                      <div className="flex flex-row gap-[3px] relative">
+                        <span className="text-black text-lg font-bold">
+                          {count}{" "}
+                        </span>
+                      </div>
+                    </motion.div>
                   </div>
 
                   <div className="flex items-start justify-start items-end flex-1">

@@ -28,6 +28,9 @@ export default function TechincalServices()
             backgroundImage = {bgImage}
             spanText = {spanText}
             headerText = {headerText}
+            bgClass="tech"
+            text = " We offer professional environmental facilites maintenance & management services. Our strength lies in our process & project managment approach to provding services. We utilize the experience/backgrounds of our Senior Managment and Techincal Advisory Teams to develop effective solutions for our clients."
+
             
             />
 
@@ -42,8 +45,8 @@ export default function TechincalServices()
             the people, spaces, and places that are important to you.
           </h2>
           <button
-           onClick = {() => setIsOpen(!isOpen)}
-            className=" w-[130px] h-[50px] text-[15px]"
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-[130px] h-[50px] text-[15px] hover:bg-white hover:text-black"
             style={{ borderRadius: "8px", border: "0.5px solid white" }}
           >
             GET IN TOUCH
@@ -145,8 +148,7 @@ Renewable Energy Services
                   </div>
   
           <div className="flex justify-start flex-row gap-4">
-            <a
-              href="https://calendly.com/0ncode-info/30min"
+          <a href="/environmentServices" 
               target="_blank"
               className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
             >

@@ -52,7 +52,8 @@ h2{
   transform: translateX(-50%); /* Adjust to center */
 }
 .nav-link{
-  color:black
+  color:black;
+  font-size: 14px !important;
 }
 
 .nav-links {
@@ -93,6 +94,14 @@ h2{
   background-image: url('/assets/TailerBG.png');
 
 }
+.event{
+  background-image: url('/assets/Facility.png');
+
+}
+.enviroment{
+  background-image: url('/assets/Engine.png');
+
+}
 
 .overlay {
   position: absolute;
@@ -127,6 +136,10 @@ h2{
 .card{
   height: 450px;
 }
+.card-1
+{ 
+  
+}
 @media screen and (max-width: 950px){
   .card, .card-1, .card-2, .card-3{
     width: 100% !important;
@@ -143,7 +156,12 @@ h2{
   width:300px;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
+  transition: all 250ms ease; /* Add transition for image expansion */
+}
 
+.card-1:hover{
+  background-size: 150%; /* Expand the image on hover */
+  transition: background-size 0.5s ease; /* Add transition for image expansion */
 }
 
 .card-2{
@@ -151,6 +169,12 @@ h2{
   width:300px;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
+  transition: background-size 0.5s ease; /* Add transition for image expansion */
+}
+
+.card-2:hover{
+  background-size: 150%; /* Expand the image on hover */
+  transition: background-size 0.5s ease; /* Add transition for image expansion */
 
 }
 
@@ -159,6 +183,12 @@ h2{
   width:300px;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
+  transition: background-size 0.5s ease; /* Add transition for image expansion */
+}
+
+.card-3:hover{
+  background-size: 150%; /* Expand the image on hover */
+  transition: background-size 0.5s ease; /* Add transition for image expansion */
 
 }
 

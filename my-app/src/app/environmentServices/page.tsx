@@ -7,7 +7,7 @@ import CheckBox from "../components/checkbox";
 import Footer from "../components/Footer";
 import ContactPopup from "../components/ContactPopup";
 export default function TechincalServices() {
-  const bgImage = 'assets/TailerBG.png"';
+  const bgImage = 'assets/Engine.png"';
 
   const spanText = " Environment Services";
   const headerText = "Preeminent Environment Services";
@@ -24,17 +24,22 @@ export default function TechincalServices() {
         backgroundImage={bgImage}
         spanText={spanText}
         headerText={headerText}
+        bgClass={"enviroment"}
+        text={
+          "We offer professional environmental facilities maintenace & managment services. Our Strength lies in our process & project management approach to providing services. We utilize the experience/backgrounds of our Managament and Advisory Teams to develop effective solutions for our clients."
+        }
       />
       <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
 
       <div className="bg-[#003DFA] py-[40px] px-[80px] md:h-[176px]">
-      <div className="flex flex-col md:flex-row justify-between gap-[10px]">          <span>Professional Events and Staffing</span>
-      <h2 className="max-w-full md:max-w-[75%]">
-            
-            Event and Staffing Servies</h2>
+        <div className="flex flex-col md:flex-row justify-between gap-[10px]">
+          {" "}
+          <h2 className="max-w-full md:max-w-[75%]">
+          Find out how Preeminent Professional Services can help you care for the people, spaces, and places that are important to you.
+          </h2>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className=" w-[130px] h-[50px] text-[15px]"
+            className="w-[130px] h-[50px] text-[15px] hover:bg-white hover:text-black"
             style={{ borderRadius: "8px", border: "0.5px solid white" }}
           >
             GET IN TOUCH
@@ -103,14 +108,13 @@ export default function TechincalServices() {
 
             <div className="flex justify-start flex-row gap-4">
               <a
-                href="https://calendly.com/0ncode-info/30min"
-                target="_blank"
+            href="/technicalServices" 
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
               >
                 Next
               </a>
               <a
-                href="#pricing"
+                 href="/eventAndStaffing" 
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
               >
                 Previous

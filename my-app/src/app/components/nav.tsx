@@ -88,10 +88,10 @@ export default function Navigation({
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center space-x-8">
-          <div className="nav-link hover:text-gray-300 cursor-pointer">ABOUT US</div>
-          <div className="nav-link hover:text-gray-300 cursor-pointer">OUR SERVICES</div>
-          <div className="nav-link hover:text-gray-300 cursor-pointer">INUDSTRIVES WE SERVIE</div>
-          <div className="nav-link hover:text-gray-300 cursor-pointer">CAREERS</div>
+          <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('about')}>ABOUT US</div>
+          <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('services')}>OUR SERVICES</div>
+          <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('industries')}>INDUSTRIES WE SERVE</div>
+          <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('careers')}>CAREERS</div>
         </div>
 
         {/* Connect Wallet Button */}
@@ -125,25 +125,25 @@ export default function Navigation({
             <div className="flex flex-col space-y-4">
               <div 
                 className="nav-link hover:text-gray-300 cursor-pointer py-2"
-                onClick={() => mobileNavBtn('ABOUT US ')}
+                onClick={() => mobileNavBtn('about')}
               >
-                Home
+                About us
               </div>
               <div 
                 className="nav-link text-black hover:text-gray-300 cursor-pointer py-2"
-                onClick={() => mobileNavBtn('OUR SERVICES')}
+                onClick={() => mobileNavBtn('services')}
               >
                 Ecosystem
               </div>
               <div 
                 className="nav-link hover:text-gray-300 cursor-pointer py-2"
-                onClick={() => mobileNavBtn('INDUSTRIES WE SERVICE')}
+                onClick={() => mobileNavBtn('industries')}
               >
-                About us
+                Industries we serve
               </div>
               <div 
                 className="nav-link hover:text-gray-300 cursor-pointer py-2"
-                onClick={() => mobileNavBtn('CAREERS')}
+                onClick={() => mobileNavBtn('careers')}
               >
                 Case Studies
               </div>

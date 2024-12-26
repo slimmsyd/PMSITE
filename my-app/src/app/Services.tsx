@@ -8,9 +8,11 @@ interface Servce {
   backgroundImage: string;
   spanText: string;
   headerText: string;
+  bgClass : string;
+  text: string;
 }
 
-const Services: React.FC<Servce> = ({ backgroundImage , spanText, headerText}) => {
+const Services: React.FC<Servce> = ({ backgroundImage , spanText, headerText, bgClass, text}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
@@ -22,7 +24,7 @@ const Services: React.FC<Servce> = ({ backgroundImage , spanText, headerText}) =
       <Navigation />
 
       <header
-        className="header-bg tech relative !h-[80vh]"
+        className = {`header-bg ${bgClass} relative !h-[80vh]`}
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="overlay"></div> {/* Added overlay div */}
@@ -32,6 +34,9 @@ const Services: React.FC<Servce> = ({ backgroundImage , spanText, headerText}) =
           <h1 className="!text-left text-white">
             {headerText}
           </h1>
+          <p>
+            {text}
+          </p>
           <button
             className="global-btn"
             onClick={() => {
