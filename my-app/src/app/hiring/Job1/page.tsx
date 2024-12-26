@@ -77,83 +77,46 @@ export default function Hiring() {
             <div className="flex flex-col gap-[10px]">
                 <h2 className="font-bold">About You</h2>
                 <p>
-                    Job responsiblity goes here
+                    As a Field Advisor, you are a proactive problem solver with a strong understanding of facilities operations and management. You thrive in dynamic environments, enjoy building relationships, and excel at ensuring client satisfaction by delivering tailored solutions on the ground.
                 </p>
             </div>
             <div className="flex flex-col gap-[10px] my-[30px]">
                 <h2 className="text-[20px] font-bold">Responsibilities</h2>
                 <ul>
-                    <li>
-                        Work cross-functionally with product, design, and sales to understand
-                        requirements and ship thoughtful solutions.
-                    </li>
-                    <li>Write high-quality code optimized for extensibility.</li>
-                    <li>
-                        Engage in code reviews to maintain a high bar of engineering
-                        excellence.
-                    </li>
-                    <li>
-                        Lead discussions and documentation to communicate and arrive at the
-                        best technical design.
-                    </li>
-                    <li>
-                        Work across different components boundaries, from frontend to backend,
-                        and even infrastructure layers.
-                    </li>
-                    <li>
-                        Promote better practices and share technical knowledge across the
-                        team.
-                    </li>
-                    <li>
-                        Help grow Loop through deliberate feedback on product, process, and
-                        culture.
-                    </li>
+                    <li>Collaborate with clients to identify needs and provide tailored solutions for facility operations and maintenance.</li>
+                    <li>Conduct on-site evaluations to ensure compliance with standards and recommend improvements for efficiency and safety.</li>
+                    <li>Serve as a liaison between the operations team, contractors, and clients to ensure seamless communication and execution of projects.</li>
+                    <li>Develop and implement processes to optimize maintenance schedules and reduce operational downtime.</li>
+                    <li>Provide technical support and training to field staff, ensuring alignment with organizational standards and practices.</li>
+                    <li>Track and report on performance metrics, identifying areas for continuous improvement.</li>
+                    <li>Stay updated on industry advancements and recommend innovative approaches to improve service delivery.</li>
                 </ul>
             </div>
             <div className="flex flex-col gap-[10px]">
                 <h2 className="text-[20px] font-bold">Qualifications</h2>
                 <ul>
-                    <li>Five years of software engineering experience.</li>
-                    <li>
-                        Experience with TypeScript and tools such as GraphQL, Relay, React,
-                        and Node.js.
-                    </li>
-                    <li>
-                        Experience working at early-stage companies where you shipped products
-                        end to end and wore many hats.
-                    </li>
+                    <li>3+ years of experience in facilities management, field operations, or a related role.</li>
+                    <li>Strong technical understanding of HVAC, electrical systems, or other facility-related services.</li>
+                    <li>Excellent problem-solving skills and ability to make data-driven decisions in the field.</li>
+                    <li>Strong interpersonal and communication skills to effectively manage client relationships and team collaboration.</li>
+                    <li>Familiarity with facility management software and tools is a plus.</li>
                 </ul>
             </div>
-            <div className="flex flex-col gap-[10px]">
-                <h2 className="text-[20px] font-bold">Under the Hood</h2>
-                <ul>
-                    <li>Infrastructure: AWS, CDK, Fargate ECS</li>
-                    <li>
-                        Backend: TypeScript, Node.js, Prisma, NestJS, PostgreSQL, Redis,
-                        Elasticsearch, GraphQL
-                    </li>
-                    <li>Frontend: TypeScript, React, Relay, Ant Design, Vite, GraphQL</li>
-                </ul>
-            </div>
-            <div className="flex flex-col gap-[10px]">
+{/*          
+            <div className="flex flex-col gap-[20px] my-[20px]">
                 <h2 className="text-[20px] font-bold">Compensation</h2>
                 <ul>
-                    <li>Base pay 120k - 190k</li>
+                    <li>Base pay: $80k - $110k (based on experience).</li>
                 </ul>
-            </div>
+            </div> */}
             <div className="flex flex-col gap-[10px]">
                 <h2 className="text-[20px] font-bold">Benefits & Perks</h2>
                 <ul>
-                    <li>Premium Medical, Dental, and Vision Insurance plans</li>
-                    <li>Insurance premiums covered 100% for you</li>
-                    <li>Unlimited PTO</li>
-                    <li>Fireside chats with industry leading keynote speakers</li>
-                    <li>Off-sites in locales such as Napa and Tahoe</li>
-                    <li>Generous professional development budget to feed your curiosity</li>
-                    <li>
-                        Physical and Mental fitness subsidies for yoga, meditation, gym, or
-                        ski memberships
-                    </li>
+                    <li>Comprehensive Medical, Dental, and Vision Insurance plans.</li>
+                    <li>Insurance premiums covered 100% for you.</li>
+                    <li>Generous PTO policy to promote work-life balance.</li>
+                    <li>Access to industry-leading professional development opportunities.</li>
+                    <li>Company retreats in scenic locations to foster team collaboration and growth.</li>
                 </ul>
             </div>
 

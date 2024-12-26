@@ -29,21 +29,28 @@ export default function Hiring() {
       <div className="my-[80px] ">
         <h2
         className = "font-bold px-[10px]"
-        >2 Jobs</h2>
+        >3 Jobs</h2>
 
         <Link
           href="hiring/Job1"
           className="flex flex-col gap-[5px] border-b border-black border-b-[0.5px] pb-[10px] px-[10px] hover:bg-[#2660bd65]"
         >
-          <h4 className="text-[20px] pt-[10px]">Job Goes heres</h4>
+          <h4 className="text-[20px] pt-[10px]">Field Supervisors</h4>
           <p>Location here</p>
         </Link>
 
         <Link
-          href="#"
+          href="/hiring/serviceTeamMember"
           className="flex flex-col gap-[5px] border-b border-black border-b-[0.5px] pb-[10px] px-[10px] hover:bg-[#2660bd65]"
         >
-          <h4 className="text-[20px] pt-[10px]">Job Goes heres</h4>
+          <h4 className="text-[20px] pt-[10px]">Service Team Member</h4>
+          <p>Location here</p>
+        </Link>
+        <Link
+          href="/hiring/technicalAdivsor"
+          className="flex flex-col gap-[5px] border-b border-black border-b-[0.5px] pb-[10px] px-[10px] hover:bg-[#2660bd65]"
+        >
+          <h4 className="text-[20px] pt-[10px]">Technical Adivsor</h4>
           <p>Location here</p>
         </Link>
       </div>

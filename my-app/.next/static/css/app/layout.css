@@ -650,6 +650,18 @@ video {
   margin-top: 80px;
   margin-bottom: 80px;
 }
+.my-\[50px\] {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.my-\[10px\] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.my-\[20px\] {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -879,6 +891,9 @@ video {
 .gap-\[8px\] {
   gap: 8px;
 }
+.gap-\[20px\] {
+  gap: 20px;
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1046,6 +1061,10 @@ video {
 .py-\[80px\] {
   padding-top: 80px;
   padding-bottom: 80px;
+}
+.py-\[20px\] {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .pb-\[10px\] {
   padding-bottom: 10px;
