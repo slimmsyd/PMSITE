@@ -1,6 +1,9 @@
 {
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/hiring/page": "app/hiring/page.js",
+  "/hiring/Job1/page": "app/hiring/Job1/page.js",
   "/page": "app/page.js",
   "/technicalServices/page": "app/technicalServices/page.js",
-  "/eventAndStaffing/page": "app/eventAndStaffing/page.js",
-  "/environmentServices/page": "app/environmentServices/page.js"
+  "/environmentServices/page": "app/environmentServices/page.js",
+  "/eventAndStaffing/page": "app/eventAndStaffing/page.js"
 }

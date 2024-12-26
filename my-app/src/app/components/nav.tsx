@@ -5,7 +5,7 @@ import { use, useEffect, useRef, useState } from "react";
 import { RefObject } from "react";
 
 
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 // import "@rainbow-me/rainbowkit/styles.css";
 
@@ -30,12 +30,15 @@ export default function Navigation({
 }: NavigationProps) {
   const [showBG, setShowBG] = useState<boolean>(false);
   const router = useRouter();
+  const pathname = usePathname();
   const showNavBG = () => {
     setShowBG(!showBG);
   };
 
   const mobileNavBtn = (id: string) => {
-    if (scrollToSection) {
+    if (pathname !== '/') {
+      router.push('/');
+    } else if (scrollToSection) {
       scrollToSection(id);
     }
 

@@ -7,7 +7,7 @@ import CheckBox from "./components/checkbox";
 import ContactPopup from "./components/ContactPopup";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
+import Footer from "./components/Footer";
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -72,9 +72,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <Nav
-      scrollToSection = {scrollToSection}
-      />
+      <Nav scrollToSection={scrollToSection} />
 
       <main className="h-[100vh]">
         <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
@@ -95,7 +93,14 @@ export default function Home() {
             <h1 className="!text-left text-white">
               Serving our clients infrastructure and asset management needs
             </h1>
-            <p>     We strive to bring an eons old industry into the 21st century through process, technology, & impact. We provide a unique approach to facilities maintenance* managment, utilzing process engineering skills to develop non-traditional services models with technological advancments.</p>
+            <p>
+              {" "}
+              We strive to bring an eons old industry into the 21st century
+              through process, technology, & impact. We provide a unique
+              approach to facilities maintenance* managment, utilzing process
+              engineering skills to develop non-traditional services models with
+              technological advancments.
+            </p>
             <button
               className="global-btn max-w-[180px]"
               onClick={() => {
@@ -109,9 +114,7 @@ export default function Home() {
 
         <section id="about" className="top-section bg-white">
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
-            <div
-            
-            className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               <span className="text-black"> About us</span>
               <div className="flex flex-col md:flex-row gap-[25px] md:gap-0">
                 <h1 className="text-black w-full md:w-[70%]">
@@ -142,7 +145,11 @@ export default function Home() {
               id="services"
               className="flex flex-col md:flex-row justify-center items-center md:items-center py-[50px] gap-[24px]"
             >
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 className="card bg-white shadow-md rounded-lg max-w-xs
             text-black
             transition-all duration-500 ease-in-out transform hover:scale-110"
@@ -169,9 +176,13 @@ export default function Home() {
                     Learn more →
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
                 className="card bg-white shadow-md rounded-lg max-w-xs
             text-black
             transition-all duration-500 ease-in-out transform hover:scale-110"
@@ -196,8 +207,12 @@ export default function Home() {
                     Learn more →
                   </a>
                 </div>
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
                 className="card bg-white shadow-md rounded-lg max-w-xs
             text-black
             transition-all duration-500 ease-in-out transform hover:scale-110"
@@ -220,7 +235,7 @@ export default function Home() {
                     Learn more →
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -234,12 +249,14 @@ export default function Home() {
             <span>Now Hiring</span>
             <h1 className="text-center">Seeking employment considerations? </h1>
             <p className="text-center">
-              Join us a Preeminent ProfessionalServices, for opportunity to make
-              collective impactful change
+              Join us a Preeminent Professional Services, for opportunity to
+              make collective impactful change
             </p>
 
             <div className="mt-8 text-center">
-              <GlobalButton text="SEE CAREERS" />
+              <GlobalButton
+              link = "/hiring"
+              text="SEE CAREERS" />
             </div>
           </div>
         </section>
@@ -462,48 +479,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="px-[20px] flex items-center py-[80px] mx-[20px] border-t border-black border-0.5 h-auto">
-          <div className="flex flex-col md:flex-row justify-between gap-[30px] w-full text-black">
-            <div className="flex-row">
-              <img src="assets/Logo.png" />
-
-              <h2>Preeminent Professional Services</h2>
-            </div>
-
-            <div className="flex flex-col gap-[8px]">
-              <div>
-                <span className="font-bold">Discover</span>
-              </div>
-
-              <span className=" global-span cursor-pointer">Home</span>
-              <span className=" global-span  cursor-pointer">Our services</span>
-              <span className=" global-span  cursor-pointer">
-                Industries we serve
-              </span>
-            </div>
-
-            <div className="flex flex-col w-full md:max-w-[25%] gap-[10px]">
-              <div>
-                <span className="font-bold">Subscribe to our newsletter </span>
-              </div>
-
-              <p className="text-[#979797]">
-                Want to stay up to date with news and updates about our team?
-              </p>
-
-              <input
-                type="email"
-                placeholder="Enter your email here"
-                className="border border-gray-300 border-opacity-50 rounded-md p-2"
-              />
-
-              <p className="text-[15px] text-[#979797]">
-                By subscribing to our newsletter you agree to our privacy policy
-                and will get commercial communication.{" "}
-              </p>
-            </div>
-          </div>
-        </footer>
+                  <Footer />
       </main>
     </div>
   );

@@ -1,6 +1,4 @@
-
-
-
+import Link from 'next/link'
 
 export default function Footer() 
 {
@@ -20,11 +18,11 @@ export default function Footer()
                 <span className="font-bold">Discover</span>
               </div>
 
-              <span className=" global-span cursor-pointer">Home</span>
-              <span className=" global-span  cursor-pointer">Our services</span>
-              <span className=" global-span  cursor-pointer">
+              <Link href="/" className="global-span cursor-pointer">Home</Link>
+              <Link href="/services" className="global-span cursor-pointer">Our services</Link>
+              <Link href="/industries" className="global-span cursor-pointer">
                 Industries we serve
-              </span>
+              </Link>
             </div>
 
             <div className="flex flex-col w-full md:max-w-[25%] gap-[10px]">

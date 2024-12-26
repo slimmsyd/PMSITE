@@ -18,7 +18,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+li { 
+  list-style-type: disc;
+}
 
+input { 
+  outline: none;
+
+}
 
 h1{
   font-size: 44px;
@@ -31,6 +38,10 @@ h3{
 }
 h2{
   font-size: 24px;
+}
+
+textarea{
+  resize: none;
 }
 .nav-logox-4{
   transform: translateY(-30px);
@@ -213,4 +224,8 @@ h2{
 }
 .fixed-nav.show {
   opacity: 1; /* Fade in */
+}
+
+.form-input{
+  border-radius: 8px;
 }

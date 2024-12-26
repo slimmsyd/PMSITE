@@ -155,7 +155,7 @@ Renewable Energy Services
               Next
             </a>
             <a
-              href="#pricing"
+              href="/eventAndStaffing"
               className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
             >
                 Previous
