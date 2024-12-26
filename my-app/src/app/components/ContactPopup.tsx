@@ -41,10 +41,15 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
   };
 
   const handleOptionClick = (option: string) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      selectedOption: option, // Set the selected option
-    }));
+    if (option === "hiringJobs") {
+      // Redirect to /hiring when "Hiring/Jobs" is clicked
+      window.location.href = "/hiring"; // Use window.location to navigate
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        selectedOption: option, // Set the selected option
+      }));
+    }
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
