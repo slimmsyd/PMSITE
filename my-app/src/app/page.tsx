@@ -286,7 +286,7 @@ export default function Home() {
             text-black
             "
               >
-                <div className="relative card-1 min-h-[300px] flex items-center px-4 text-white justify-center flex-col  ">
+                <div className="relative card-1 min-h-[300px] md:h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Commercial Real Estate and Property Owners</h2>
@@ -313,7 +313,7 @@ export default function Home() {
             text-black
             "
               >
-                <div className="relative  min-h-[300px]  card-2 h-full flex items-center px-4 text-white justify-center flex-col  ">
+                <div className="relative min-h-[300px] md:h-full   card-2 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Commercial Real Estate and Property Owners</h2>
@@ -340,7 +340,7 @@ export default function Home() {
             text-black
             "
               >
-                <div className="relative  min-h-[300px]  card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
+                <div className="relative min-h-[300px] md:h-full card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Commercial Real Estate and Property Owners</h2>
@@ -367,7 +367,7 @@ export default function Home() {
 
         <section
           id="industries"
-          className=" bg-[#000E3C] py-[20px] relative h-[25vh] md:h-full flex items-center justify-center "
+          className=" bg-[#000E3C] py-[20px] relative !h-[25vh] !md:h-full flex items-center justify-center "
         >
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="flex flex-col items-center justify-center relative z-10">

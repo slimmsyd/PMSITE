@@ -164,7 +164,7 @@ textarea{
 
 .card-1{
   background-image: url('/assets/Com.png');
-  width:300px;
+  width:100%;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
   transition: all 250ms ease; /* Add transition for image expansion */
@@ -177,7 +177,7 @@ textarea{
 
 .card-2{
   background-image: url('/assets/Work.png');
-  width:300px;
+  width:100%;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
   transition: background-size 0.5s ease; /* Add transition for image expansion */
@@ -191,7 +191,7 @@ textarea{
 
 .card-3{
   background-image: url('/assets/Build.png');
-  width:300px;
+  width:100%;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
   transition: background-size 0.5s ease; /* Add transition for image expansion */

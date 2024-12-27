@@ -596,6 +596,9 @@ video {
 .bottom-0 {
   bottom: 0px;
 }
+.bottom-\[-33px\] {
+  bottom: -33px;
+}
 .left-0 {
   left: 0px;
 }
@@ -610,12 +613,6 @@ video {
 }
 .top-\[25px\] {
   top: 25px;
-}
-.top-0 {
-  top: 0px;
-}
-.bottom-\[-33px\] {
-  bottom: -33px;
 }
 .z-10 {
   z-index: 10;
@@ -644,6 +641,10 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-\[20px\] {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .my-\[30px\] {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -655,18 +656,6 @@ video {
 .my-\[80px\] {
   margin-top: 80px;
   margin-bottom: 80px;
-}
-.my-\[50px\] {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.my-\[10px\] {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.my-\[20px\] {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 .mb-2 {
   margin-bottom: 0.5rem;
@@ -686,14 +675,14 @@ video {
 .mt-4 {
   margin-top: 1rem;
 }
+.mt-40 {
+  margin-top: 10rem;
+}
 .mt-8 {
   margin-top: 2rem;
 }
 .mt-\[5px\] {
   margin-top: 5px;
-}
-.mt-40 {
-  margin-top: 10rem;
 }
 .flex {
   display: flex;
@@ -704,11 +693,11 @@ video {
 .hidden {
   display: none;
 }
+.\!h-\[25vh\] {
+  height: 25vh !important;
+}
 .\!h-\[80vh\] {
   height: 80vh !important;
-}
-.h-24 {
-  height: 6rem;
 }
 .h-5 {
   height: 1.25rem;
@@ -719,8 +708,8 @@ video {
 .h-\[100vh\] {
   height: 100vh;
 }
-.h-\[25vh\] {
-  height: 25vh;
+.h-\[10rem\] {
+  height: 10rem;
 }
 .h-\[39px\] {
   height: 39px;
@@ -743,14 +732,8 @@ video {
 .h-full {
   height: 100%;
 }
-.h-\[10rem\] {
-  height: 10rem;
-}
 .min-h-\[300px\] {
   min-height: 300px;
-}
-.w-24 {
-  width: 6rem;
 }
 .w-5 {
   width: 1.25rem;
@@ -760,6 +743,9 @@ video {
 }
 .w-\[100\%\] {
   width: 100%;
+}
+.w-\[10rem\] {
+  width: 10rem;
 }
 .w-\[130px\] {
   width: 130px;
@@ -778,9 +764,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[10rem\] {
-  width: 10rem;
 }
 .min-w-\[16px\] {
   min-width: 16px;
@@ -820,9 +803,6 @@ video {
 }
 .flex-1 {
   flex: 1 1 0%;
-}
-.grow {
-  flex-grow: 1;
 }
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
@@ -873,6 +853,9 @@ video {
 .gap-\[10px\] {
   gap: 10px;
 }
+.gap-\[20px\] {
+  gap: 20px;
+}
 .gap-\[24px\] {
   gap: 24px;
 }
@@ -896,9 +879,6 @@ video {
 }
 .gap-\[8px\] {
   gap: 8px;
-}
-.gap-\[20px\] {
-  gap: 20px;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1056,6 +1036,10 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-\[20px\] {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .py-\[40px\] {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -1067,10 +1051,6 @@ video {
 .py-\[80px\] {
   padding-top: 80px;
   padding-bottom: 80px;
-}
-.py-\[20px\] {
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 .pb-\[10px\] {
   padding-bottom: 10px;
@@ -1086,6 +1066,9 @@ video {
 }
 .text-center {
   text-align: center;
+}
+.text-\[14px\] {
+  font-size: 14px;
 }
 .text-\[15px\] {
   font-size: 15px;
@@ -1106,9 +1089,6 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-.text-\[14px\] {
-  font-size: 14px;
 }
 .font-bold {
   font-weight: 700;
@@ -1140,13 +1120,13 @@ video {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -1352,7 +1332,7 @@ textarea{
 
 .card-1{
   background-image: url('/assets/Com.png');
-  width:300px;
+  width:100%;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
   transition: all 250ms ease; /* Add transition for image expansion */
@@ -1365,7 +1345,7 @@ textarea{
 
 .card-2{
   background-image: url('/assets/Work.png');
-  width:300px;
+  width:100%;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
   transition: background-size 0.5s ease; /* Add transition for image expansion */
@@ -1379,7 +1359,7 @@ textarea{
 
 .card-3{
   background-image: url('/assets/Build.png');
-  width:300px;
+  width:100%;
   background-size: cover; /* Cover the entire header */
   background-position: center; /* Center the image */
   transition: background-size 0.5s ease; /* Add transition for image expansion */
