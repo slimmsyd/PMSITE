@@ -229,12 +229,38 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
                 />
+                    {formData.selectedOption === "vendorSignUps" && (
+                    <>
+                      <input
+                        type="text"
+                        name="regionsServed"
+                        placeholder="Regions You Serve"
+                        className="w-full mb-2 p-2 border form-input"
+                        onChange={handleChange}
+                      />
+                      <input
+                        type="text"
+                        name="yearsInBusiness"
+                        placeholder="Number of Years in Business"
+                        className="w-full mb-2 p-2 border form-input"
+                        onChange={handleChange}
+                      />
+                      <input
+                        type="text"
+                        name="numberOfTechnicians"
+                        placeholder="Number of Technicians"
+                        className="w-full mb-2 p-2 border form-input"
+                        onChange={handleChange}
+                      />
+                    </>
+                  )}
                 <textarea
                   name="reason"
                   placeholder="Reason for Contact"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
                 />
+                
               </>
             )}
 
@@ -252,6 +278,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   {option === "vendorSignUps" && "Vendor sign ups"}
                   {option === "hiringJobs" && "Hiring/Jobs"}
                   {option === "workWithUs" && "Work with us?"}
+              
                 </div>
               ))}
             </div>

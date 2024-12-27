@@ -28,7 +28,7 @@ export default function Home() {
     isCountingRef.current = true;
 
     let start = 0;
-    const end = 10000;
+    const end = 30000;
     const duration = 2000; // Duration of the animation in milliseconds
     const increment = end / ((duration / 1000) * 60); // Calculate increment per frame
 
@@ -112,6 +112,42 @@ export default function Home() {
           </div>
         </header>
 
+
+        <section
+              className = "pt-[80px] !md:py-[10px] gap-[15px] w-full m-auto flex flex-col items-center justify-center"
+              > 
+              <h3
+                className = "text-black"
+              >
+              Strategic Parthners
+              </h3>
+                      
+                      <div className = "flex flex-col md:flex-row gap-[40px] items-center justify-between">
+
+                        <div
+                          className = "max-w-[100px]"
+                        >
+                          <img src = "assets/ndclient.PNG" />
+
+                        </div>
+                        <div
+                          className = "max-w-[100px]"
+                        >
+                          <img src = "assets/oxi.jpg" />
+
+                        </div>
+                        <div
+                          className = "max-w-[100px]"
+                        >
+                          <img src = "assets/rcharge.PNG" />
+
+                        </div>
+
+                      </div>
+                
+              </section>
+
+
         <section id="about" className="top-section bg-white">
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
@@ -165,7 +201,7 @@ export default function Home() {
 
                 <div className="p-3 flex flex-col  ">
                   <h2 className="text-lg font-bold mt-2">
-                    Preeminent Professional + Technical Services
+                    Professional + Technical Services
                   </h2>
                   <p className="flex-1">
                     Property Management Companies, Real Estate Developers,
@@ -198,7 +234,7 @@ export default function Home() {
 
                 <div className="p-3 flex flex-col w-full ">
                   <h2 className="text-lg font-bold mt-2">
-                    Preeminent Environment Services
+                     Environment Services
                   </h2>
                   <p className="flex-1">
                     Environmental Sustainability or Risk Assessment Services.
@@ -228,7 +264,7 @@ export default function Home() {
 
                 <div className="p-3 flex flex-col ">
                   <h2 className="text-lg font-bold mt-2">
-                    Preeminent Professional Events and Staffing
+                     Professional Events and Staffing
                   </h2>
                   <p className="flex-1">MEP, Electrical, Civil, Structural</p>
                   <a href="/eventAndStaffing" className="text-blue-500">
@@ -316,10 +352,9 @@ export default function Home() {
                 <div className="relative min-h-[300px] md:h-full   card-2 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
-                    <h2>Commercial Real Estate and Property Owners</h2>
+                    <h2>Construction and Infrastructure Developers</h2>
                     <p>
-                      Facilities maintenance and environmental consulting
-                      services.
+                    Post-construction cleanup and engineering support.
                     </p>
 
                     <a
@@ -343,10 +378,9 @@ export default function Home() {
                 <div className="relative min-h-[300px] md:h-full card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
-                    <h2>Commercial Real Estate and Property Owners</h2>
+                    <h2>Government and Public Institutions</h2>
                     <p>
-                      Facilities maintenance and environmental consulting
-                      services.
+                    Specialized services such as HVAC, roofing, and EV fleet electrification.
                     </p>
 
                     <a
@@ -482,6 +516,9 @@ export default function Home() {
             <div className="flex-row flex justify-center py-[50px] gap-[24px]"></div>
           </div>
         </section>
+
+
+
 
                   <Footer />
       </main>
