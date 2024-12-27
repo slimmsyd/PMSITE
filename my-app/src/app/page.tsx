@@ -334,15 +334,14 @@ export default function Home() {
                       services.
                     </p>
 
-                    <a
+                    <button
                       onClick={() => {
                         setIsOpen(!isOpen);
                       }}
-                      href="#"
-                      className="mt-[5px]"
+                      className="mt-[5px] text-left flex justify-start hover:text-[#023DFE]"
                     >
                       Contact Us
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -360,15 +359,14 @@ export default function Home() {
                     Post-construction cleanup and engineering support.
                     </p>
 
-                    <a
+                    <button
                       onClick={() => {
                         setIsOpen(!isOpen);
                       }}
-                      href="#"
-                      className="mt-[5px]"
+                      className="mt-[5px] text-left flex justify-start hover:text-[#023DFE]"
                     >
                       Contact Us
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -380,21 +378,20 @@ export default function Home() {
               >
                 <div className="relative min-h-[300px] md:h-full card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
-                  <div className="z-10 flex flex-col gap-[10px]">
+                  <div className="z-10 flex items-start justify-start flex-col gap-[10px]">
                     <h2>Government and Public Institutions</h2>
                     <p>
                     Specialized services such as HVAC, roofing, and EV fleet electrification.
                     </p>
 
-                    <a
+                    <button
                       onClick={() => {
                         setIsOpen(!isOpen);
                       }}
-                      href="#"
-                      className="mt-[5px]"
+                      className="mt-[5px] text-left flex justify-start hover:text-[#023DFE]"
                     >
                       Contact Us
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

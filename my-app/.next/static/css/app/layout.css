@@ -1434,6 +1434,16 @@ textarea{
   color: rgb(209 213 219 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-\[\#023DFE\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(2 61 254 / var(--tw-text-opacity, 1));
+}
+
 .hover\:outline-none:hover {
   outline: 2px solid transparent;
   outline-offset: 2px;

@@ -150,7 +150,6 @@ Renewable Energy Services
   
           <div className="flex justify-start flex-row gap-4">
           <a href="/environmentServices" 
-              target="_blank"
               className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
             >
               Next
