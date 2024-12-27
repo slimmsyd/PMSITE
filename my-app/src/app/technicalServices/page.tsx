@@ -30,6 +30,7 @@ export default function TechincalServices()
             headerText = {headerText}
             bgClass="tech"
             text = " We offer professional environmental facilites maintenance & management services. Our strength lies in our process & project managment approach to provding services. We utilize the experience/backgrounds of our Senior Managment and Techincal Advisory Teams to develop effective solutions for our clients."
+            endpoint="/technicalServices"
 
             
             />

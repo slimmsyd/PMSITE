@@ -8,12 +8,15 @@ import ContactPopup from "./components/ContactPopup";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
+import { usePathname } from 'next/navigation';
+
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const isCountingRef = useRef(false);
+  const pathname = usePathname();
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -330,17 +333,14 @@ export default function Home() {
                 <div className="relative card-1 min-h-[300px] md:h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
-                    <h2>Commercial Real Estate and Property Owners</h2>
-                    <p>
-                      Facilities maintenance and environmental consulting
-                      services.
-                    </p>
+                    <h2>Commercial Property Managers/Owners</h2>
+                
 
                     <button
                       onClick={() => {
                         setIsOpen(!isOpen);
                       }}
-                      className="mt-[5px] text-left flex justify-start hover:text-[#023DFE]"
+                      className="mt-[5px] global-btn max-w-[115px] text-left flex justify-start "
                     >
                       Contact Us
                     </button>
@@ -357,15 +357,12 @@ export default function Home() {
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Construction and Infrastructure Developers</h2>
-                    <p>
-                    Post-construction cleanup and engineering support.
-                    </p>
-
+                 
                     <button
                       onClick={() => {
                         setIsOpen(!isOpen);
                       }}
-                      className="mt-[5px] text-left flex justify-start hover:text-[#023DFE]"
+                      className="mt-[5px]  max-w-[115px]  global-btn text-left flex justify-start "
                     >
                       Contact Us
                     </button>
@@ -381,16 +378,14 @@ export default function Home() {
                 <div className="relative min-h-[300px] md:h-full card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex items-start justify-start flex-col gap-[10px]">
-                    <h2>Government and Public Institutions</h2>
-                    <p>
-                    Specialized services such as HVAC, roofing, and EV fleet electrification.
-                    </p>
+                    <h2>Public/Private Sector Government   Institutions</h2>
+                 
 
                     <button
                       onClick={() => {
                         setIsOpen(!isOpen);
                       }}
-                      className="mt-[5px] text-left flex justify-start hover:text-[#023DFE]"
+                      className="mt-[5px] global-btn text-left flex justify-start "
                     >
                       Contact Us
                     </button>
@@ -426,7 +421,7 @@ export default function Home() {
             <div className="flex flex-col gap-2">
               <span className="text-black">  </span>
               <div className="flex w-full flex-col gap-[50px] md:flex-col items-center justify-center">
-                <div className="flex-col flex max-w-full md:max-w-[60%]">
+                <div className="flex-col flex max-w-full">
                   <h1 className="text-black">
                     Total Area Serviced
                   </h1>
