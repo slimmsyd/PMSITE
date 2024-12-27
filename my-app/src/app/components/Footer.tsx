@@ -1,6 +1,13 @@
-import Link from 'next/link'
+interface NavigationProps {
+  scrollToSection?: (sectionId: string) => void;
 
-export default function Footer() 
+  textColor?: boolean;
+}
+
+export default function Footer({
+
+  scrollToSection
+}:NavigationProps) 
 {
 
     return ( 
@@ -18,11 +25,12 @@ export default function Footer()
                 <span className="font-bold">Discover</span>
               </div>
 
-              <Link href="/" className="global-span cursor-pointer">Home</Link>
-              <Link href="/services" className="global-span cursor-pointer">Our services</Link>
-              <Link href="/industries" className="global-span cursor-pointer">
-                Industries we serve
-              </Link>
+              <span className="global-span cursor-pointer" onClick={() => scrollToSection && scrollToSection('about')}>Home</span>
+              <span className="global-span cursor-pointer" onClick={() => scrollToSection && scrollToSection('services')}>Our services</span>
+              <span className="global-span cursor-pointer" onClick={() => scrollToSection && scrollToSection('industries')}>Industries we serve</span>
+
+
+              
             </div>
 
             <div className="flex flex-col w-full md:max-w-[25%] gap-[10px]">

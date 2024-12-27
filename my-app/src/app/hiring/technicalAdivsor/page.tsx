@@ -60,7 +60,7 @@ export default function Hiring() {
                 </Link>
             </div>
             <header>
-                <div className="flex flex-col gap-2 my-4">
+                {/* <div className="flex flex-col gap-2 my-4">
                     <h1 className="text-[33px]">
                         Current Openings at Preeminent Professional Services
                     </h1>
@@ -72,19 +72,19 @@ export default function Hiring() {
                         skills to develop non-traditional services models with technological
                         advancments.
                     </p>
-                </div>
+                </div> */}
             </header>
             <div className="flex flex-col gap-[10px]">
                 <h2 className="font-bold">About You</h2>
                 <p>
-                    As a Technical Advisor, you leverage your expertise in facilities operations and management to drive innovative solutions. You excel in fast-paced environments, foster strong relationships, and prioritize client satisfaction through tailored, on-site support.
+                    As a Technical Advisor, you leverage your expertise in facilities operations and management to drive innovative solutions. You excel in fast-paced environments, foster strong relationships, and prioritize client satisfaction through tailored, on/off-site support.
                 </p>
             </div>
-            <div className="flex flex-col gap-[10px] my-[30px]">
+            <div className="flex flex-col gap-[10px] my-[30px] ">
                 <h2 className="text-[20px] font-bold">Responsibilities</h2>
                 <ul>
                     <li>Collaborate with clients to identify needs and provide tailored solutions for facility operations and maintenance.</li>
-                    <li>Conduct on-site evaluations to ensure compliance with standards and recommend improvements for efficiency and safety.</li>
+                    <li>Conduct on/off-site evaluations to ensure compliance with standards and recommend improvements for efficiency and safety.</li>
                     <li>Serve as a liaison between the operations team, contractors, and clients to ensure seamless communication and execution of projects.</li>
                     <li>Develop and implement processes to optimize maintenance schedules and reduce operational downtime.</li>
                     <li>Provide technical support and training to field staff, ensuring alignment with organizational standards and practices.</li>
@@ -92,14 +92,16 @@ export default function Hiring() {
                     <li>Stay updated on industry advancements and recommend innovative approaches to improve service delivery.</li>
                 </ul>
             </div>
-            <div className="flex flex-col gap-[10px]">
+            <div className="flex flex-col gap-[10px] my-[30px]">
                 <h2 className="text-[20px] font-bold">Qualifications</h2>
                 <ul>
                     <li>3+ years of experience in facilities management, field operations, or a related role.</li>
-                    <li>Strong technical understanding of HVAC, electrical systems, or other facility-related services.</li>
+                    <li>Strong technical understanding of industry expertise applied for below.</li>
                     <li>Excellent problem-solving skills and ability to make data-driven decisions in the field.</li>
                     <li>Strong interpersonal and communication skills to effectively manage client relationships and team collaboration.</li>
                     <li>Familiarity with facility management software and tools is a plus.</li>
+                    <li>Strong inter-departmental communications skills.</li>
+
                 </ul>
             </div>
          
@@ -109,7 +111,7 @@ export default function Hiring() {
                     <li>Base pay: $80k - $110k (based on experience).</li>
                 </ul>
             </div> */}
-            <div className="flex flex-col gap-[10px]">
+            {/* <div className="flex flex-col gap-[10px]">
                 <h2 className="text-[20px] font-bold">Benefits & Perks</h2>
                 <ul>
                     <li>Comprehensive Medical, Dental, and Vision Insurance plans.</li>
@@ -118,7 +120,7 @@ export default function Hiring() {
                     <li>Access to industry-leading professional development opportunities.</li>
                     <li>Company retreats in scenic locations to foster team collaboration and growth.</li>
                 </ul>
-            </div>
+            </div> */}
 
             <div className = "my-[40px]">
                 <h3>Apply for this job</h3>

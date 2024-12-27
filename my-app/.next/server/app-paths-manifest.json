@@ -1,7 +1,7 @@
 {
+  "/environmentServices/page": "app/environmentServices/page.js",
+  "/hiring/serviceTeamMember/page": "app/hiring/serviceTeamMember/page.js",
+  "/eventAndStaffing/page": "app/eventAndStaffing/page.js",
   "/page": "app/page.js",
-  "/technicalServices/page": "app/technicalServices/page.js",
-  "/hiring/page": "app/hiring/page.js",
-  "/hiring/fieldAdvisor/page": "app/hiring/fieldAdvisor/page.js",
-  "/eventAndStaffing/page": "app/eventAndStaffing/page.js"
+  "/hiring/technicalAdivsor/page": "app/hiring/technicalAdivsor/page.js"
 }

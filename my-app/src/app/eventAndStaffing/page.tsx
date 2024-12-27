@@ -8,8 +8,8 @@ import Footer from "../components/Footer";
 import ContactPopup from "../components/ContactPopup";
 export default function TechincalServices() {
   const bgImage = 'assets/TailerBG.png"';
-  const spanText = " Professional Events and Staffing";
-  const headerText = "Preeminent Event & Staffing Services";
+  const spanText = " Events and Staffing";
+  const headerText = " Event & Staffing Services";
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -71,7 +71,7 @@ export default function TechincalServices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h2 className=" text-black ">Security Services</h2>
+              <h2 className=" text-black ">Security Services & Patrol Services</h2>
             </motion.div>
 
             <div className="flex flex-col mt-4 gap-[7px]">
@@ -95,7 +95,7 @@ export default function TechincalServices() {
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
                 Commercial Cleaning/Environmental Services; implemented with “process and
-                discipline”. Managed with “quality control” measures, and executed purposeful and detailed use of selected products, and the application of technology is critical to achieving objectives.
+                discipline”. Managed with “quality control” Measures, and executed purposeful and detailed use of selected products, and the application of technology is critical to achieving objectives.
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />

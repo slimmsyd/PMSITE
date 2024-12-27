@@ -12,7 +12,7 @@ export default function TechincalServices()
 
     const bgImage = 'assets/TailerBG.png"'
     const spanText = "Professional & Technical Services"
-    const headerText = "Preeminent Professional + Technical Services"
+    const headerText = " Professional + Technical Services"
 
 
     const [isOpen, setIsOpen] = useState(false);

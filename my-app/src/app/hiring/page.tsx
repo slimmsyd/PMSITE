@@ -2,6 +2,9 @@
 import Link from "next/link";
 
 export default function Hiring() {
+
+    const location = ""
+
   return (
     <div className="text-black p-8 max-w-[1080px] m-auto">
       {/* Logo */}
@@ -9,19 +12,22 @@ export default function Hiring() {
         <Link href="/">
           <img src="assets/Logo.png" />
         </Link>
-      </div>
+    </div>
       <header>
         <div className="flex flex-col gap-2 my-4">
           <h1 className="text-[33px]">
             Current Openings at Preeminent Professional Services{" "}
           </h1>
-          <h2 className="font-bold">About Preeminent Professional Services</h2>
+          <hr className = "my-[20px]" style={{borderTop: '0.5px solid grey'}} />
+        
           <p>
-            We strive to bring an eons old industry into the 21st century
-            through process, technology, & impact. We provide a unique approach
-            to facilities maintenance* managment, utilzing process engineering
-            skills to develop non-traditional services models with technological
-            advancments.
+            You will recieve a response from a team member. Upon an opening becoming avaiable <br />
+
+            Input your information below for opportunity to join our team. 
+            <br />
+          <em 
+          className = "my-[10px] text-[12px]"
+          style={{color: 'red'}}>Disclaimer: This is not a guaranteed offer.</em>
           </p>
         </div>
       </header>

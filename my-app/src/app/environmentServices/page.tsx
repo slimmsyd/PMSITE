@@ -9,8 +9,8 @@ import ContactPopup from "../components/ContactPopup";
 export default function TechincalServices() {
   const bgImage = 'assets/Engine.png"';
 
-  const spanText = " Environment Services";
-  const headerText = "Preeminent Environment Services";
+  const spanText = " Environmental Services";
+  const headerText = " Environmental Services";
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -95,7 +95,7 @@ export default function TechincalServices() {
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
                 Commercial Cleaning/Environmental Services; implemented with
-                “process and discipline”. Managed with “quality control” measures, and
+                “process and discipline”. Managed with “quality control” Measures, and
                 executed purposeful and detailed use of selected products, and
                 the application of technology is critical to achieving
                 objectives.

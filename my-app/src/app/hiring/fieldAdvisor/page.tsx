@@ -60,7 +60,7 @@ export default function Hiring() {
                 </Link>
             </div>
             <header>
-                <div className="flex flex-col gap-2 my-4">
+                {/* <div className="flex flex-col gap-2 my-4">
                     <h1 className="text-[33px]">
                         Current Openings at Preeminent Professional Services
                     </h1>
@@ -72,7 +72,7 @@ export default function Hiring() {
                         skills to develop non-traditional services models with technological
                         advancments.
                     </p>
-                </div>
+                </div> */}
             </header>
             <div className="flex flex-col gap-[10px]">
                 <h2 className="font-bold">About You</h2>
@@ -100,6 +100,7 @@ export default function Hiring() {
                     <li>Excellent problem-solving skills and ability to make data-driven decisions in the field.</li>
                     <li>Strong interpersonal and communication skills to effectively manage client relationships and team collaboration.</li>
                     <li>Familiarity with facility management software and tools is a plus.</li>
+                    <li>Strong inter-departmental communications skills.</li>
                 </ul>
             </div>
 {/*          
@@ -109,7 +110,7 @@ export default function Hiring() {
                     <li>Base pay: $80k - $110k (based on experience).</li>
                 </ul>
             </div> */}
-            <div className="flex flex-col gap-[10px]">
+            {/* <div className="flex flex-col gap-[10px]">
                 <h2 className="text-[20px] font-bold">Benefits & Perks</h2>
                 <ul>
                     <li>Comprehensive Medical, Dental, and Vision Insurance plans.</li>
@@ -118,7 +119,7 @@ export default function Hiring() {
                     <li>Access to industry-leading professional development opportunities.</li>
                     <li>Company retreats in scenic locations to foster team collaboration and growth.</li>
                 </ul>
-            </div>
+            </div> */}
 
             <div className = "my-[40px]">
                 <h3>Apply for this job</h3>

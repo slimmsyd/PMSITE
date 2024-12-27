@@ -88,12 +88,14 @@ export default function Home() {
             <source src="assets/AI_BG.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="oversslay"></div> {/* Added overlay div */}
+          <div className="overlay"></div> {/* Added overlay div */}
           <div className="px-4 md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
-            <h1 className="!text-left text-white">
-              Serving our clients infrastructure and asset management needs
+            <h1 className="!text-left text-white font-bold">
+              Serving our clients infrastructure development and asset management needs
             </h1>
-            <p>
+            <p
+            className = "font-medium"
+            >
               {" "}
               We strive to bring an eons old industry into the 21st century
               through process, technology, & impact. We provide a unique
@@ -113,7 +115,7 @@ export default function Home() {
         </header>
 
 
-        <section
+        {/* <section
               className = "pt-[80px] !md:py-[10px] gap-[15px] w-full m-auto flex flex-col items-center justify-center"
               > 
               <h3
@@ -145,7 +147,7 @@ export default function Home() {
 
                       </div>
                 
-              </section>
+              </section> */}
 
 
         <section id="about" className="top-section bg-white">
@@ -234,7 +236,7 @@ export default function Home() {
 
                 <div className="p-3 flex flex-col w-full ">
                   <h2 className="text-lg font-bold mt-2">
-                     Environment Services
+                     Environmental Services
                   </h2>
                   <p className="flex-1">
                     Environmental Sustainability or Risk Assessment Services.
@@ -418,23 +420,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="top-section bg-white">
+        <section className="top-section flex flex-col bg-white">
+          
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
-              <span className="text-black"> Update the Industry</span>
-              <div className="flex flex-col gap-[50px] md:flex-row">
+              <span className="text-black">  </span>
+              <div className="flex w-[800px] flex-col gap-[50px] md:flex-col items-center justify-center">
                 <div className="flex-col flex max-w-full md:max-w-[60%]">
                   <h1 className="text-black">
-                    Preeminent Professional Services
+                    Total Area Serviced
                   </h1>
                   <p className="text-black">
-                    We strive to bring eons old industry to the 21st century
-                    through process, technology, & impact. We provide a unique
-                    process engineering skills to developer non-traditional
-                    approach to facilities maintenance & management, utilizing
-                    service models with technological advancements
-                  </p>
+                  
 
+                   
+                  </p>
+{/* 
                   <div className="flex flex-col mt-4 gap-[7px]">
                     <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                       <CheckBox />
@@ -454,13 +455,13 @@ export default function Home() {
                     </div>
                     <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                       <CheckBox />
-                      ServSafe Food/Facilities Management Certification
+                      Serve / Safe Food/ Management 
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="flex flex-col gap-[10px]">
-                  <h3 className="text-black">Square footage counter</h3>
+                  {/* <h3 className="text-black">Square footage counter</h3> */}
                   <div className="flex items-start justify-start">
                     <motion.div
                       className="w-[10rem] h-[10rem] bg-white rounded-full border border-black border-0.5 flex items-center justify-center"
@@ -471,7 +472,7 @@ export default function Home() {
                     >
                       <div className="flex flex-row gap-[3px] relative">
                         <span className="text-black text-lg font-bold">
-                          {count}{" "}
+                          {count}+{" "}
                         </span>
                         <span className="text-gray-300 text-[14px] transform relative text-lg font-bold" style={{ transform: 'translateY(-10px)' }}>
                         Sqft
@@ -481,13 +482,13 @@ export default function Home() {
                     </motion.div>
                   </div>
 
-                  <div className="flex items-start justify-start items-end flex-1 mt-40 md:mt-0">
-                    <button className="border-b-0.5 border-black flex items-center pointer">
+                  <div className="flex items-start justify-start items-end flex-1 w-full mt-40 md:mt-0">
+                    <button className="border-b-0.5 my-[20px] border-black flex items-center pointer w-full">
                       <span
                         onClick={() => {
                           setIsOpen(!isOpen);
                         }}
-                        className="text-black"
+                        className="text-black w-full"
                       >
                         Contact us
                       </span>
@@ -519,7 +520,10 @@ export default function Home() {
 
 
 
-                  <Footer />
+                  <Footer
+                  scrollToSection ={scrollToSection}
+                  
+                  />
       </main>
     </div>
   );
