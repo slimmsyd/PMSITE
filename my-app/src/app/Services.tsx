@@ -38,7 +38,7 @@ const Services: React.FC<Servce> = ({ backgroundImage, spanText, headerText, bgC
             muted
             className="absolute pointer-events-none inset-0 w-full h-full object-cover"
           >
-            <source src="assets/world_.mp4" type="video/mp4" />
+            <source src="assets/AI_BG.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         )}
