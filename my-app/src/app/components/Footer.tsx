@@ -35,7 +35,7 @@ export default function Footer({
 
             <div className="flex flex-col w-full md:max-w-[25%] gap-[10px]">
               <div>
-                <span className="font-bold">Subscribe to our newsletter </span>
+                <span className="font-bold">Subscribe to our Newsletter </span>
               </div>
 
               <p className="text-[#979797]">

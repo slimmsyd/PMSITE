@@ -70,15 +70,6 @@ export default function TechincalServices()
                          </h2>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h2 className=" text-black ">
-            Processes and Creation            </h2>
-          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -108,7 +99,7 @@ export default function TechincalServices()
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <h2 className=" text-black ">
-            Roofing Services            
+            Building Systems            
             </h2>
           </motion.div>
 
@@ -144,9 +135,11 @@ Renewable Energy Services
                     <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                       <CheckBox />
 
-                        Renewable Energy Service, Consulting, infrastructure installation
+                        Renewable Energy Service(EV Current), Consulting, Infrastructure Installation
                  
                   </div>
+
+                  
                   </div>
   
           <div className="flex justify-start flex-row gap-4">

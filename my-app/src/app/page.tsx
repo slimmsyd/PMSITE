@@ -33,7 +33,7 @@ export default function Home() {
     let start = 0;
     const end = 30000;
     const duration = 2000; // Duration of the animation in milliseconds
-    const increment = end / ((duration / 1000) * 60); // Calculate increment per frame
+    const increment = end / ((duration / 1000) * 40); // Calculate increment per frame
 
     const animate = () => {
       start += increment;
@@ -94,7 +94,7 @@ export default function Home() {
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="px-4 md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
             <h1 className="!text-left text-white font-bold">
-              Serving our clients infrastructure development and asset management needs
+              Serving our clients infrastructure development and asset management needs.
             </h1>
             <p
             className = "font-medium"
@@ -308,7 +308,7 @@ export default function Home() {
         >
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
-              <span className="text-black"> Industries we serve</span>
+              <span className="text-black"> Industries We Serve...</span>
               <div className="flex flex-col gap-[50px] md:flex-row">
                 <h1 className="text-black">
                   If you serve people, we serve you.
@@ -423,7 +423,7 @@ export default function Home() {
               <div className="flex w-full flex-col gap-[50px] md:flex-col items-center justify-center">
                 <div className="flex-col flex max-w-full">
                   <h1 className="text-black">
-                    Total Area Serviced
+                    Total Area Serviced...
                   </h1>
                   <p className="text-black">
                   
