@@ -28,7 +28,7 @@ export default function TechincalServices() {
       />
       <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
 
-      <div className="bg-[#003DFA] py-[40px] px-[80px] md:h-[176px]">
+      <div className="bg-[#003DFA] relative z-30 py-[40px] px-[80px] md:h-[176px]">
         <div className="flex flex-col md:flex-row justify-between gap-[10px]">
           <h2 className="max-w-full md:max-w-[75%]">
             Find out how Preeminent Professional Services can help you care for

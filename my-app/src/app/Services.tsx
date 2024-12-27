@@ -22,13 +22,13 @@ const Services: React.FC<Servce> = ({ backgroundImage , spanText, headerText, bg
   return (
     <div>
       <Navigation />
+      <div className = "overlay"></div>
 
       <header
         className = {`header-bg ${bgClass} relative !h-[80vh]`}
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="overlay"></div> {/* Added overlay div */}
-        <div className="oversslay"></div> {/* Added overlay div */}
         <div className="px-4 md:px-28 flex flex-col gap-[30px] items-start justify-start text-left relative z-10 mr-auto max-w-[1080px]">
           <span>{spanText}</span>
           <h1 className="!text-left text-white">

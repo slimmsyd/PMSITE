@@ -228,9 +228,9 @@ export default function Home() {
                 <div className="relative">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <img
-                    src="assets/Health.png"
+                    src="assets/enviromentalservices.jpg"
                     alt="Description 2"
-                    className="w-full h-auto rounded-t-lg"
+                    className="w-full h-[230px] rounded-t-lg"
                   />
                 </div>
 
@@ -258,7 +258,7 @@ export default function Home() {
                 <div className="relative">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <img
-                    src="assets/Events.png"
+                    src="assets/Staffing.png"
                     alt="Description 3"
                     className="w-full h-auto rounded-t-lg"
                   />
@@ -425,7 +425,7 @@ export default function Home() {
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
               <span className="text-black">  </span>
-              <div className="flex w-[800px] flex-col gap-[50px] md:flex-col items-center justify-center">
+              <div className="flex w-full flex-col gap-[50px] md:flex-col items-center justify-center">
                 <div className="flex-col flex max-w-full md:max-w-[60%]">
                   <h1 className="text-black">
                     Total Area Serviced
