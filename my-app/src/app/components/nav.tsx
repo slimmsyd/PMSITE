@@ -94,7 +94,9 @@ export default function Navigation({
           <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('about')}>ABOUT US</div>
           <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('services')}>OUR SERVICES</div>
           <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('industries')}>INDUSTRIES WE SERVE</div>
-          <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('careers')}>CAREERS</div>
+          <Link 
+          href = "/hiring"
+          className="nav-link hover:text-gray-300 cursor-pointer">CAREERS</Link>
         </div>
 
         {/* Connect Wallet Button */}
