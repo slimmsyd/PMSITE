@@ -231,7 +231,7 @@ export default function Home() {
                 <div className="relative">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <img
-                    src="assets/enviromentalservices.jpg"
+                    src="assets/EnvironmentalServices.jpg"
                     alt="Description 2"
                     className="w-full h-[230px] rounded-t-lg"
                   />
