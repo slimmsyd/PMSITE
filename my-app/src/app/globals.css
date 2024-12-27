@@ -110,7 +110,7 @@ textarea{
 
 }
 .enviroment{
-  background-image: url('/assets/Engine.png');
+  background-image: url('/assets/enviromentalservices.jpg');
 
 }
 
@@ -170,10 +170,7 @@ textarea{
   transition: all 250ms ease; /* Add transition for image expansion */
 }
 
-.card-1:hover{
-  background-size: 150%; /* Expand the image on hover */
-  transition: background-size 0.5s ease; /* Add transition for image expansion */
-}
+
 
 .card-2{
   background-image: url('/assets/Work.png');
@@ -183,11 +180,7 @@ textarea{
   transition: background-size 0.5s ease; /* Add transition for image expansion */
 }
 
-.card-2:hover{
-  background-size: 150%; /* Expand the image on hover */
-  transition: background-size 0.5s ease; /* Add transition for image expansion */
 
-}
 
 .card-3{
   background-image: url('/assets/Build.png');
@@ -197,11 +190,7 @@ textarea{
   transition: background-size 0.5s ease; /* Add transition for image expansion */
 }
 
-.card-3:hover{
-  background-size: 150%; /* Expand the image on hover */
-  transition: background-size 0.5s ease; /* Add transition for image expansion */
 
-}
 
 .global-span 
 {

@@ -765,14 +765,14 @@ video {
 .w-full {
   width: 100%;
 }
-.w-\[950px\] {
-  width: 950px;
-}
 .min-w-\[16px\] {
   min-width: 16px;
 }
 .max-w-6xl {
   max-width: 72rem;
+}
+.max-w-\[100px\] {
+  max-width: 100px;
 }
 .max-w-\[1050px\] {
   max-width: 1050px;
@@ -803,12 +803,6 @@ video {
 }
 .max-w-xs {
   max-width: 20rem;
-}
-.max-w-\[50px\] {
-  max-width: 50px;
-}
-.max-w-\[100px\] {
-  max-width: 100px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -862,6 +856,9 @@ video {
 .gap-\[10px\] {
   gap: 10px;
 }
+.gap-\[15px\] {
+  gap: 15px;
+}
 .gap-\[20px\] {
   gap: 20px;
 }
@@ -877,6 +874,9 @@ video {
 .gap-\[3px\] {
   gap: 3px;
 }
+.gap-\[40px\] {
+  gap: 40px;
+}
 .gap-\[50px\] {
   gap: 50px;
 }
@@ -888,12 +888,6 @@ video {
 }
 .gap-\[8px\] {
   gap: 8px;
-}
-.gap-\[15px\] {
-  gap: 15px;
-}
-.gap-\[40px\] {
-  gap: 40px;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1296,7 +1290,7 @@ textarea{
 
 }
 .enviroment{
-  background-image: url('/assets/Engine.png');
+  background-image: url('/assets/enviromentalservices.jpg');
 
 }
 
@@ -1356,10 +1350,7 @@ textarea{
   transition: all 250ms ease; /* Add transition for image expansion */
 }
 
-.card-1:hover{
-  background-size: 150%; /* Expand the image on hover */
-  transition: background-size 0.5s ease; /* Add transition for image expansion */
-}
+
 
 .card-2{
   background-image: url('/assets/Work.png');
@@ -1369,11 +1360,7 @@ textarea{
   transition: background-size 0.5s ease; /* Add transition for image expansion */
 }
 
-.card-2:hover{
-  background-size: 150%; /* Expand the image on hover */
-  transition: background-size 0.5s ease; /* Add transition for image expansion */
 
-}
 
 .card-3{
   background-image: url('/assets/Build.png');
@@ -1383,11 +1370,7 @@ textarea{
   transition: background-size 0.5s ease; /* Add transition for image expansion */
 }
 
-.card-3:hover{
-  background-size: 150%; /* Expand the image on hover */
-  transition: background-size 0.5s ease; /* Add transition for image expansion */
 
-}
 
 .global-span 
 {
@@ -1530,16 +1513,6 @@ textarea{
   .md\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
-  }
-
-  .md\:py-\[20px\] {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .md\:py-\[10px\] {
-    padding-top: 10px;
-    padding-bottom: 10px;
   }
 }
 
