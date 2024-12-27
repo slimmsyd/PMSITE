@@ -32,7 +32,7 @@ export default function Hiring() {
         >3 Jobs</h2>
 
         <Link
-          href="hiring/Job1"
+          href="hiring/fieldAdvisor"
           className="flex flex-col gap-[5px] border-b border-black border-b-[0.5px] pb-[10px] px-[10px] hover:bg-[#2660bd65]"
         >
           <h4 className="text-[20px] pt-[10px]">Field Supervisors</h4>

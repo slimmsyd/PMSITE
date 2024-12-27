@@ -1,7 +1,7 @@
 {
-  "/hiring/Job1/page": "app/hiring/Job1/page.js",
-  "/page": "app/page.js",
   "/technicalServices/page": "app/technicalServices/page.js",
+  "/page": "app/page.js",
   "/hiring/technicalAdivsor/page": "app/hiring/technicalAdivsor/page.js",
-  "/hiring/serviceTeamMember/page": "app/hiring/serviceTeamMember/page.js"
+  "/hiring/serviceTeamMember/page": "app/hiring/serviceTeamMember/page.js",
+  "/eventAndStaffing/page": "app/eventAndStaffing/page.js"
 }
