@@ -297,7 +297,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="top-section bg-white">
+        <section className="top-section bg-white"
+                  id="industries"
+
+        >
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
               <span className="text-black"> Industries we serve</span>
@@ -400,7 +403,6 @@ export default function Home() {
         </section>
 
         <section
-          id="industries"
           className=" bg-[#000E3C] py-[20px] relative !h-[25vh] !md:h-full flex items-center justify-center "
         >
           <div className="overlay"></div> {/* Added overlay div */}
