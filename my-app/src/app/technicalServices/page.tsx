@@ -133,18 +133,19 @@ Renewable Energy Services
                       <CheckBox />
                       Planning & Logistics with our implementation of “Quality Control”.
                     </div>
-                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                 
+                                          <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                       <CheckBox />
-                      Communication with our clients
+                      Fleet Electrification Services; Consulting, Technical Assisstance, and brokering the procurment Charging Infrastructure
+                                         
+                                         
                                           </div>
                     <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                       <CheckBox />
-                      Commercial Cleaning/Environmental Services; implemented with “process and                    </div>
-                    <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
-                      <CheckBox />
-                      Discipline”. Managed with “quality control” measures, and executed purposeful and detailed use of selected products, and the application of technology is critical to achieving objectives.                   
-                      
-                       </div>
+
+                        Renewable Energy Service, Consulting, infrastructure installation
+                 
+                  </div>
                   </div>
   
           <div className="flex justify-start flex-row gap-4">

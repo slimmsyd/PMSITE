@@ -95,14 +95,14 @@ export default function TechincalServices() {
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
                 Commercial Cleaning/Environmental Services; implemented with
-                “process and{" "}
-              </div>
-              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
-                <CheckBox />
-                Discipline”. Managed with “quality control” measures, and
+                “process and discipline”. Managed with “quality control” measures, and
                 executed purposeful and detailed use of selected products, and
                 the application of technology is critical to achieving
                 objectives.
+              </div>
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                  Specality Cleaning Services; facilities with specifed/special cleaning and/or sanitation requirments
               </div>
             </div>
 

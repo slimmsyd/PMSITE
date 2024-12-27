@@ -86,13 +86,21 @@ export default function TechincalServices() {
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
-                Fleet Electrication Services: Consulting, Technical Assistance, and brokering the procurement Charging infrastructure.
+                  Communication with our Clients
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
-                  Renewable Energy Service; Consulting, infrastructure installation
+                  Ability to operate with small teams
               </div>
-         
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                Commercial Cleaning/Environmental Services; implemented with “process and
+                discipline”. Managed with “quality control” measures, and executed purposeful and detailed use of selected products, and the application of technology is critical to achieving objectives.
+              </div>
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                Specialty Cleaning Services; facilities with specific/special cleaning and/or sanitation requirements.              </div>
+           
             </div>
 
             <div className="flex justify-start flex-row gap-4">
