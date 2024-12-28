@@ -110,7 +110,7 @@ export default function TechincalServices()
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <h2 className=" text-black ">
-Renewable Energy Services            
+            HVAC Services         
                 </h2>
           </motion.div>
 
