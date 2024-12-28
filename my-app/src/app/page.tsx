@@ -477,8 +477,17 @@ export default function Home() {
                     </motion.div>
                   </div>
 
-                  <div className="flex items-start justify-start items-end flex-1 w-full mt-40 md:mt-0">
-                    <button className="border-b-0.5 my-[20px] border-black flex items-center pointer w-full">
+                  <div className=" flex items-start justify-start items-end flex-1 w-full mt-40 md:mt-0">
+
+                  <button
+              className="global-btn max-w-full w-full my-[40px] !bg-black !text-white"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              CONTACT US
+            </button>
+                    {/* <button className="border-b-0.5 my-[20px] border-black flex items-center pointer w-full">
                       <span
                         onClick={() => {
                           setIsOpen(!isOpen);
@@ -502,7 +511,7 @@ export default function Home() {
                           d="M3 13a1 1 0 0 0 1 1h12a1 1 0 0 0 0-2H4a1 1 0 0 0-1 1z"
                         />
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
