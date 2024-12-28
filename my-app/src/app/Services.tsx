@@ -1,6 +1,7 @@
 "use client";
+
 import Navigation from "./components/nav";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CheckBox from "./components/checkbox";
 import ContactPopup from "./components/ContactPopup";
@@ -16,7 +17,12 @@ interface Servce {
 
 const Services: React.FC<Servce> = ({ backgroundImage, spanText, headerText, bgClass, text, endpoint }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isEvServices, setIsEvServices] = useState(false);
   console.log("Logging end point", endpoint)
+
+  useEffect(() => {
+    setIsEvServices(window.location.pathname === '/evServices');
+  }, []);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -42,34 +48,24 @@ const Services: React.FC<Servce> = ({ backgroundImage, spanText, headerText, bgC
             {text}
 
           </p>
-          <ul>
-            <li>
-              Advisory/Consultation
-            </li>
-            <li>
-              Site Design
-            </li>
-            <li>
-              Site Prep
-            </li>
-            <li>
-              Installation 
-            </li>
-            <li>
-            Commissioning
-            </li>
-            <li>
-            Maintenance 
-            </li>
-            <br />
-            <p>
-            We have professional relationships with ReadyCharge Services Inc, FLO Network, EV Connect,
-            </p>
-            <p>
-            and Blink Network. We also have the ability to help clients finance and procure Infrastructure equipment.
-            </p>
-            <p></p>
-          </ul>
+          {isEvServices && (
+            <ul>
+              <li>Advisory/Consultation</li>
+              <li>Site Design</li>
+              <li>Site Prep</li>
+              <li>Installation</li>
+              <li>Commissioning</li>
+              <li>Maintenance</li>
+              <br />
+              <p>
+                We have professional relationships with ReadyCharge Services Inc, FLO Network, EV Connect,
+              </p>
+              <p>
+                and Blink Network. We also have the ability to help clients finance and procure Infrastructure equipment.
+              </p>
+              <p></p>
+            </ul>
+          )}
           <button
             className="global-btn"
             onClick={() => {
@@ -78,6 +74,7 @@ const Services: React.FC<Servce> = ({ backgroundImage, spanText, headerText, bgC
           >
             CONTACT US
           </button>
+
         </div>
 
         <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />

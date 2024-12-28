@@ -157,7 +157,7 @@ export default function Home() {
               <div className="flex flex-col md:flex-row gap-[25px] md:gap-0">
                 <h1 className="text-black w-full md:w-[70%]">
                   Transform your environment with us, enhancing assets,
-                  improving strategies
+                  improving strategies...
                 </h1>
                 <button
                   onClick={() => {
