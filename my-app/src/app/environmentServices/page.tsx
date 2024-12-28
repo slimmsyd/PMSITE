@@ -32,10 +32,11 @@ export default function TechincalServices() {
       <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
 
       <div className="bg-[#003DFA] relative z-30 py-[40px] px-[80px] md:h-[176px]">
-                <div className="flex flex-col md:flex-row justify-between gap-[10px]">
+        <div className="flex flex-col md:flex-row justify-between gap-[10px]">
           {" "}
           <h2 className="max-w-full md:max-w-[75%]">
-          Find out how Preeminent Professional Services can help you care for the people, spaces, and places that are important to you.
+            Find out how Preeminent Professional Services can help you care for
+            the people, spaces, and places that are important to you.
           </h2>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -55,7 +56,13 @@ export default function TechincalServices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h2 className=" text-black ">Pre/Post Construction Clean Up</h2>
+              <ul>
+                <li>
+                  <h2 className=" text-black ">
+                    Pre/Post Construction Clean Up
+                  </h2>
+                </li>
+              </ul>
             </motion.div>
 
             <motion.div
@@ -64,7 +71,13 @@ export default function TechincalServices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h2 className=" text-black ">Hot-Spot" Discovery/ Evaluation</h2>
+              <ul>
+                <li>
+                  <h2 className=" text-black ">
+                    Hot-Spot" Discovery/ Evaluation
+                  </h2>
+                </li>
+              </ul>
             </motion.div>
 
             <motion.div
@@ -73,9 +86,13 @@ export default function TechincalServices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h2 className=" text-black ">
-                Commercial Cleaning/Environmental Services{" "}
-              </h2>
+              <ul>
+                <li>
+                  <h2 className=" text-black ">
+                    Commercial Cleaning/Environmental Services{" "}
+                  </h2>
+                </li>
+              </ul>
             </motion.div>
 
             <div className="flex flex-col mt-4 gap-[7px]">
@@ -95,26 +112,27 @@ export default function TechincalServices() {
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
                 Commercial Cleaning/Environmental Services; implemented with
-                “process and discipline”. Managed with “quality control” Measures, and
-                executed purposeful and detailed use of selected products, and
-                the application of technology is critical to achieving
-                objectives.
+                “process and discipline”. Managed with “quality control”
+                Measures, and executed purposeful and detailed use of selected
+                products, and the application of technology is critical to
+                achieving objectives.
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
-                  Specality Cleaning Services; facilities with specifed/special cleaning and/or sanitation requirments
+                Specality Cleaning Services; facilities with specifed/special
+                cleaning and/or sanitation requirments
               </div>
             </div>
 
             <div className="flex justify-start flex-row gap-4">
               <a
-            href="/technicalServices" 
+                href="/technicalServices"
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
               >
                 Next
               </a>
               <a
-                 href="/eventAndStaffing" 
+                href="/eventAndStaffing"
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
               >
                 Previous

@@ -20,6 +20,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/eventAndStaffing/page.js"
+    ],
+    "/environmentServices/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/environmentServices/page.js"
     ]
   }
 }
