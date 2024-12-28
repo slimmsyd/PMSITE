@@ -8,7 +8,7 @@ import ContactPopup from "./components/ContactPopup";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -94,11 +94,10 @@ export default function Home() {
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="px-4 md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
             <h1 className="!text-left text-white font-bold">
-              Serving our clients Infrastructure Development and Asset Management needs.
+              Serving our clients Infrastructure Development and Asset
+              Management needs.
             </h1>
-            <p
-            className = "font-medium"
-            >
+            <p className="font-medium">
               {" "}
               We strive to bring an eons old industry into the 21st century
               through process, technology, & impact. We provide a unique
@@ -116,7 +115,6 @@ export default function Home() {
             </button>
           </div>
         </header>
-
 
         {/* <section
               className = "pt-[80px] !md:py-[10px] gap-[15px] w-full m-auto flex flex-col items-center justify-center"
@@ -152,7 +150,6 @@ export default function Home() {
                 
               </section> */}
 
-
         <section id="about" className="top-section bg-white">
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
@@ -184,7 +181,7 @@ export default function Home() {
 
             <div
               id="services"
-              className="flex flex-col md:flex-row justify-center items-center md:items-center py-[50px] gap-[24px]"
+              className="flex flex-col md:flex-row flex-wrap items-center md:items-center py-[50px] gap-[24px]"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -239,7 +236,7 @@ export default function Home() {
 
                 <div className="p-3 flex flex-col w-full ">
                   <h2 className="text-lg font-bold mt-2">
-                     Environmental Services
+                    Environmental Services
                   </h2>
                   <p className="flex-1">
                     Environmental Sustainability or Risk Assessment Services.
@@ -269,10 +266,42 @@ export default function Home() {
 
                 <div className="p-3 flex flex-col ">
                   <h2 className="text-lg font-bold mt-2">
-                     Professional Events and Staffing
+                    Professional Events and Staffing
                   </h2>
                   <p className="flex-1">MEP, Electrical, Civil, Structural</p>
                   <a href="/eventAndStaffing" className="text-blue-500">
+                    Learn more →
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="card bg-white shadow-md rounded-lg max-w-xs
+            text-black
+            transition-all duration-500 ease-in-out transform hover:scale-110"
+              >
+                <div className="relative ">
+                  <div className="overlay"></div> {/* Added overlay div */}
+                  <img
+                    src="assets/energy.png"
+
+                    alt="Description 1"
+                    className="w-full  rounded-t-lg  h-[230px]"
+                  />
+                </div>
+
+                <div className="p-3 flex flex-col  ">
+                  <h2 className="text-lg font-bold mt-2">EV Services</h2>
+                  <p className="flex-1">
+                    We provide turn-key services for the Electification of your
+                    commerical fleet or individual/company vechicle(s). These
+                    services include (but not limited to)..
+                  </p>
+                  <a href="/evServices" className="text-blue-500">
                     Learn more →
                   </a>
                 </div>
@@ -295,17 +324,12 @@ export default function Home() {
             </p>
 
             <div className="mt-8 text-center">
-              <GlobalButton
-              link = "/hiring"
-              text="SEE CAREERS" />
+              <GlobalButton link="/hiring" text="SEE CAREERS" />
             </div>
           </div>
         </section>
 
-        <section className="top-section bg-white"
-                  id="industries"
-
-        >
+        <section className="top-section bg-white" id="industries">
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
               <span className="text-black"> Industries We Serve...</span>
@@ -334,7 +358,6 @@ export default function Home() {
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Commercial Property Managers/Owners</h2>
-                
 
                     <button
                       onClick={() => {
@@ -357,7 +380,7 @@ export default function Home() {
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex flex-col gap-[10px]">
                     <h2>Construction and Infrastructure Developers</h2>
-                 
+
                     <button
                       onClick={() => {
                         setIsOpen(!isOpen);
@@ -378,8 +401,7 @@ export default function Home() {
                 <div className="relative min-h-[300px] md:h-full card-3 h-full flex items-center px-4 text-white justify-center flex-col  ">
                   <div className="overlay"></div> {/* Added overlay div */}
                   <div className="z-10 flex items-start justify-start flex-col gap-[10px]">
-                    <h2>Public/Private Sector Government   Institutions</h2>
-                 
+                    <h2>Public/Private Sector Government Institutions</h2>
 
                     <button
                       onClick={() => {
@@ -396,13 +418,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className=" bg-[#000E3C] py-[20px] relative !h-[25vh] !md:h-full flex items-center justify-center "
-        >
+        <section className=" bg-[#000E3C] py-[20px] relative !h-[25vh] !md:h-full flex items-center justify-center ">
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="flex flex-col items-center justify-center relative z-10">
             <span>Our impact by the numbers</span>
-            <h1 className = "text-center">Value in the Analysis </h1>
+            <h1 className="text-center">Value in the Analysis </h1>
 
             <div
               onClick={() => {
@@ -416,21 +436,14 @@ export default function Home() {
         </section>
 
         <section className="top-section flex flex-col bg-white">
-          
           <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
-              <span className="text-black">  </span>
+              <span className="text-black"> </span>
               <div className="flex w-full flex-col gap-[50px] md:flex-col items-center justify-center">
                 <div className="flex-col flex max-w-full">
-                  <h1 className="text-black">
-                    Total Area Serviced...
-                  </h1>
-                  <p className="text-black">
-                  
-
-                   
-                  </p>
-{/* 
+                  <h1 className="text-black">Total Area Serviced...</h1>
+                  <p className="text-black"></p>
+                  {/* 
                   <div className="flex flex-col mt-4 gap-[7px]">
                     <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                       <CheckBox />
@@ -469,24 +482,25 @@ export default function Home() {
                         <span className="text-black text-lg font-bold">
                           {count}+{" "}
                         </span>
-                        <span className="text-gray-300 text-[14px] transform relative text-lg font-bold" style={{ transform: 'translateY(-10px)' }}>
-                        Sqft
+                        <span
+                          className="text-gray-300 text-[14px] transform relative text-lg font-bold"
+                          style={{ transform: "translateY(-10px)" }}
+                        >
+                          Sqft
                         </span>
-                        
                       </div>
                     </motion.div>
                   </div>
 
                   <div className=" flex items-start justify-start items-end flex-1 w-full mt-40 md:mt-0">
-
-                  <button
-              className="global-btn max-w-full w-full my-[40px] !bg-black !text-white"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              CONTACT US
-            </button>
+                    <button
+                      className="global-btn max-w-full w-full my-[40px] !bg-black !text-white"
+                      onClick={() => {
+                        setIsOpen(!isOpen);
+                      }}
+                    >
+                      CONTACT US
+                    </button>
                     {/* <button className="border-b-0.5 my-[20px] border-black flex items-center pointer w-full">
                       <span
                         onClick={() => {
@@ -521,13 +535,7 @@ export default function Home() {
           </div>
         </section>
 
-
-
-
-                  <Footer
-                  scrollToSection ={scrollToSection}
-                  
-                  />
+        <Footer scrollToSection={scrollToSection} />
       </main>
     </div>
   );
