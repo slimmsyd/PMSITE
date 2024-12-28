@@ -24,7 +24,10 @@ export default function TechincalServices() {
         spanText={spanText}
         headerText={headerText}
         bgClass="event"
-        text="     We offer professional environmental facilites maintenance & management services. Our strength lies in our process & project managment approach to provding services. We utilized the experiene/backgrounds of  our Managment and Advisory Teams to develop effective solutions for our clients."
+        text={`Preeminet Professional Services is proud to provide staffing services for its clientel. 
+        We provide temporary staffing for events either commerical private/public with a minimum of notice.
+        
+        `}
       />
       <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
 
@@ -53,7 +56,11 @@ export default function TechincalServices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h2 className=" text-black ">Event Staffing Services</h2>
+              <ul>
+                <li>
+                  <h2 className=" text-black ">Event Staffing Services</h2>
+                </li>
+              </ul>
             </motion.div>
 
             <motion.div
@@ -62,7 +69,13 @@ export default function TechincalServices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h2 className=" text-black ">General Labor Staffing Services</h2>
+              <ul>
+                <li>
+                  <h2 className=" text-black ">
+                    General Labor Staffing Services
+                  </h2>
+                </li>
+              </ul>
             </motion.div>
 
             <motion.div
@@ -71,7 +84,13 @@ export default function TechincalServices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h2 className=" text-black ">Security Services & Patrol Services</h2>
+              <ul>
+                <li>
+                  <h2 className=" text-black ">
+                    Security Services & Patrol Services
+                  </h2>
+                </li>
+              </ul>
             </motion.div>
 
             <div className="flex flex-col mt-4 gap-[7px]">
@@ -86,35 +105,38 @@ export default function TechincalServices() {
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
-                  Communication with our Clients
+                Communication with our Clients
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
-                  Ability to operate with small teams
+                Ability to operate with small teams
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
-                Commercial Cleaning/Environmental Services; implemented with “process and
-                discipline”. Managed with “quality control” Measures, and executed purposeful and detailed use of selected products, and the application of technology is critical to achieving objectives.
+                Commercial Cleaning/Environmental Services; implemented with
+                “process and discipline”. Managed with “quality control”
+                Measures, and executed purposeful and detailed use of selected
+                products, and the application of technology is critical to
+                achieving objectives.
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
-                Specialty Cleaning Services; facilities with specific/special cleaning and/or sanitation requirements.              </div>
-           
+                Specialty Cleaning Services; facilities with specific/special
+                cleaning and/or sanitation requirements.{" "}
+              </div>
             </div>
 
             <div className="flex justify-start flex-row gap-4">
               <a
-                  href="/technicalServices" 
-                  target="_blank"
+                href="/technicalServices"
+                target="_blank"
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
               >
                 Next
               </a>
               <a
- href="/eventAndStaffing"                
- 
- className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
+                href="/eventAndStaffing"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
               >
                 Previous
               </a>
