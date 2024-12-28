@@ -71,21 +71,20 @@ const Services: React.FC<Servce> = ({
 
           {isEvServices && (
             <ul>
-              <li>Advisory/Consultation</li>
+              {/* <li>Advisory/Consultation</li>
               <li>Site Design</li>
               <li>Site Prep</li>
               <li>Installation</li>
               <li>Commissioning</li>
-              <li>Maintenance</li>
-              <br />
-              <p>
+              <li>Maintenance</li> */}
+              {/* <p>
                 We have professional relationships with ReadyCharge Services
                 Inc, FLO Network, EV Connect,
               </p>
               <p>
                 and Blink Network. We also have the ability to help clients
                 finance and procure Infrastructure equipment.
-              </p>
+              </p> */}
               <p></p>
             </ul>
           )}
