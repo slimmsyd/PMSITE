@@ -29,19 +29,9 @@ const Services: React.FC<Servce> = ({ backgroundImage, spanText, headerText, bgC
 
       <header
         className={`header-bg ${bgClass} relative !h-[80vh]`}
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: `url(${backgroundImage}) !important` }}
       >
-        {endpoint === '/technicalServices' && (
-          <video
-            autoPlay
-            loop
-            muted
-            className="absolute pointer-events-none inset-0 w-full h-full object-cover"
-          >
-            <source src="assets/AI_BG.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        )}
+   
         <div className="overlay"></div>
         <div className="px-4 md:px-28 flex flex-col gap-[30px] items-start justify-start text-left relative z-10 mr-auto max-w-[1080px]">
           <span>{spanText}</span>
@@ -50,7 +40,36 @@ const Services: React.FC<Servce> = ({ backgroundImage, spanText, headerText, bgC
           </h1>
           <p>
             {text}
+
           </p>
+          <ul>
+            <li>
+              Advisory/Consultation
+            </li>
+            <li>
+              Site Design
+            </li>
+            <li>
+              Site Prep
+            </li>
+            <li>
+              Installation 
+            </li>
+            <li>
+            Commissioning
+            </li>
+            <li>
+            Maintenance 
+            </li>
+            <br />
+            <p>
+            We have professional relationships with ReadyCharge Services Inc, FLO Network, EV Connect,
+            </p>
+            <p>
+            and Blink Network. We also have the ability to help clients finance and procure Infrastructure equipment.
+            </p>
+            <p></p>
+          </ul>
           <button
             className="global-btn"
             onClick={() => {
