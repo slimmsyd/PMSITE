@@ -210,13 +210,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
                 />
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  placeholder="Cell Phone Number"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                />
+            
                 <input
                   type="text"
                   name="industry"
