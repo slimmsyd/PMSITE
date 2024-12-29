@@ -15,6 +15,7 @@ export default function TechincalServices()
     const spanText = "EV Services"
     const headerText = " EV Services"
 
+    const currentPage = "/evServices"
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -158,7 +159,7 @@ export default function TechincalServices()
 
             <div className="flex justify-start flex-row gap-4">
             <a
-                href={getRandomServiceLink()} // Use the utility function here
+                href={getRandomServiceLink(currentPage)} // Pass the current page to the function
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
               >
                 Next
