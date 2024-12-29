@@ -315,7 +315,7 @@ export default function Home() {
           className="employment relative h-[50vh] flex items-center justify-center "
         >
           <div className="overlay"></div> {/* Added overlay div */}
-          <div className="flex flex-col items-center justify-center relative z-10">
+          <div className="flex flex-col items-center justify-center relative z-10 !text-white">
             <span>Now Hiring</span>
             <h1 className="text-center">Seeking employment considerations? </h1>
             <p className="text-center">
