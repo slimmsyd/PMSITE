@@ -9,6 +9,7 @@ interface ContactPopupProps {
 
 const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
   // State to capture form values
+  
   const [formData, setFormData] = useState({
     companyName: "",
     email: "",
@@ -22,6 +23,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     numberOfCommercialVehicles: "",
     reason: "",
     selectedOption: "", // Track the selected option
+    selectedServices: [] as string[], // Add selectedServices here
   });
 
   const handleChange = (
@@ -50,6 +52,15 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
         selectedOption: option, // Set the selected option
       }));
     }
+  };
+
+  const handleServiceClick = (service: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      selectedServices: prevData.selectedServices.includes(service)
+        ? prevData.selectedServices.filter((s) => s !== service) // Remove service if already selected
+        : [...prevData.selectedServices, service], // Add service if not selected
+    }));
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -282,6 +293,23 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   {option === "vendorSignUps" && "Vendor sign ups"}
                   {option === "hiringJobs" && "Hiring/Jobs"}
                   {option === "workWithUs" && "Work with us?"}
+                </div>
+              ))}
+            </div>
+
+            <div className="my-2 flex flex-col gap-2">
+              <label className="text-black text-[14px]">Services to be requested (Select all that apply)</label>
+              {["Pro + Technical Services", "Enviromental Services", "Prof Events & Staffing", "EV Services"].map((service) => (
+                <div
+                  key={service}
+                  onClick={() => handleServiceClick(service)}
+                  className={`p-2 border rounded-lg cursor-pointer ${
+                    formData.selectedServices.includes(service)
+                      ? "bg-black text-white"
+                      : "border border-light-gray"
+                  }`}
+                >
+                  {service}
                 </div>
               ))}
             </div>

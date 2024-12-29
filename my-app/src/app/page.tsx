@@ -93,11 +93,11 @@ export default function Home() {
           </video>
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="px-4 md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
-            <h1 className="!text-left text-white font-bold">
+            <h1 className="!text-left !text-white font-bold">
               Serving our clients Infrastructure Development and Asset
               Management needs.
             </h1>
-            <p className="font-medium">
+            <p className="font-medium !text-white">
               {" "}
               We strive to bring an eons old industry into the 21st century
               through process, technology, & impact. We provide a unique

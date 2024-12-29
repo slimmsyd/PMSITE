@@ -34,7 +34,7 @@ export default function TechincalServices() {
       <div className="bg-[#003DFA] relative z-30 py-[40px] px-[80px] md:h-[176px]">
         <div className="flex flex-col md:flex-row justify-between gap-[10px]">
           {" "}
-          <h2 className="max-w-full md:max-w-[75%]">
+          <h2 className="max-w-full md:max-w-[75%] !text-white">
             Find out how Preeminent Professional Services can help you care for
             the people, spaces, and places that are important to you.
           </h2>
