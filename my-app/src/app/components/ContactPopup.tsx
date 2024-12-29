@@ -182,7 +182,26 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
                 />
+
+<div className="my-2 flex flex-col gap-2">
+              <label className="text-black text-[14px]">Services to be requested (Select all that apply)</label>
+              {["Pro + Technical Services", "Enviromental Services", "Prof Events & Staffing", "EV Services"].map((service) => (
+                <div
+                  key={service}
+                  onClick={() => handleServiceClick(service)}
+                  className={`p-2 border rounded-lg cursor-pointer ${
+                    formData.selectedServices.includes(service)
+                      ? "bg-black text-white"
+                      : "border border-light-gray"
+                  }`}
+                >
+                  {service}
+                </div>
+              ))}
+            </div>
+
               </>
+
             ) : (
               <>
                 <input
@@ -297,23 +316,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
               ))}
             </div>
 
-            <div className="my-2 flex flex-col gap-2">
-              <label className="text-black text-[14px]">Services to be requested (Select all that apply)</label>
-              {["Pro + Technical Services", "Enviromental Services", "Prof Events & Staffing", "EV Services"].map((service) => (
-                <div
-                  key={service}
-                  onClick={() => handleServiceClick(service)}
-                  className={`p-2 border rounded-lg cursor-pointer ${
-                    formData.selectedServices.includes(service)
-                      ? "bg-black text-white"
-                      : "border border-light-gray"
-                  }`}
-                >
-                  {service}
-                </div>
-              ))}
-            </div>
-
+     
             <button type="submit" className="bg-black text-white p-2 rounded">
               Submit
             </button>
