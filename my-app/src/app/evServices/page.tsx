@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import CheckBox from "../components/checkbox";
 import Footer from "../components/Footer";
 import ContactPopup from "../components/ContactPopup";
+import { getRandomServiceLink } from "@/utils/randomServiceLink";
 export default function TechincalServices() 
 
 {
@@ -156,18 +157,13 @@ export default function TechincalServices()
             </div>
 
             <div className="flex justify-start flex-row gap-4">
-              <a
-                href="/environmentServices"
+            <a
+                href={getRandomServiceLink()} // Use the utility function here
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200"
               >
                 Next
               </a>
-              <a
-                href="/eventAndStaffing"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-[#B5B5B5] border border-[#B5B5B5] rounded-md hover:bg-gray-100 transition-colors duration-200"
-              >
-                Previous
-              </a>
+         
             </div>
           </div>
         </div>
