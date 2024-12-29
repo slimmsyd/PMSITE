@@ -12,7 +12,7 @@ export default function TechincalServices()
 {
 
     const bgImage = 'assets/energy.png"'
-    const spanText = "EV Services"
+    const spanText = ""
     const headerText = " EV Services"
 
     const currentPage = "/evServices"

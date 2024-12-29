@@ -1,7 +1,8 @@
 {
-  "/evServices/page": "app/evServices/page.js",
-  "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/environmentServices/page": "app/environmentServices/page.js",
   "/technicalServices/page": "app/technicalServices/page.js",
+  "/evServices/page": "app/evServices/page.js",
+  "/page": "app/page.js",
   "/eventAndStaffing/page": "app/eventAndStaffing/page.js"
 }
