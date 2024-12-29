@@ -1,4 +1,4 @@
-const services = ["/eventAndStaffing", "/technicalServices", "/evServices"];
+const services = ["/eventAndStaffing", "/technicalServices", "/evServices", "/environmentServices"];
 
 export const getRandomServiceLink = (currentPage: string) => {
   // Filter out the current page from the services array
