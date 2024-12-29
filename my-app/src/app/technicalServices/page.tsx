@@ -129,7 +129,7 @@ export default function TechincalServices() {
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
                 <CheckBox />
                 Fleet Electrification Services; Consulting, Technical
-                Assisstance, and brokering the procurment Charging
+                Assisstance, and brokering the procurement Charging
                 Infrastructure
               </div>
               <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">

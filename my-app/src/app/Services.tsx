@@ -49,9 +49,9 @@ const Services: React.FC<Servce> = ({
         style={{ backgroundImage: `url(${backgroundImage}) !important` }}
       >
         <div className="overlay"></div>
-        <div className="px-4 md:px-28 flex flex-col gap-[20px] items-start justify-start text-left relative z-10 mr-auto max-w-[1080px]">
+        <div className=" !text-white px-4 md:px-28 flex flex-col gap-[20px] items-start justify-start text-left relative z-10 mr-auto max-w-[1080px]">
           <span>{spanText}</span>
-          <h1 className="!text-left text-white">{headerText}</h1>
+          <h1 className="!text-left !text-white">{headerText}</h1>
           <p>{text}</p>
 
           {isStaffing && (
