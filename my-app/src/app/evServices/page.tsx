@@ -60,7 +60,7 @@ export default function TechincalServices()
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="space-y-8">
             <p>
-            We have professional relationships with Ready Charge Services Inc., FLO Network, EV Connect, and Blink Network, EV Connect, and Blink Network Network. In addition to the ability to assist clients in financing & procurement of the infrastructure equipment
+            We have professional relationships with Ready Charge Services Inc., FLO Network, EV Connect, and Blink Network, EV Connect, and Blink Network Network. In addition to the ability to assist clients in financing & procurement of the infrastructure equipment.
             </p>
             {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
