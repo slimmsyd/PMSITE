@@ -1,7 +1,8 @@
 "use client";
+import { option } from "framer-motion/client";
 import Link from "next/link";
 
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 interface ContactPopupProps {
   isOpen: boolean;
   togglePopup: () => void;
@@ -9,13 +10,11 @@ interface ContactPopupProps {
 
 const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
   // State to capture form values
-  
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     companyName: "",
     email: "",
     address: "",
     phoneNumber: "",
-    dunsNumber: "",
     industry: "",
     location: "",
     yearsInBusiness: "",
@@ -24,14 +23,140 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     reason: "",
     selectedOption: "", // Track the selected option
     selectedServices: [] as string[], // Add selectedServices here
-  });
+    regionsServed: ""
+  };
+
+  const [formData, setFormData] = useState(initialFormData); // Use initialFormData
+
+
+const formatPhoneNumber = (phoneNumber: string): string => {
+  // Remove all non-numeric characters
+  const cleaned = phoneNumber.replace(/\D/g, "");
+
+  // Check if it's a US number without country code
+  if (cleaned.length === 10) {
+    return `+1${cleaned}`;
+  }
+
+  // If it already has country code
+  if (cleaned.length === 11 && cleaned.startsWith("1")) {
+    return `+${cleaned}`;
+  }
+
+  return cleaned;
+};
+
+
+  const isValidPhoneNumber = (phoneNumber: string): boolean => {
+    // Basic phone validation regex
+    const phoneRegex = /^\+1\d{10}$/;
+    return phoneRegex.test(phoneNumber);
+  };
+
+  // Submission Form
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Sending email to:", formData.email);
+
+    // Format the phone number
+    const formattedPhone = formatPhoneNumber(formData.phoneNumber);
+
+    // // Validate phone number
+    // if (!isValidPhoneNumber(formattedPhone)) {
+    //   alert("Please enter a valid US phone number (10 digits)");
+    //   return;
+    // }
+
+    try {
+      // Send form submission
+      const response = await fetch("/api/sendMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          phone: formattedPhone,
+          industry: formData.industry,
+          address: formData.address,
+          companyName: formData.companyName,
+          location: formData.location,
+          yearsInBusiness: formData.yearsInBusiness,
+          numberOfTechnicians: formData.numberOfTechnicians,
+          numberOfCommercialVehicles: formData.numberOfCommercialVehicles,
+          reason: formData.reason,
+          selectedOption: formData.selectedOption,
+          selectedServices: formData.selectedServices,
+        }),
+      });
+
+      // Send admin notification
+      const adminEmailResponse = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: "info@prmntpro.com",
+          subject: "New Form Submission on PM Site",
+          content: `
+            Email: ${formData.email}
+            Phone: ${formattedPhone}
+            Company: ${formData.companyName}
+            Idea: ${formData.reason}
+            Industry: ${formData.industry}
+            Address: ${formData.address}
+            Location: ${formData.location}
+            Years in Business: ${formData.yearsInBusiness}
+            Number of Technicians: ${formData.numberOfTechnicians}
+            Number of Commercial Vehicles: ${formData.numberOfCommercialVehicles}
+            Selected Option: ${formData.selectedOption}
+            Selected Services: ${formData.selectedServices.join(", ")}
+            ${currentOption === "vendorSignUps" ? `
+              Regions Served: ${formData.regionsServed}
+              Years in Business: ${formData.yearsInBusiness}
+              Number of Technicians: ${formData.numberOfTechnicians}
+            ` : ""}
+            ${currentOption === "workWithUs" ? `
+              Additional Info: ${formData.reason}
+            ` : ""}
+          `,
+          isClientEmail: false,
+        }),
+      });
+
+      // Send client confirmation
+      const clientEmailResponse = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: formData.email,
+          subject: "Thank you for your submission",
+          content: `
+.`, // The content will be set in the route
+          isClientEmail: true,
+        }),
+      });
+
+      if (adminEmailResponse.ok && clientEmailResponse.ok) {
+        // Reset formData to initial state
+        setFormData(initialFormData); // Reset to initialFormData
+      }
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = event.target as
       | HTMLInputElement
-      | HTMLTextAreaElement;
+        | HTMLTextAreaElement;
     const checked =
       type === "checkbox"
         ? (event.target as HTMLInputElement).checked
@@ -42,18 +167,29 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     }));
   };
 
+
+  const [currentOption, setCurrentOption] = useState<string>("")
   const handleOptionClick = (option: string) => {
+    console.log("Logging optoin on click", option)
     if (option === "hiringJobs") {
+      setCurrentOption(option)
       // Redirect to /hiring when "Hiring/Jobs" is clicked
       window.location.href = "/hiring"; // Use window.location to navigate
     } else {
       setFormData((prevData) => ({
         ...prevData,
-        selectedOption: option, // Set the selected option
+        selectedOption: option, // Set the selecte option
       }));
+      setCurrentOption(option)
+
     }
   };
 
+  useEffect(() => { 
+
+    console.log("Logging the current Option", currentOption)
+
+  },[currentOption])
   const handleServiceClick = (service: string) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -63,35 +199,6 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     }));
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent default form submission
-
-    // Determine the endpoint based on the selected option
-    const endpoint =
-      formData.selectedOption === "workWithUs" ||
-      formData.selectedOption === "hiringJobs" ||
-      formData.selectedOption === "vendorSignUps"
-        ? "https://your-endpoint-url.com/hiring" // Endpoint for hiring/vendor/work with us
-        : "https://your-endpoint-url.com/general"; // General contact endpoint
-
-    // Send formData to the determined endpoint
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      // Handle successful submission
-      console.log("Form submitted successfully!");
-      togglePopup(); // Close the popup after submission
-    } else {
-      // Handle errors
-      console.error("Error submitting form");
-    }
-  };
 
   return (
     <div>
@@ -118,6 +225,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Company Name"
                   className="w-full form-input mb-2 p-2 border"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -125,6 +233,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Your Name & Title"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="email"
@@ -132,6 +241,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Company email Address"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -139,6 +249,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Business Address (not mailing)"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -153,20 +264,16 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Contact Number"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
-                <input
-                  type="text"
-                  name="dunsNumber"
-                  placeholder="DUNS Number"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                />
+             
                 <input
                   type="text"
                   name="industry"
                   placeholder="Industry You Are In"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -174,6 +281,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Numbers of Years In Business"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
 
                 <textarea
@@ -199,6 +307,8 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                 </div>
               ))}
             </div>
+            
+              <div className="w-full h-[0.5px] my-4 bg-gray-300"></div>
 
               </>
 
@@ -210,6 +320,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Company Name"
                   className="w-full form-input mb-2 p-2 border"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -217,6 +328,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Your Name & Title"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
 
                 <input
@@ -225,6 +337,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Company email Address"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -232,6 +345,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Business Address (not mailing)"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -239,6 +353,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Contact Number"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
             
                 <input
@@ -247,6 +362,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Industry of Operation"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
                 <input
                   type="text"
@@ -254,6 +370,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Numbers of Years In Business?"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
 
                 <input
@@ -262,6 +379,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                   placeholder="Numbers of Commercial Vehicles?"
                   className="w-full mb-2 p-2 border form-input"
                   onChange={handleChange}
+                  required
                 />
 
                 {formData.selectedOption === "vendorSignUps" && (
@@ -279,6 +397,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                       placeholder="Number of Years in Business"
                       className="w-full mb-2 p-2 border form-input"
                       onChange={handleChange}
+                      required
                     />
                     <input
                       type="text"

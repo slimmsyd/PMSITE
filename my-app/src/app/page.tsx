@@ -73,6 +73,10 @@ export default function Home() {
     };
   }, []);
 
+
+
+  
+
   return (
     <div className="">
       <Nav scrollToSection={scrollToSection} />
