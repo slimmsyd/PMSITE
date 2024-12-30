@@ -118,6 +118,19 @@ textarea{
 
 }
 
+.clickBtns{
+  background: #0000007c;
+    border: 0.5px solid #ffffff;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
 .overlay {
   position: absolute;
   top: 0;

@@ -10,6 +10,116 @@ import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 import { usePathname } from "next/navigation";
 
+function ImageSlider() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const services = [
+    {
+      src: "/assets/Fac.png",
+      name: "Professional/Technical Services",
+      description:
+        "Property Management Companies, Real Estate Developers, Industrial and/or commercial properties, Hot-Spot Discovery and evaluation",
+    },
+    {
+      src: "/assets/Janitor.png",
+      name: "Environmental Services",
+      description:
+        "Environmental Sustainability or Risk Assessment Services.",
+    },
+    {
+      src: "/assets/Staffing.png",
+      name: "Professional Events and Staffing",
+      description:
+        "MEP, Electrical, Civil, Structural.",
+    },
+    {
+      src: "/assets/energy.png",
+      name: "EV Services",
+      description:
+        " We provide turn-key services for the Electification of your commerical fleet or individual/company vechicle(s). These services include (but not limited to)..",
+    },
+  ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 650);
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + services.length) % services.length
+    );
+  };
+
+  return (
+    <div className="relative w-full overflow-hidden my-[100px]">
+      <div
+        className={`flex transition-transform duration-300 ease-in-out ${
+          isMobile ? "" : "gap-[10px]"
+        }`}
+        style={{
+          transform: `translateX(-${
+            currentIndex * (isMobile ? 100 : 100 / 3)
+          }%)`,
+        }}
+      >
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className={`${
+              isMobile ? "w-full" : "w-auto"
+            } h-[500px] relative flex-shrink-0 group`}
+          >
+            <div className = "overlay"></div>
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-10 absolute bg-black/50 top-0 left-0 w-full h-full items-center justify-center flex">
+              <span className="text-[20px] font-bold text-white relative z-30">
+                {service.description}{" "}
+              </span>
+            </div>
+
+            <Image
+              className="h-[100%] servicesImage object-cover"
+              src={service.src}
+              alt={`Slide ${index + 1}`}
+              width={500}
+              height={500}
+            />
+
+            <div className="flex p-[10px] items-end justify-end absolute bottom-0 text-white">
+              <p className="mt-2 text-center font-semibold relative z-20">{service.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <button
+        onClick={prevSlide}
+        className="absolute clickBtns left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+      >
+        &lt;
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute clickBtns right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+      >
+        &gt;
+      </button>
+    </div>
+  );
+}
+
+
+
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -73,9 +183,10 @@ export default function Home() {
     };
   }, []);
 
-
-
   
+
+
+
 
   return (
     <div className="">
@@ -155,7 +266,41 @@ export default function Home() {
               </section> */}
 
         <section id="about" className="top-section bg-white">
-          <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
+
+                    <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
+
+        <div className="flex flex-col gap-2">
+              <span className="text-black"> About us</span>
+              <div className="flex flex-col md:flex-row gap-[25px] md:gap-0">
+                <h1 className="text-black w-full md:w-[70%]">
+                  Transform your environment with us, enhancing assets,
+                  improving strategies...
+                </h1>
+                <button
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                  className="global-btn border text-[15px] border-black border-0.5 w-[180px] md:w-[169px] h-[39px]"
+                >
+                  CONTACT US
+                </button>
+              </div>
+
+              <p className="text-black">
+                Our team, provides professional-grade environmental, facilities
+                maintenance & management services. Our services are structured
+                to take into account the health and well-being of the client's
+                total physical environment, and how the maintenance of that
+                environment impacts those who work within it. We value clear cut
+                analysis of the process from start to completion.
+              </p>
+            </div>
+
+
+          <ImageSlider />
+          
+          </div>
+          {/* <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
               <span className="text-black"> About us</span>
               <div className="flex flex-col md:flex-row gap-[25px] md:gap-0">
@@ -197,7 +342,7 @@ export default function Home() {
             transition-all duration-500 ease-in-out transform hover:scale-110"
               >
                 <div className="relative ">
-                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="overlay"></div> 
                   <img
                     src="assets/Fac.png"
                     alt="Description 1"
@@ -230,7 +375,7 @@ export default function Home() {
             transition-all duration-500 ease-in-out transform hover:scale-110"
               >
                 <div className="relative">
-                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="overlay"></div> 
                   <img
                     src="assets/Janitor.png"
                     alt="Description 2"
@@ -260,7 +405,7 @@ export default function Home() {
             transition-all duration-500 ease-in-out transform hover:scale-110"
               >
                 <div className="relative">
-                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="overlay"></div> 
                   <img
                     src="assets/Staffing.png"
                     alt="Description 3"
@@ -289,7 +434,7 @@ export default function Home() {
             transition-all duration-500 ease-in-out transform hover:scale-110"
               >
                 <div className="relative ">
-                  <div className="overlay"></div> {/* Added overlay div */}
+                  <div className="overlay"></div> 
                   <img
                     src="assets/energy.png"
 
@@ -310,15 +455,17 @@ export default function Home() {
                   </a>
                 </div>
               </motion.div>
+
+              
             </div>
-          </div>
+          </div> */}
         </section>
 
         <section
           id="careers"
           className="employment relative h-[50vh] flex items-center justify-center "
         >
-          <div className="overlay"></div> {/* Added overlay div */}
+          <div className="overlay"></div> 
           <div className="flex flex-col items-center justify-center relative z-10 !text-white">
             <span>Now Hiring</span>
             <h1 className="text-center">Seeking employment considerations? </h1>
@@ -476,15 +623,19 @@ export default function Home() {
                   {/* <h3 className="text-black">Square footage counter</h3> */}
                   <div className="flex items-start justify-start">
                     <motion.div
-                      className="w-[10rem] h-[10rem] bg-white rounded-full border border-black border-0.5 flex items-center justify-center"
+                      className="] bg-white rounded-full  flex items-center justify-center"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5 }}
                       onViewportEnter={startCounting}
                     >
-                      <div className="flex flex-row gap-[3px] relative">
-                        <span className="text-black text-lg font-bold">
-                          {count}+{" "}
+                      <div className="flex flex-row items-start  justify-center gap-[3px] relative">
+                        <span className="text-black font-bold !text-[89px] flex items-center justify-center">
+                          {count}
+                          <span className = "text-sm">
+                            +
+                          </span>
+                          {" "}
                         </span>
                         <span
                           className="text-gray-300 text-[14px] transform relative text-lg font-bold"
