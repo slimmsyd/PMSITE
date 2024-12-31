@@ -37,7 +37,7 @@ function ImageSlider() {
       src: "/assets/Staffing.png",
       name: "Professional Events and Staffing",
       description:
-        "MEP, Electrical, Civil, Structural.",
+        "Preeminet Professional Services is proud to provide staffing services for its clientel. We provide temporary staffing for events either commerical private/public with a minimum of notice.",
         link: "/eventAndStaffing"
 
     },
