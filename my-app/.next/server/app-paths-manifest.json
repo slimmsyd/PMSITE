@@ -1,3 +1,5 @@
 {
+  "/environmentServices/page": "app/environmentServices/page.js",
+  "/technicalServices/page": "app/technicalServices/page.js",
   "/page": "app/page.js"
 }

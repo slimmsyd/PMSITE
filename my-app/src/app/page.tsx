@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,24 +21,33 @@ function ImageSlider() {
       name: "Professional/Technical Services",
       description:
         "Property Management Companies, Real Estate Developers, Industrial and/or commercial properties, Hot-Spot Discovery and evaluation",
+        link: "/technicalServices"
+
     },
     {
       src: "/assets/Janitor.png",
       name: "Environmental Services",
       description:
         "Environmental Sustainability or Risk Assessment Services.",
+        link: "/environmentServices"
+
     },
+    
     {
       src: "/assets/Staffing.png",
       name: "Professional Events and Staffing",
       description:
         "MEP, Electrical, Civil, Structural.",
+        link: "/eventAndStaffing"
+
     },
     {
       src: "/assets/energy.png",
       name: "EV Services",
       description:
         " We provide turn-key services for the Electification of your commerical fleet or individual/company vechicle(s). These services include (but not limited to)..",
+        link: "/evServices"
+
     },
   ];
 
@@ -75,7 +85,8 @@ function ImageSlider() {
         }}
       >
         {services.map((service, index) => (
-          <div
+          <Link
+          href = {service.link}
             key={index}
             className={`${
               isMobile ? "w-full" : "w-auto"
@@ -99,7 +110,7 @@ function ImageSlider() {
             <div className="flex p-[10px] items-end justify-end absolute bottom-0 text-white">
               <p className="mt-2 text-center font-semibold relative z-20">{service.name}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <button
