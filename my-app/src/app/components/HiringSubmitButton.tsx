@@ -46,7 +46,7 @@ const HiringSubmitButton: React.FC<HiringSubmitButtonProps> = ({ formData, jobTi
       formDataToSend.append('jobTitle', jobTitle);
 
       // Log the FormData contents
-      for (let [key, value] of formDataToSend.entries()) {
+      for (const [key, value] of formDataToSend.entries()) {
         console.log(`FormData entry - ${key}:`, value);
       }
 
