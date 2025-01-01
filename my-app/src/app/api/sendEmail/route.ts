@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
-    const { to, subject, content, isClientEmail } = await request.json();
+    const { to, subject, content, isClientEmail, option , name, company, email, phone, message} = await request.json();
     
     console.log("Received email request:", { to, subject, contentLength: content?.length, isClientEmail });
 
@@ -45,20 +45,58 @@ export async function POST(request: Request) {
     });
 
     if (isClientEmail) {
+      let emailContent = '';
+      
+      // Determine email content based on option
+      switch (option) {
+        case 'vendorSignUps':
+          emailContent = `Greetings ${name || company},
+
+Thank you for your interest in working with Preeminent Professional Services as a vendor. Please allow 24-48 hours for us to review and respond with next steps.
+
+Please keep in mind there is no guarantee we have an opportunity for you at this time. But we will keep your information confidential & in our database for future opportunities.
+
+Best Regards,
+Preeminent Professional Services`;
+          break;
+
+        case 'workWithUs':
+          emailContent = `Greetings ${name || company },
+
+Thank you for your interest in working with Preeminent Professional Services as a partner. Please allow 24-48 hours for us to review and respond with next steps.
+
+Please keep in mind there is no guarantee we have an opportunity for you at this time. But we will keep your information confidential & in our database for future opportunities.
+
+Best Regards,
+Preeminent Professional Services`;
+          break;
+
+        case 'careers':
+          emailContent = `Greetings ${name || company },
+
+Thank you for your interest in working with Preeminent Professional Services as a potential team member. Please allow 24-48 hours for us to review and respond with next steps.
+
+Please keep in mind there is no guarantee we have an opportunity for you at this time. But we will keep your information confidential & in our database for future opportunities.
+
+Best Regards,
+Preeminent Professional Services`;
+          break;
+
+        default:
+          emailContent = `Thank you for contacting Preeminent Professional Services. We will get back to you shortly.`;
+      }
+
       // Send welcome email to client
       await transporter.sendMail({
         from: process.env.SMTP_FROM_EMAIL || '',
         to: to,
-        subject: "Your Submission Has Been Recieved",
-        text: `Thank you for sharing your vision with us! 
-        
-We're excited about your idea and look forward to exploring how we can bring it to life together.
-
-Our team will reach out to you within the next 2 business days to discuss your project in detail. We can't wait to collaborate with you!
-
-Best regards,
-PM Team
-`
+        subject: `Thank you for your interest in ${
+          option === 'vendorSignUps' ? 'becoming a vendor' :
+          option === 'workWithUs' ? 'working with us' :
+          option === 'careers' ? 'career opportunities' :
+          'contacting us'
+        }`,
+        text: emailContent,
       });
     } else {
       // Send notification email to admin

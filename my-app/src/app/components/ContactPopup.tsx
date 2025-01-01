@@ -69,26 +69,26 @@ const formatPhoneNumber = (phoneNumber: string): string => {
 
     try {
       // Send form submission
-      const response = await fetch("/api/sendMessage", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          phone: formattedPhone,
-          industry: formData.industry,
-          address: formData.address,
-          companyName: formData.companyName,
-          location: formData.location,
-          yearsInBusiness: formData.yearsInBusiness,
-          numberOfTechnicians: formData.numberOfTechnicians,
-          numberOfCommercialVehicles: formData.numberOfCommercialVehicles,
-          reason: formData.reason,
-          selectedOption: formData.selectedOption,
-          selectedServices: formData.selectedServices,
-        }),
-      });
+      // const response = await fetch("/api/sendMessage", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: formData.email,
+      //     phone: formattedPhone,
+      //     industry: formData.industry,
+      //     address: formData.address,
+      //     companyName: formData.companyName,
+      //     location: formData.location,
+      //     yearsInBusiness: formData.yearsInBusiness,
+      //     numberOfTechnicians: formData.numberOfTechnicians,
+      //     numberOfCommercialVehicles: formData.numberOfCommercialVehicles,
+      //     reason: formData.reason,
+      //     selectedOption: formData.selectedOption,
+      //     selectedServices: formData.selectedServices,
+      //   }),
+      // });
 
       // Send admin notification
       const adminEmailResponse = await fetch("/api/sendEmail", {
@@ -97,8 +97,13 @@ const formatPhoneNumber = (phoneNumber: string): string => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          to: "info@prmntpro.com",
-          subject: "New Form Submission on PM Site",
+          to: "inquiries@prmntpro.com",
+          subject: `New ${
+            currentOption === "vendorSignUps" ? "Vendor Sign Up" :
+            currentOption === "workWithUs" ? "Work With Us" :
+            currentOption === "hiringJobs" ? "Career" :
+            ""
+          } Form Submission on PM Site`,
           content: `
             Email: ${formData.email}
             Phone: ${formattedPhone}
@@ -122,6 +127,7 @@ const formatPhoneNumber = (phoneNumber: string): string => {
             ` : ""}
           `,
           isClientEmail: false,
+          option: formData.selectedOption
         }),
       });
 
@@ -133,17 +139,26 @@ const formatPhoneNumber = (phoneNumber: string): string => {
         },
         body: JSON.stringify({
           to: formData.email,
+          name: formData.companyName,
+          company: formData.companyName,
+          email: formData.email,
+          phone: formattedPhone,
+          message: formData.reason,
           subject: "Thank you for your submission",
           content: `
 .`, // The content will be set in the route
           isClientEmail: true,
+          option: formData.selectedOption
         }),
       });
+      console.log("Logging the formData", formData)
 
       if (adminEmailResponse.ok && clientEmailResponse.ok) {
         // Reset formData to initial state
         setFormData(initialFormData); // Reset to initialFormData
       }
+
+      window.alert("Thank you for your submission. We will get back to you shortly.")
     } catch (error) {
       console.error("Failed to submit form:", error);
       alert("Something went wrong. Please try again.");
