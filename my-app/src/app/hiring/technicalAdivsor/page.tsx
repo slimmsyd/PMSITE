@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useCallback } from "react";
+import HiringSubmitButton from "../../components/HiringSubmitButton";
+import { useDropzone } from 'react-dropzone';
 
 export default function Hiring() {
     const [formData, setFormData] = useState({
@@ -8,31 +10,28 @@ export default function Hiring() {
         lastName: "",
         email: "",
         phoneNumber: "",
-        resume: null,
+        resume: null as File | null,
         linkedIn: "",
         about: ""
     });
 
-    const onsubmit = async (event: FormEvent) => {
-        event.preventDefault();
-
-
-        console.log("This was clicked")
-
-        const response = await fetch("https://your-endpoint-url.com/plachoedler", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
-
-        if (response.ok) {
-            console.log("Form submitted successfully!");
+    const onDrop = useCallback((acceptedFiles: File[]) => {
+        const file = acceptedFiles[0];
+        if (file && (file.type === "application/pdf" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
+            setFormData(prev => ({ ...prev, resume: file }));
         } else {
-            console.error("Error submitting form");
+            alert("Please upload a PDF or DOCX file");
         }
-    };
+    }, []);
+
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        onDrop,
+        accept: {
+            'application/pdf': ['.pdf'],
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx']
+        },
+        maxFiles: 1
+    });
 
     const handleChange = (event: any) => {
         const { name, value } = event.target;
@@ -40,6 +39,15 @@ export default function Hiring() {
             ...prevData,
             [name]: value,
         }));
+    };
+
+    const handleFileInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file && (file.type === "application/pdf" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
+            setFormData(prev => ({ ...prev, resume: file }));
+        } else {
+            alert("Please upload a PDF or DOCX file");
+        }
     };
 
     return (
@@ -127,7 +135,7 @@ export default function Hiring() {
                 <span>indications a required field</span>
             </div>
 
-            <form className="flex flex-col gap-8" onSubmit={onsubmit}>
+            <form className="flex flex-col gap-8">
                 <div className="max-w-[500px] p-[10px] flex flex-col gap-[10px] border border-gray-300 border-solid rounded-lg">
                     <span className="font-bold">First Name</span>
                     <input
@@ -162,9 +170,31 @@ export default function Hiring() {
                 </div>
                 <div className="max-w-[500px] p-[10px] flex flex-col gap-[10px] border border-gray-300 border-solid rounded-lg">
                     <span className="font-bold">Resume/CV</span>
-                    <div className="border-dashed border-2 border-gray-300 p-4 text-center">
-                        <p>Drag and drop your PDF or TXT file here</p>
-                        <button className="mt-2 bg-blue-500 text-white p-2 rounded">Upload</button>
+                    <div {...getRootProps()} className="border-dashed border-2 border-gray-300 p-4 text-center cursor-pointer hover:border-blue-500 transition-colors">
+                        <input {...getInputProps()} />
+                        {formData.resume ? (
+                            <div>
+                                <p>Selected file: {formData.resume.name}</p>
+                                <button 
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setFormData(prev => ({ ...prev, resume: null }));
+                                    }}
+                                    className="mt-2 text-red-500 hover:text-red-700"
+                                >
+                                    Remove file
+                                </button>
+                            </div>
+                        ) : (
+                            <div>
+                                <p>{isDragActive ? "Drop your file here" : "Drag and drop your PDF or DOCX file here"}</p>
+                                <p className="text-sm text-gray-500 mt-2">or</p>
+                                <button type="button" className="mt-2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                                    Browse Files
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="max-w-[500px] p-[10px] flex flex-col gap-[10px] border border-gray-300 border-solid rounded-lg">
@@ -183,9 +213,7 @@ export default function Hiring() {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit" className="global-btn max-w-[180px] !text-white !bg-[#3574d6]">
-                    Submit Application
-                </button>
+                <HiringSubmitButton formData={formData} jobTitle="Technical Advisor" />
             </form>
         </div>
     );

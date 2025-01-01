@@ -1,9 +1,11 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 export async function POST(request: Request) {
   try {
-    const { to, subject, content, isClientEmail, option , name, company, email, phone, message} = await request.json();
+    const { to, subject, content, isClientEmail, option, name, company, email, phone, message, resumePath } = await request.json();
     
     console.log("Received email request:", { to, subject, contentLength: content?.length, isClientEmail });
 
@@ -29,9 +31,6 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-
-    // .
-  
 
     // Configure email transporter (update with your email service details)
     const transporter = nodemailer.createTransport({
@@ -99,13 +98,32 @@ Preeminent Professional Services`;
         text: emailContent,
       });
     } else {
-      // Send notification email to admin
-      await transporter.sendMail({
+      // For admin notifications, check if there's a resume to attach
+      const emailOptions: any = {
         from: process.env.SMTP_FROM_EMAIL || '',
         to: to,
         subject: subject,
         text: content,
-      });
+      };
+
+      // If this is a job application and we have a resume path, attach it
+      if (option === 'careers' && resumePath) {
+        try {
+          const filePath = join(process.cwd(), 'public', resumePath);
+          const resumeFile = readFileSync(filePath);
+          const fileName = resumePath.split('/').pop() || 'resume';
+
+          emailOptions.attachments = [{
+            filename: fileName,
+            content: resumeFile
+          }];
+        } catch (error) {
+          console.error('Error attaching resume:', error);
+        }
+      }
+
+      // Send notification email to admin
+      await transporter.sendMail(emailOptions);
     }
 
     return NextResponse.json({ message: 'Email sent successfully' });

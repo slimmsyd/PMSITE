@@ -98,6 +98,11 @@ const formatPhoneNumber = (phoneNumber: string): string => {
         },
         body: JSON.stringify({
           to: "inquiries@prmntpro.com",
+          name: formData.companyName,
+          company: formData.companyName,
+          email: formData.email,
+          phone: formattedPhone,
+          message: formData.reason,
           subject: `New ${
             currentOption === "vendorSignUps" ? "Vendor Sign Up" :
             currentOption === "workWithUs" ? "Work With Us" :
