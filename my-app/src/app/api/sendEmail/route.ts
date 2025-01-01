@@ -1,11 +1,9 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 
 export async function POST(request: Request) {
   try {
-    const { to, subject, content, isClientEmail, option, name, company, email, phone, message, resumePath } = await request.json();
+    const { to, subject, content, isClientEmail, option, name, company, email, phone, message, resumeData } = await request.json();
     
     console.log("Received email request:", { to, subject, contentLength: content?.length, isClientEmail });
 
@@ -106,20 +104,13 @@ Preeminent Professional Services`;
         text: content,
       };
 
-      // If this is a job application and we have a resume path, attach it
-      if (option === 'careers' && resumePath) {
-        try {
-          const filePath = join(process.cwd(), 'public', resumePath);
-          const resumeFile = readFileSync(filePath);
-          const fileName = resumePath.split('/').pop() || 'resume';
-
-          emailOptions.attachments = [{
-            filename: fileName,
-            content: resumeFile
-          }];
-        } catch (error) {
-          console.error('Error attaching resume:', error);
-        }
+      // If this is a job application and we have resume data, attach it
+      if (option === 'careers' && resumeData) {
+        emailOptions.attachments = [{
+          filename: resumeData.fileName,
+          content: resumeData.fileData,
+          encoding: 'base64'
+        }];
       }
 
       // Send notification email to admin

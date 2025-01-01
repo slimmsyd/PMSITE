@@ -1,3 +1,5 @@
 {
+  "/api/uploadResume/route": "app/api/uploadResume/route.js",
+  "/api/sendEmail/route": "app/api/sendEmail/route.js",
   "/hiring/fieldAdvisor/page": "app/hiring/fieldAdvisor/page.js"
 }

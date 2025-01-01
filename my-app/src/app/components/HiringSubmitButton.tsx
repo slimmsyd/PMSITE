@@ -21,11 +21,6 @@ const HiringSubmitButton: React.FC<HiringSubmitButtonProps> = ({ formData, jobTi
         return;
       }
 
-      console.log("Resume file:", formData.resume);
-      console.log("Resume file type:", formData.resume.type);
-      console.log("Resume file name:", formData.resume.name);
-      console.log("Resume file size:", formData.resume.size);
-
       // Format phone number if needed
       const formatPhoneNumber = (phoneNumber: string): string => {
         const cleaned = phoneNumber.replace(/\D/g, "");
@@ -40,15 +35,10 @@ const HiringSubmitButton: React.FC<HiringSubmitButtonProps> = ({ formData, jobTi
 
       const formattedPhone = formatPhoneNumber(formData.phoneNumber);
 
-      // First, upload the resume file
+      // First, get base64 data for the resume
       const formDataToSend = new FormData();
       formDataToSend.append('resume', formData.resume, formData.resume.name);
       formDataToSend.append('jobTitle', jobTitle);
-
-      // Log the FormData contents
-      for (const [key, value] of formDataToSend.entries()) {
-        console.log(`FormData entry - ${key}:`, value);
-      }
 
       const fileUploadResponse = await fetch("/api/uploadResume", {
         method: "POST",
@@ -58,13 +48,12 @@ const HiringSubmitButton: React.FC<HiringSubmitButtonProps> = ({ formData, jobTi
       if (!fileUploadResponse.ok) {
         const errorText = await fileUploadResponse.text();
         console.error("File upload failed:", errorText);
-        throw new Error(`Failed to upload resume: ${errorText}`);
+        throw new Error(`Failed to process resume: ${errorText}`);
       }
 
-      const resumePath = await fileUploadResponse.text();
-      console.log("Resume path:", resumePath);
+      const fileData = await fileUploadResponse.json();
 
-      // Then send the application data with the resume URL
+      // Then send the application data with the resume data
       const adminEmailResponse = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
@@ -84,11 +73,15 @@ Email: ${formData.email}
 Phone: ${formattedPhone}
 LinkedIn: ${formData.linkedIn}
 About: ${formData.about}
-Resume: ${resumePath}
           `,
           isClientEmail: false,
           option: "careers",
-          resumePath: resumePath
+          resumeData: {
+            fileName: fileData.fileName,
+            fileType: fileData.fileType,
+            fileSize: fileData.fileSize,
+            fileData: fileData.fileData
+          }
         }),
       });
 
