@@ -1656,6 +1656,10 @@ textarea{
     padding-bottom: 6rem;
   }
 
+  .md\:text-\[40px\] {
+    font-size: 40px;
+  }
+
   .md\:text-\[inherit\] {
     color: inherit;
   }

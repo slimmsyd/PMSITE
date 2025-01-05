@@ -209,7 +209,7 @@ export default function Home() {
           </video>
           <div className="overlay"></div> {/* Added overlay div */}
           <div className="px-4 md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
-            <h1 className="!text-left !text-white font-bold text-[30px] md:text-[inherit]">
+            <h1 className="!text-left !text-white font-bold text-[30px] md:text-[40px]">
               Serving our clients Infrastructure Development and Asset
               Management needs.
             </h1>
