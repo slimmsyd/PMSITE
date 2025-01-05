@@ -11,15 +11,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/eventAndStaffing/page": [
+    "/environmentServices/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/eventAndStaffing/page.js"
+      "static/chunks/app/environmentServices/page.js"
     ],
     "/hiring/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/hiring/page.js"
+    ],
+    "/hiring/fieldAdvisor/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hiring/fieldAdvisor/page.js"
     ]
   }
 }

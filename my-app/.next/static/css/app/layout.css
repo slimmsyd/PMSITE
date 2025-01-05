@@ -1171,6 +1171,9 @@ video {
 .text-\[20px\] {
   font-size: 20px;
 }
+.text-\[30px\] {
+  font-size: 30px;
+}
 .text-\[33px\] {
   font-size: 33px;
 }
@@ -1185,9 +1188,6 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-.text-\[30px\] {
-  font-size: 30px;
 }
 .font-bold {
   font-weight: 700;
@@ -1658,10 +1658,6 @@ textarea{
 
   .md\:text-\[40px\] {
     font-size: 40px;
-  }
-
-  .md\:text-\[inherit\] {
-    color: inherit;
   }
 }
 

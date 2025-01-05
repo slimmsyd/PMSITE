@@ -11,8 +11,8 @@ import { getRandomServiceLink } from "../../utils/randomServiceLink"; // Import 
 export default function TechincalServices() {
   const bgImage = 'assets/Engine.png"';
 
-  const spanText = " Environmental Services";
-  const headerText = " Environmental Services";
+  const spanText = "";
+  const headerText = "Commericial Cleaning/Enviromental Services.";
   const currentPage = "/enviromentServices"; // Set this to the current page's path dynamically
 
 

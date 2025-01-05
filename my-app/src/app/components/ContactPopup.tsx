@@ -21,12 +21,16 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     numberOfTechnicians: "",
     numberOfCommercialVehicles: "",
     reason: "",
-    selectedOption: "", // Track the selected option
-    selectedServices: [] as string[], // Add selectedServices here
+    selectedOption: "workWithUs", // Set default option
+    selectedServices: [] as string[],
     regionsServed: ""
   };
-
   const [formData, setFormData] = useState(initialFormData); // Use initialFormData
+
+  useEffect(() => {
+    setFormData(initialFormData);
+  }, [isOpen]);
+
 
 
 const formatPhoneNumber = (phoneNumber: string): string => {
@@ -438,7 +442,7 @@ const formatPhoneNumber = (phoneNumber: string): string => {
             )}
 
             <div className="mb-2 flex flex-col gap-2">
-              {["vendorSignUps", "hiringJobs", "workWithUs"].map((option) => (
+              {["workWithUs", "vendorSignUps", "hiringJobs"].map((option) => (
                 <div
                   key={option}
                   onClick={() => handleOptionClick(option)}

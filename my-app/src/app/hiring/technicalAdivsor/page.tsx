@@ -12,7 +12,8 @@ export default function Hiring() {
         phoneNumber: "",
         resume: null as File | null,
         linkedIn: "",
-        about: ""
+        about: "",
+        hasVehicle: ""
     });
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -212,6 +213,20 @@ export default function Hiring() {
                         className="hover:outline-none"
                         onChange={handleChange}
                     />
+                </div>
+
+                <div className="max-w-[500px] p-[10px] flex flex-col gap-[10px] border border-gray-300 border-solid rounded-lg">
+                    <span className="font-bold">Do you own your own personal vehicle?</span>
+                    <select
+                        name="hasVehicle"
+                        className="hover:outline-none p-2"
+                        onChange={handleChange}
+                        value={formData.hasVehicle}
+                    >
+                        <option value="">Select an option</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
                 </div>
                 <HiringSubmitButton formData={formData} jobTitle="Technical Advisor" />
             </form>
