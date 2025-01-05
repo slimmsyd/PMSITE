@@ -21,33 +21,28 @@ function ImageSlider() {
       name: "Professional/Technical Services",
       description:
         "Property Management Companies, Real Estate Developers, Industrial and/or commercial properties, Hot-Spot Discovery and evaluation",
-        link: "/technicalServices"
-
+      link: "/technicalServices",
     },
     {
       src: "/assets/Janitor.png",
-      name: "Environmental Services",
-      description:
-        "Environmental Sustainability or Risk Assessment Services.",
-        link: "/environmentServices"
-
+      name: "Commericial Cleaning/Enviromental Services.",
+      description: "Commericial Cleaning/Enviromental Services.",
+      link: "/environmentServices",
     },
-    
+
     {
       src: "/assets/Staffing.png",
       name: "Professional Events and Staffing",
       description:
         "Preeminet Professional Services is proud to provide staffing services for its clientel. We provide temporary staffing for events either commerical private/public with a minimum of notice.",
-        link: "/eventAndStaffing"
-
+      link: "/eventAndStaffing",
     },
     {
       src: "/assets/energy.png",
       name: "EV Services",
       description:
         " We provide turn-key services for the Electification of your commerical fleet or individual/company vechicle(s). These services include (but not limited to)..",
-        link: "/evServices"
-
+      link: "/evServices",
     },
   ];
 
@@ -86,13 +81,13 @@ function ImageSlider() {
       >
         {services.map((service, index) => (
           <Link
-          href = {service.link}
+            href={service.link}
             key={index}
             className={`${
               isMobile ? "w-full" : "w-auto"
             } h-[500px] relative flex-shrink-0 group`}
           >
-            <div className = "overlay"></div>
+            <div className="overlay"></div>
             <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-10 absolute bg-black/50 top-0 left-0 w-full h-full items-center justify-center flex">
               <span className="text-[20px] font-bold text-white relative z-30">
                 {service.description}{" "}
@@ -108,7 +103,9 @@ function ImageSlider() {
             />
 
             <div className="flex p-[10px] items-end justify-end absolute bottom-0 text-white">
-              <p className="mt-2 text-center font-semibold relative z-20">{service.name}</p>
+              <p className="mt-2 text-center font-semibold relative z-20">
+                {service.name}
+              </p>
             </div>
           </Link>
         ))}
@@ -128,8 +125,6 @@ function ImageSlider() {
     </div>
   );
 }
-
-
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -193,11 +188,6 @@ export default function Home() {
       observer.disconnect(); // Cleanup observer on unmount
     };
   }, []);
-
-  
-
-
-
 
   return (
     <div className="">
@@ -277,15 +267,13 @@ export default function Home() {
               </section> */}
 
         <section id="about" className="top-section bg-white">
-
-                    <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
-
-        <div className="flex flex-col gap-2">
+          <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
+            <div className="flex flex-col gap-2">
               <span className="text-black"> About us</span>
               <div className="flex flex-col md:flex-row gap-[25px] md:gap-0">
                 <h1 className="text-black w-full md:w-[70%]">
                   Transform your environment with us, enhancing assets,
-                  improving strategies...
+                  <b>& improving strategies...</b>
                 </h1>
                 <button
                   onClick={() => {
@@ -298,7 +286,7 @@ export default function Home() {
               </div>
 
               <p className="text-black">
-                Our team, provides professional-grade environmental, facilities
+                Our team, provides professional-grade environmental & facilities
                 maintenance & management services. Our services are structured
                 to take into account the health and well-being of the client's
                 total physical environment, and how the maintenance of that
@@ -307,9 +295,7 @@ export default function Home() {
               </p>
             </div>
 
-
-          <ImageSlider />
-          
+            <ImageSlider />
           </div>
           {/* <div className="main-container py-[80px] px-[20px] max-w-[1050px] m-auto">
             <div className="flex flex-col gap-2">
@@ -476,7 +462,7 @@ export default function Home() {
           id="careers"
           className="employment relative h-[50vh] flex items-center justify-center "
         >
-          <div className="overlay"></div> 
+          <div className="overlay"></div>
           <div className="flex flex-col items-center justify-center relative z-10 !text-white">
             <span>Now Hiring</span>
             <h1 className="text-center">Seeking employment considerations? </h1>
@@ -643,10 +629,7 @@ export default function Home() {
                       <div className="flex flex-row items-start  justify-center gap-[3px] relative">
                         <span className="text-black font-bold !text-[89px] flex items-center justify-center">
                           {count}
-                          <span className = "text-sm">
-                            +
-                          </span>
-                          {" "}
+                          <span className="text-sm">+</span>{" "}
                         </span>
                         <span
                           className="text-gray-300 text-[14px] transform relative text-lg font-bold"

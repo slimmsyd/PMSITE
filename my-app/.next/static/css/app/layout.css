@@ -717,9 +717,6 @@ video {
 .inline-flex {
   display: inline-flex;
 }
-.contents {
-  display: contents;
-}
 .hidden {
   display: none;
 }

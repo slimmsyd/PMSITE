@@ -1,25 +1,20 @@
 {
   "pages": {
-    "/api/sendEmail/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/sendEmail/route.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/hiring/fieldAdvisor/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/hiring/fieldAdvisor/page.js"
+      "static/chunks/app/page.js"
     ],
-    "/api/uploadResume/route": [
+    "/eventAndStaffing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/api/uploadResume/route.js"
+      "static/chunks/app/eventAndStaffing/page.js"
     ]
   }
 }

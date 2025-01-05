@@ -57,7 +57,7 @@ const Services: React.FC<Servce> = ({
           {isStaffing && (
             <>
               <p>
-                Our staffing personanel are vetted & background-checked prior to
+                Our staffing personnel are vetted & background-checked prior to
                 assignment
               </p>
               <p>
