@@ -208,7 +208,7 @@ export default function Home() {
             Your browser does not support the video tag.
           </video>
           <div className="overlay"></div> {/* Added overlay div */}
-          <div className="px-4 md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
+          <div className="px-[20px] md:px-28 flex flex-col gap-[30px] items-stast justify-start text-left relative z-10 mr-auto max-w-[1080px]">
             <h1 className="!text-left !text-white font-bold text-[30px] md:text-[40px]">
               Serving our clients Infrastructure Development and Asset
               Management needs.
