@@ -1186,6 +1186,9 @@ video {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+.text-\[30px\] {
+  font-size: 30px;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1651,6 +1654,10 @@ textarea{
   .md\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
+  }
+
+  .md\:text-\[inherit\] {
+    color: inherit;
   }
 }
 
