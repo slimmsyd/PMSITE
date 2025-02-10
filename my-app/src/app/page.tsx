@@ -675,6 +675,66 @@ export default function Home() {
           </div>
         </section>
 
+        {/* New Strategic Partners section */}
+        <section className="bg-white py-16">
+          <div className="max-w-[1050px] mx-auto px-[20px]">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold text-black mb-2">Strategic Partners</h2>
+              <p className="text-gray-600">Working together to deliver excellence</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="w-full max-w-[200px] hover:scale-105 transition-transform duration-300"
+              >
+                <Image
+                  src="/assets/cert.png"
+                  alt="Certification Partner"
+                  width={200}
+                  height={100}
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="w-full max-w-[200px] hover:scale-105 transition-transform duration-300"
+              >
+                <Image
+                  src="/assets/ready.png"
+                  alt="Ready Partner"
+                  width={200}
+                  height={100}
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="w-full max-w-[200px] hover:scale-105 transition-transform duration-300"
+              >
+                <Image
+                  src="/assets/oxi.jpg"
+                  alt="Oxi Partner"
+                  width={200}
+                  height={100}
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         <Footer scrollToSection={scrollToSection} />
       </main>
     </div>
