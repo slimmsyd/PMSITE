@@ -215,11 +215,7 @@ export default function Home() {
             </h1>
             <p className="font-medium !text-white">
               {" "}
-              We strive to bring an eons old industry into the 21st century
-              through process, technology, & impact. We provide a unique
-              approach to facilities maintenance* managment, utilzing process
-              engineering skills to develop non-traditional services models with
-              technological advancments.
+            Preeminent Professional Services is a certified NMSDC MBE firm providing professional environmental facilities maintenance and management services. Our services are structured to take into account the health and wellbeing of the client's total physical environment and how the maintenance of that environment impacts those who work within it. We provide environmental/commercial cleaning services, professional/technical services, professional event & security staffing services, renewable energy, and EV services. Our services can enhance the client's building management strategies and even the impact on the overall value of the asset. We strive to  bring an eons old industry into the 21st century through process, technology, & impact.  
             </p>
             <button
               className="global-btn max-w-[180px]"
@@ -286,12 +282,7 @@ export default function Home() {
               </div>
 
               <p className="text-black">
-                Our team, provides professional-grade environmental & facilities
-                maintenance & management services. Our services are structured
-                to take into account the health and well-being of the client's
-                total physical environment, and how the maintenance of that
-                environment impacts those who work within it. We value clear cut
-                analysis of the process from start to completion.
+              Preeminent Professional Services is a certified NMSDC MBE firm providing professional environmental facilities maintenance and management services. Our services are structured to take into account the health and wellbeing of the client's total physical environment and how the maintenance of that environment impacts those who work within it. We provide environmental/commercial cleaning services, professional/technical services, professional event & security staffing services, renewable energy, and EV services. Our services can enhance the client's building management strategies and even the impact on the overall value of the asset. We strive to  bring an eons old industry into the 21st century through process, technology, & impact.  
               </p>
             </div>
 
