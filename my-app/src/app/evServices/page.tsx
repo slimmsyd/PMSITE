@@ -155,6 +155,10 @@ export default function TechincalServices()
                 <CheckBox />
                 Maintenance
               </div>
+              <div className="flex flex-row items-center justify-start gap-3 text-black text-[16px]">
+                <CheckBox />
+                Renewable Energy Services
+              </div>
             </div>
 
             <div className="flex justify-start flex-row gap-4">

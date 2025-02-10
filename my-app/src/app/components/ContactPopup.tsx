@@ -33,6 +33,8 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
 
 
 
+  
+
 const formatPhoneNumber = (phoneNumber: string): string => {
   // Remove all non-numeric characters
   const cleaned = phoneNumber.replace(/\D/g, "");
