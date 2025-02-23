@@ -675,6 +675,25 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="bg-white py-4 flex items-center justify-center">
+        <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="w-full max-w-[200px] hover:scale-105 transition-transform duration-300"
+              >
+                <Image
+                  src="/assets/cert.png"
+                  alt="Certification Partner"
+                  width={200}
+                  height={100}
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
+
+        </section>
+
         {/* New Strategic Partners section */}
         <section className="bg-white py-16">
           <div className="max-w-[1050px] mx-auto px-[20px]">

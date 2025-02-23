@@ -693,6 +693,9 @@ video {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -722,9 +725,6 @@ video {
 }
 .mt-\[5px\] {
   margin-top: 5px;
-}
-.mb-3 {
-  margin-bottom: 0.75rem;
 }
 .flex {
   display: flex;
