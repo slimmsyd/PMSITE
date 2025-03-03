@@ -1,8 +1,8 @@
 "use client";
-import { option } from "framer-motion/client";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
-import React, { use, useEffect, useState } from "react";
 interface ContactPopupProps {
   isOpen: boolean;
   togglePopup: () => void;
@@ -23,35 +23,34 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     reason: "",
     selectedOption: "workWithUs", // Set default option
     selectedServices: [] as string[],
-    regionsServed: ""
+    regionsServed: "",
+    title: ""
   };
-  const [formData, setFormData] = useState(initialFormData); // Use initialFormData
+  const [formData, setFormData] = useState(initialFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
     setFormData(initialFormData);
+    setSubmitSuccess(false);
   }, [isOpen]);
 
+  const formatPhoneNumber = (phoneNumber: string): string => {
+    // Remove all non-numeric characters
+    const cleaned = phoneNumber.replace(/\D/g, "");
 
+    // Check if it's a US number without country code
+    if (cleaned.length === 10) {
+      return `+1${cleaned}`;
+    }
 
-  
+    // If it already has country code
+    if (cleaned.length === 11 && cleaned.startsWith("1")) {
+      return `+${cleaned}`;
+    }
 
-const formatPhoneNumber = (phoneNumber: string): string => {
-  // Remove all non-numeric characters
-  const cleaned = phoneNumber.replace(/\D/g, "");
-
-  // Check if it's a US number without country code
-  if (cleaned.length === 10) {
-    return `+1${cleaned}`;
-  }
-
-  // If it already has country code
-  if (cleaned.length === 11 && cleaned.startsWith("1")) {
-    return `+${cleaned}`;
-  }
-
-  return cleaned;
-};
-
+    return cleaned;
+  };
 
   const isValidPhoneNumber = (phoneNumber: string): boolean => {
     // Basic phone validation regex
@@ -62,40 +61,12 @@ const formatPhoneNumber = (phoneNumber: string): string => {
   // Submission Form
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Sending email to:", formData.email);
-
+    setIsSubmitting(true);
+    
     // Format the phone number
     const formattedPhone = formatPhoneNumber(formData.phoneNumber);
 
-    // // Validate phone number
-    // if (!isValidPhoneNumber(formattedPhone)) {
-    //   alert("Please enter a valid US phone number (10 digits)");
-    //   return;
-    // }
-
     try {
-      // Send form submission
-      // const response = await fetch("/api/sendMessage", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     email: formData.email,
-      //     phone: formattedPhone,
-      //     industry: formData.industry,
-      //     address: formData.address,
-      //     companyName: formData.companyName,
-      //     location: formData.location,
-      //     yearsInBusiness: formData.yearsInBusiness,
-      //     numberOfTechnicians: formData.numberOfTechnicians,
-      //     numberOfCommercialVehicles: formData.numberOfCommercialVehicles,
-      //     reason: formData.reason,
-      //     selectedOption: formData.selectedOption,
-      //     selectedServices: formData.selectedServices,
-      //   }),
-      // });
-
       // Send admin notification
       const adminEmailResponse = await fetch("/api/sendEmail", {
         method: "POST",
@@ -162,320 +133,468 @@ const formatPhoneNumber = (phoneNumber: string): string => {
           option: formData.selectedOption
         }),
       });
-      console.log("Logging the formData", formData)
 
       if (adminEmailResponse.ok && clientEmailResponse.ok) {
         // Reset formData to initial state
-        setFormData(initialFormData); // Reset to initialFormData
+        setFormData(initialFormData);
+        setSubmitSuccess(true);
       }
-
-      window.alert("Thank you for your submission. We will get back to you shortly.")
+      
+      setIsSubmitting(false);
     } catch (error) {
       console.error("Failed to submit form:", error);
-      alert("Something went wrong. Please try again.");
+      setIsSubmitting(false);
     }
   };
-
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type } = event.target as
-      | HTMLInputElement
-        | HTMLTextAreaElement;
-    const checked =
-      type === "checkbox"
-        ? (event.target as HTMLInputElement).checked
-        : undefined;
+    const { name, value, type } = event.target as HTMLInputElement | HTMLTextAreaElement;
+    const checked = type === "checkbox" ? (event.target as HTMLInputElement).checked : undefined;
+    
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-
-  const [currentOption, setCurrentOption] = useState<string>("")
+  const [currentOption, setCurrentOption] = useState<string>("workWithUs");
+  
   const handleOptionClick = (option: string) => {
-    console.log("Logging optoin on click", option)
     if (option === "hiringJobs") {
-      setCurrentOption(option)
+      setCurrentOption(option);
       // Redirect to /hiring when "Hiring/Jobs" is clicked
-      window.location.href = "/hiring"; // Use window.location to navigate
+      window.location.href = "/hiring";
     } else {
       setFormData((prevData) => ({
         ...prevData,
-        selectedOption: option, // Set the selecte option
+        selectedOption: option,
       }));
-      setCurrentOption(option)
-
+      setCurrentOption(option);
     }
   };
 
-  useEffect(() => { 
-
-    console.log("Logging the current Option", currentOption)
-
-  },[currentOption])
   const handleServiceClick = (service: string) => {
     setFormData((prevData) => ({
       ...prevData,
       selectedServices: prevData.selectedServices.includes(service)
-        ? prevData.selectedServices.filter((s) => s !== service) // Remove service if already selected
-        : [...prevData.selectedServices, service], // Add service if not selected
+        ? prevData.selectedServices.filter((s) => s !== service)
+        : [...prevData.selectedServices, service],
     }));
   };
 
+  // Available services
+  const services = [
+    { id: "proTech", name: "Pro + Technical Services", icon: "💼" },
+    { id: "environmental", name: "Environmental Services", icon: "🌱" },
+    { id: "staffing", name: "Prof Events & Staffing", icon: "👥" },
+    { id: "ev", name: "EV Services", icon: "⚡" }
+  ];
+
+  // Form options
+  const formOptions = [
+    { id: "workWithUs", name: "Work with us", icon: "🤝" },
+    { id: "vendorSignUps", name: "Vendor sign ups", icon: "📋" },
+    { id: "hiringJobs", name: "Careers", icon: "💼" }
+  ];
+
+  // Input field styling - More compact but still premium
+  const inputClasses = `
+    w-full mb-3 p-3 
+    bg-white/5 backdrop-blur-xl 
+    border border-white/10 
+    rounded-xl
+    focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 
+    focus:outline-none 
+    transition-all duration-300 
+    text-[#1d1d1f] text-sm
+    placeholder:text-gray-400
+    shadow-[0_2px_4px_rgba(0,0,0,0.02)]
+    hover:bg-white/10
+  `;
+
+  // Success animation variants
+  const successVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] }
+    }
+  };
 
   return (
-    <div>
+    <AnimatePresence>
       {isOpen && (
-        <div className="fixed bottom-0 w-[488px] right-0 m-4 p-4 bg-white shadow-lg rounded-lg z-50 text-black max-w-[350px] md:bottom-0 bottom-[-33px] overflow-y-auto max-h-screen">
-          <div className="mt-4 mb-4">
-            <div className="flex items-center w-[55px]">
-              <Link href="/">
-                <img src="assets/Logo.png" />
-              </Link>
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 40, scale: 0.95 }}
+          transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+          className="fixed bottom-0 right-0 m-4 z-50 w-full max-w-[400px]"
+        >
+          <div className="
+            relative
+            bg-gradient-to-br from-white/10 to-white/5
+            backdrop-blur-2xl
+            rounded-2xl
+            shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)]
+            overflow-hidden
+            border border-white/20
+            before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-500/10 before:to-purple-500/10 before:opacity-30
+          ">
+            {/* Header - More compact */}
+            <div className="relative bg-gradient-to-br from-blue-600/90 to-blue-800/90 backdrop-blur-xl p-5 text-white overflow-hidden">
+              {/* Animated background elements */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute w-[300px] h-[300px] -top-[150px] -right-[150px] bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute w-[200px] h-[200px] -bottom-[100px] -left-[100px] bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+              </div>
+
+              <button 
+                onClick={togglePopup}
+                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-md group"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:rotate-90 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+              
+              <div className="relative flex items-center mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                  <img src="/assets/Logo.png" alt="Logo" className="w-7 h-7 object-contain" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">Get in touch</h2>
+                  <p className="text-blue-100/80 text-xs">We'd love to hear from you</p>
+                </div>
+              </div>
+              
+              {/* Form Options - More compact grid */}
+              <div className="grid grid-cols-3 gap-2 mt-3">
+                {formOptions.map((option) => (
+                  <motion.button
+                    key={option.id}
+                    whileHover={{ scale: 1.02, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => handleOptionClick(option.id)}
+                    className={`
+                      py-2 px-3 rounded-lg text-xs font-medium 
+                      transition-all duration-300 
+                      flex items-center justify-center gap-1.5
+                      backdrop-blur-xl
+                      ${formData.selectedOption === option.id
+                        ? "bg-white text-blue-700 shadow-lg shadow-blue-500/20"
+                        : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
+                      }
+                    `}
+                  >
+                    <span className="text-sm">{option.icon}</span>
+                    <span>{option.name}</span>
+                  </motion.button>
+                ))}
+              </div>
             </div>
-            <h2 className="text-lg font-bold">Get in contact</h2>
-            <p>Work With Us Form</p>
+            
+            {/* Form Body - More compact with better scroll area */}
+            <div className="p-5 max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+              {submitSuccess ? (
+                <motion.div 
+                  variants={successVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="flex flex-col items-center justify-center py-8 text-center"
+                >
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-green-500/5 backdrop-blur-xl rounded-xl flex items-center justify-center mb-4 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent rounded-xl animate-pulse"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Thank you!</h3>
+                  <p className="text-gray-500 text-sm mb-6">Your submission has been received. We'll be in touch soon.</p>
+                  <motion.button
+                    whileHover={{ scale: 1.03, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={togglePopup}
+                    className="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg text-sm font-medium shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300"
+                  >
+                    Close
+                  </motion.button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {formData.selectedOption === "workWithUs" ? (
+                    <>
+                      <div className="space-y-3">
+                        {/* Two-column layout for shorter inputs */}
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="relative">
+                            <input
+                              type="text"
+                              name="companyName"
+                              placeholder="Company Name"
+                              className={inputClasses}
+                              onChange={handleChange}
+                              required
+                            />
+                          </div>
+                          <div className="relative">
+                            <input
+                              type="text"
+                              name="title"
+                              placeholder="Your Name & Title"
+                              className={inputClasses}
+                              onChange={handleChange}
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="relative">
+                            <input
+                              type="email"
+                              name="email"
+                              placeholder="Company Email"
+                              className={inputClasses}
+                              onChange={handleChange}
+                              required
+                            />
+                          </div>
+                          <div className="relative">
+                            <input
+                              type="tel"
+                              name="phoneNumber"
+                              placeholder="Contact Number"
+                              className={inputClasses}
+                              onChange={handleChange}
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div className="relative">
+                          <input
+                            type="text"
+                            name="address"
+                            placeholder="Business Address"
+                            className={inputClasses}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="relative">
+                            <input
+                              type="text"
+                              name="industry"
+                              placeholder="Industry"
+                              className={inputClasses}
+                              onChange={handleChange}
+                              required
+                            />
+                          </div>
+                          <div className="relative">
+                            <input
+                              type="text"
+                              name="yearsInBusiness"
+                              placeholder="Years in Business"
+                              className={inputClasses}
+                              onChange={handleChange}
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div className="relative">
+                          <textarea
+                            name="reason"
+                            placeholder="Additional Information & Reason For Contact"
+                            className={`${inputClasses} min-h-[80px] resize-none`}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <h3 className="text-[#1d1d1f] text-sm font-medium px-1">Services Requested</h3>
+                        <div className="grid grid-cols-2 gap-2">
+                          {services.map((service) => (
+                            <motion.div
+                              key={service.id}
+                              whileHover={{ scale: 1.02, y: -1 }}
+                              whileTap={{ scale: 0.98 }}
+                              onClick={() => handleServiceClick(service.name)}
+                              className={`
+                                p-3 rounded-lg cursor-pointer 
+                                transition-all duration-300 
+                                flex items-center gap-2
+                                backdrop-blur-xl text-sm
+                                ${formData.selectedServices.includes(service.name)
+                                  ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
+                                  : "bg-white/5 text-[#1d1d1f] hover:bg-white/10 border border-white/10"
+                                }
+                              `}
+                            >
+                              <span className="text-base">{service.icon}</span>
+                              <span className="text-xs font-medium">{service.name}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="space-y-4">
+                        <input
+                          type="text"
+                          name="companyName"
+                          placeholder="Company Name"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="title"
+                          placeholder="Your Name & Title"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="Company Email Address"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="address"
+                          placeholder="Business Address"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          type="tel"
+                          name="phoneNumber"
+                          placeholder="Contact Number"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="industry"
+                          placeholder="Industry of Operation"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="yearsInBusiness"
+                          placeholder="Number of Years In Business"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="numberOfCommercialVehicles"
+                          placeholder="Number of Commercial Vehicles"
+                          className={inputClasses}
+                          onChange={handleChange}
+                          required
+                        />
+
+                        {formData.selectedOption === "vendorSignUps" && (
+                          <>
+                            <input
+                              type="text"
+                              name="regionsServed"
+                              placeholder="Regions You Serve"
+                              className={inputClasses}
+                              onChange={handleChange}
+                            />
+                            <input
+                              type="text"
+                              name="numberOfTechnicians"
+                              placeholder="Number of Technicians"
+                              className={inputClasses}
+                              onChange={handleChange}
+                            />
+                          </>
+                        )}
+                        
+                        <textarea
+                          name="reason"
+                          placeholder="Additional Information & Reason For Contact"
+                          className={`${inputClasses} min-h-[120px] resize-none`}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  <div className="pt-4">
+                    <motion.button
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`
+                        w-full py-3 px-4
+                        bg-gradient-to-r from-blue-600 to-blue-700
+                        hover:from-blue-500 hover:to-blue-600
+                        text-white text-sm font-medium rounded-lg
+                        shadow-lg shadow-blue-500/20
+                        hover:shadow-xl hover:shadow-blue-500/30
+                        transition-all duration-300
+                        flex items-center justify-center
+                        backdrop-blur-xl
+                        disabled:opacity-70 disabled:cursor-not-allowed
+                      `}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Processing...
+                        </>
+                      ) : (
+                        <>
+                          Submit
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </>
+                      )}
+                    </motion.button>
+                  </div>
+                </form>
+              )}
+            </div>
+            
+            {/* Footer - More compact */}
+            <div className="px-5 py-3 bg-gradient-to-br from-gray-50/5 to-gray-50/2 backdrop-blur-xl border-t border-white/10">
+              <p className="text-[10px] text-gray-400 text-center">
+                By submitting this form, you agree to our <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors duration-200">Privacy Policy</a> and <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors duration-200">Terms of Service</a>.
+              </p>
+            </div>
           </div>
-          <form onSubmit={handleSubmit}>
-            {/* Option Selection as Divs */}
-
-            {/* Form Fields */}
-            {formData.selectedOption === "workWithUs" ? (
-              <>
-                <input
-                  type="text"
-                  name="companyName"
-                  placeholder="Company Name"
-                  className="w-full form-input mb-2 p-2 border"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="title"
-                  placeholder="Your Name & Title"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Company email Address"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Business Address (not mailing)"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="Location"
-                  placeholder="Do you have more than one location"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                />
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  placeholder="Contact Number"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-             
-                <input
-                  type="text"
-                  name="industry"
-                  placeholder="Industry You Are In"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="Years"
-                  placeholder="Numbers of Years In Business"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-
-                <textarea
-                  name="reason"
-                  placeholder="Additional Information & Reason For Contact"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                />
-
-<div className="my-2 flex flex-col gap-2">
-              <label className="text-black text-[14px]">Services to be requested (Select all that apply)</label>
-              {["Pro + Technical Services", "Enviromental Services", "Prof Events & Staffing", "EV Services"].map((service) => (
-                <div
-                  key={service}
-                  onClick={() => handleServiceClick(service)}
-                  className={`p-2 border rounded-lg cursor-pointer ${
-                    formData.selectedServices.includes(service)
-                      ? "bg-black text-white"
-                      : "border border-light-gray"
-                  }`}
-                >
-                  {service}
-                </div>
-              ))}
-            </div>
-            
-              <div className="w-full h-[0.5px] my-4 bg-gray-300"></div>
-
-              </>
-
-            ) : (
-              <>
-                <input
-                  type="text"
-                  name="companyName"
-                  placeholder="Company Name"
-                  className="w-full form-input mb-2 p-2 border"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="title"
-                  placeholder="Your Name & Title"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Company email Address"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Business Address (not mailing)"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="Contact Number"
-                  placeholder="Contact Number"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-            
-                <input
-                  type="text"
-                  name="industry"
-                  placeholder="Industry of Operation"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="Years"
-                  placeholder="Numbers of Years In Business?"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-
-                <input
-                  type="text"
-                  name="Vehcies"
-                  placeholder="Numbers of Commercial Vehicles?"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                  required
-                />
-
-                {formData.selectedOption === "vendorSignUps" && (
-                  <>
-                    <input
-                      type="text"
-                      name="regionsServed"
-                      placeholder="Regions You Serve"
-                      className="w-full mb-2 p-2 border form-input"
-                      onChange={handleChange}
-                    />
-                    <input
-                      type="text"
-                      name="yearsInBusiness"
-                      placeholder="Number of Years in Business"
-                      className="w-full mb-2 p-2 border form-input"
-                      onChange={handleChange}
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="numberOfTechnicians"
-                      placeholder="Number of Technicians"
-                      className="w-full mb-2 p-2 border form-input"
-                      onChange={handleChange}
-                    />
-                  </>
-                )}
-                <textarea
-                  name="reason"
-                  placeholder="Additional Information & Reason For Contact"
-                  className="w-full mb-2 p-2 border form-input"
-                  onChange={handleChange}
-                />
-              </>
-            )}
-
-            <div className="mb-2 flex flex-col gap-2">
-              {["workWithUs", "vendorSignUps", "hiringJobs"].map((option) => (
-                <div
-                  key={option}
-                  onClick={() => handleOptionClick(option)}
-                  className={`p-2 border rounded-lg cursor-pointer ${
-                    formData.selectedOption === option
-                      ? "bg-black text-white"
-                      : "border border-light-gray"
-                  }`}
-                >
-                  {option === "vendorSignUps" && "Vendor sign ups"}
-                  {option === "hiringJobs" && "Hiring/Jobs"}
-                  {option === "workWithUs" && "Work with us?"}
-                </div>
-              ))}
-            </div>
-
-     
-            <button type="submit" className="bg-black text-white p-2 rounded">
-              Submit
-            </button>
-            <button
-              type="button"
-              onClick={togglePopup}
-              className="ml-2 p-2 border"
-            >
-              Close
-            </button>
-          </form>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 };
 

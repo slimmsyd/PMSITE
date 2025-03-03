@@ -676,11 +676,11 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start"
                 >
-                  <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                  {/* <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     <span className="text-sm text-white">Remote Positions</span>
                   </div>
-                  
+                   */}
                   <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
                     <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                     <span className="text-sm text-white">Full-Time Roles</span>
