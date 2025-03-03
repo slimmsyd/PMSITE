@@ -758,6 +758,9 @@ video {
 .-top-\[150px\] {
   top: -150px;
 }
+.-bottom-\[200px\] {
+  bottom: -200px;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1072,6 +1075,9 @@ video {
 .h-\[200px\] {
   height: 200px;
 }
+.h-\[90vh\] {
+  height: 90vh;
+}
 .max-h-screen {
   max-height: 100vh;
 }
@@ -1254,6 +1260,9 @@ video {
 }
 .max-w-\[400px\] {
   max-width: 400px;
+}
+.max-w-4xl {
+  max-width: 56rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1463,6 +1472,16 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
   overflow: hidden;
@@ -1870,6 +1889,16 @@ video {
   --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-black\/50 {
+  --tw-gradient-from: rgb(0 0 0 / 0.5) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-blue-900\/30 {
+  --tw-gradient-from: rgb(30 58 138 / 0.3) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(30 58 138 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .via-\[\#001a5c\] {
   --tw-gradient-to: rgb(0 26 92 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #001a5c var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1881,6 +1910,10 @@ video {
 .via-black\/60 {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(0 0 0 / 0.6) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-black\/40 {
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(0 0 0 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 .to-blue-100 {
   --tw-gradient-to: #dbeafe var(--tw-gradient-to-position);
@@ -1950,6 +1983,9 @@ video {
 }
 .to-purple-500\/5 {
   --tw-gradient-to: rgb(168 85 247 / 0.05) var(--tw-gradient-to-position);
+}
+.to-purple-900\/30 {
+  --tw-gradient-to: rgb(88 28 135 / 0.3) var(--tw-gradient-to-position);
 }
 .bg-cover {
   background-size: cover;
@@ -2196,6 +2232,10 @@ video {
 .text-\[10px\] {
   font-size: 10px;
 }
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -2377,6 +2417,9 @@ video {
 .text-transparent {
   color: transparent;
 }
+.text-white\/90 {
+  color: rgb(255 255 255 / 0.9);
+}
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -2395,6 +2438,9 @@ video {
 }
 .opacity-75 {
   opacity: 0.75;
+}
+.mix-blend-multiply {
+  mix-blend-mode: multiply;
 }
 .mix-blend-overlay {
   mix-blend-mode: overlay;
@@ -2881,6 +2927,10 @@ textarea{
   background-color: rgb(29 78 216 / 0.5);
 }
 
+.hover\:bg-opacity-90:hover {
+  --tw-bg-opacity: 0.9;
+}
+
 .hover\:from-blue-700:hover {
   --tw-gradient-from: #1d4ed8 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(29 78 216 / 0) var(--tw-gradient-to-position);
@@ -2969,6 +3019,10 @@ textarea{
 
 .focus\:ring-blue-500\/30:focus {
   --tw-ring-color: rgb(59 130 246 / 0.3);
+}
+
+.active\:bg-opacity-80:active {
+  --tw-bg-opacity: 0.8;
 }
 
 .disabled\:cursor-not-allowed:disabled {
@@ -3190,6 +3244,16 @@ textarea{
     font-size: 3rem;
     line-height: 1;
   }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3253,6 +3317,11 @@ textarea{
   .lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
   }
 }
 
