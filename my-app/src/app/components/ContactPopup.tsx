@@ -199,7 +199,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     { id: "hiringJobs", name: "Careers", icon: "💼" }
   ];
 
-  // Input field styling - More compact but still premium
+  // Input field styling - Updated for white text
   const inputClasses = `
     w-full mb-3 p-3 
     bg-white/5 backdrop-blur-xl 
@@ -208,8 +208,8 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
     focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 
     focus:outline-none 
     transition-all duration-300 
-    text-[#1d1d1f] text-sm
-    placeholder:text-gray-400
+    text-white text-sm
+    placeholder:text-gray-300
     shadow-[0_2px_4px_rgba(0,0,0,0.02)]
     hover:bg-white/10
   `;
@@ -430,7 +430,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                         </div>
 
                         <div className="space-y-2">
-                          <h3 className="text-[#1d1d1f] text-sm font-medium px-1">Services Requested</h3>
+                          <h3 className="text-white text-sm font-medium px-1">Services Requested</h3>
                           <div className="grid grid-cols-2 gap-2">
                             {services.map((service) => (
                               <motion.div
@@ -445,7 +445,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                                   backdrop-blur-xl text-sm
                                   ${formData.selectedServices.includes(service.name)
                                     ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
-                                    : "bg-white/5 text-[#1d1d1f] hover:bg-white/10 border border-white/10"
+                                    : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
                                   }
                                 `}
                               >
