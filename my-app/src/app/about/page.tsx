@@ -122,7 +122,7 @@ export default function About() {
           >
             {/* Story Section */}
             <section className="grid md:grid-cols-12 gap-16 items-center">
-              <motion.div 
+              {/* <motion.div 
                 {...useScrollAnimation()} 
                 variants={itemVariants} 
                 className="md:col-span-5 space-y-6"
@@ -144,57 +144,21 @@ export default function About() {
                     </svg>
                   </button>
                 </div>
-              </motion.div>
-              <motion.div 
-                {...useScrollAnimation()} 
-                variants={scaleUpVariants}
-                className="md:col-span-7 relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group"
-              >
-                {/* Apple-style gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 opacity-90"></div>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2)_0%,transparent_60%)]"></div>
-                <div className="absolute inset-0 backdrop-blur-[100px]"></div>
-                
-                {/* Animated elements */}
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  <div className="relative w-48 h-48">
-                    <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl transform group-hover:scale-110 transition-transform duration-700"></div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-full"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-7xl">🏢</span>
-                    </div>
-                  </div>
-                </motion.div>
-                
-                <div className="absolute bottom-8 left-8 z-20 text-white">
-                  <p className="text-sm uppercase tracking-wider font-medium text-blue-100">Established 2018</p>
-                  <h3 className="text-2xl font-bold mt-2">Building a Sustainable Future</h3>
-                </div>
-
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-3xl transform -translate-y-1/2 translate-x-1/2"></div>
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-black/20 to-transparent rounded-full blur-2xl"></div>
-              </motion.div>
+              </motion.div> */}
+        
             </section>
 
             {/* Mission Section */}
-            <section className="grid md:grid-cols-12 gap-16 items-center">
+            {/* <section className="grid md:grid-cols-12 gap-16 items-center">
               <motion.div 
                 {...useScrollAnimation()} 
                 variants={scaleUpVariants}
                 className="md:col-span-7 md:order-2 relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group"
               >
-                {/* Apple-style gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-tl from-blue-700 via-blue-600 to-blue-500 opacity-90"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.2)_0%,transparent_60%)]"></div>
                 <div className="absolute inset-0 backdrop-blur-[100px]"></div>
                 
-                {/* Animated elements */}
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -215,7 +179,6 @@ export default function About() {
                   <h3 className="text-2xl font-bold mt-2">Transforming Industry Standards</h3>
                 </div>
 
-                {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-bl from-white/20 to-transparent rounded-full blur-3xl transform -translate-y-1/2 -translate-x-1/2"></div>
                 <div className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tl from-black/20 to-transparent rounded-full blur-2xl"></div>
               </motion.div>
@@ -242,7 +205,7 @@ export default function About() {
                   </button>
                 </div>
               </motion.div>
-            </section>
+            </section> */}
 
             {/* Team Section */}
             <motion.section 
@@ -276,9 +239,9 @@ export default function About() {
                     name: "Brett Parson",
                     title: "C.E.O/President of Operations",
                     gradient: "from-indigo-600 via-blue-500 to-indigo-700",
-                    emoji: "👨‍💼",
                     bio: "A visionary leader with extensive experience in renewable energy and infrastructure development. Brett's innovative approach has revolutionized how we think about facility management.",
                     highlights: [
+                      "Lead Over 10 MW Solar Projects to PTO",
                       "DC commercial solar lead",
                       "Infrastructure & renewable energy expert",
                       "Pioneer in sustainable facility solutions",
@@ -294,7 +257,6 @@ export default function About() {
                     name: "Derrick Landers",
                     title: "Business Development and Compliance Officer",
                     gradient: "from-blue-700 via-indigo-600 to-blue-500",
-                    emoji: "👨‍💼",
                     bio: "A strategic leader with deep expertise in equipment management and regulatory compliance. Derrick's experience ensures our operations meet the highest industry standards.",
                     highlights: [
                       "20+ years Equipment Management",
@@ -311,9 +273,8 @@ export default function About() {
                   },
                   {
                     name: "Naja Andrews",
-                    title: "Director of Administration & Personnel",
+                    title: "Technical Advisor",
                     gradient: "from-indigo-500 via-blue-600 to-indigo-700",
-                    emoji: "👩‍💼",
                     bio: "A transformational leader focused on building high-performing teams and streamlining operations. Naja's expertise in change management drives our organizational excellence.",
                     highlights: [
                       "HR and Customer Service Leader",
@@ -329,10 +290,9 @@ export default function About() {
                     ]
                   },
                   {
-                    name: "Abdulrahman Dan Kargbo",
+                    name: "Abdulrahman  Kargbo",
                     title: "Technical Advisor/Designer",
                     gradient: "from-blue-600 via-indigo-500 to-blue-700",
-                    emoji: "👨‍💼",
                     bio: "A pioneering force in distributed energy resources and grid modernization. Abdulrahman's expertise drives our technological innovation and sustainable energy solutions.",
                     highlights: [
                       "M.Eng in Power Systems Engineering",
@@ -498,7 +458,9 @@ export default function About() {
                   Join the growing list of organizations that trust Preeminent Professional Services for innovative facility solutions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                  <button className="px-8 py-4 bg-white/90 text-blue-600 rounded-full font-medium hover:bg-white transition-all hover:shadow-xl hover:shadow-white/20 focus:ring-4 focus:ring-white/30 focus:outline-none transform hover:-translate-y-1 backdrop-blur-sm">
+                  <button 
+                    onClick={toggleContactPopup}
+                    className="px-8 py-4 bg-white/90 text-blue-600 rounded-full font-medium hover:bg-white transition-all hover:shadow-xl hover:shadow-white/20 focus:ring-4 focus:ring-white/30 focus:outline-none transform hover:-translate-y-1 backdrop-blur-sm">
                     Contact Us
                   </button>
                   <button className="px-8 py-4 bg-blue-500/90 text-white rounded-full font-medium hover:bg-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/30 focus:ring-4 focus:ring-blue-400/30 focus:outline-none transform hover:-translate-y-1 backdrop-blur-sm">
