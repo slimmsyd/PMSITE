@@ -360,6 +360,21 @@ export default function Home() {
                       <p className="text-gray-300 text-sm">Turn-key solutions for electrification needs</p>
                     </motion.div>
                   </motion.div>
+
+                  <motion.div 
+                      whileHover={{ x: 5 }}
+                      className="bg-white/10 backdrop-blur-md mt-10 rounded-2xl p-6 border border-white/10 flex items-center gap-6"
+                    >
+                      <div className="w-14 h-14 bg-green-500/20 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white mb-1">Renewable Energy Service</h3>
+                        <p className="text-gray-300 text-sm">Consulting, design, engineering, & infrastructure installation</p>
+                      </div>
+                    </motion.div>
                 </div>
               </div>
             </div>
