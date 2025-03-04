@@ -327,7 +327,7 @@ export default function About() {
                           <div className="absolute inset-0 bg-white/10 rounded-full blur-xl transform group-hover:scale-110 transition-transform duration-700"></div>
                           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-full"></div>
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-5xl">{member.emoji}</span>
+                            {/* <span className="text-5xl">{member.emoji}</span> */}
                           </div>
                         </div>
                       </div>
@@ -468,11 +468,11 @@ export default function About() {
                   </button>
                 </div>
                 
-                <div className="mt-12 flex justify-center space-x-8">
+                {/* <div className="mt-12 flex justify-center space-x-8">
                   {["Google", "Microsoft", "Amazon", "Tesla", "IBM"].map((client, index) => (
                     <div key={index} className="text-white/60 font-medium">{client}</div>
                   ))}
-                </div>
+                </div> */}
               </div>
 
               {/* Decorative elements */}
