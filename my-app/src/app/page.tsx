@@ -747,9 +747,10 @@ export default function Home() {
                     className="bg-white rounded-2xl shadow-[0_20px_50px_rgba(8,112,184,0.07)] overflow-hidden group hover:shadow-[0_30px_60px_rgba(8,112,184,0.12)] transition-all duration-500"
                   >
                     <div className="relative h-[240px] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10"></div>
-                      <div className="absolute inset-0 bg-blue-900/20 z-[5] group-hover:opacity-0 transition-opacity duration-500"></div>
-                      <div className="absolute inset-0 bg-card-1 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 z-10"></div>
+                      <div className="absolute inset-0 bg-blue-900/10 z-[5] group-hover:opacity-0 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700" 
+                           style={{ backgroundImage: "url('/assets/Com.png')" }}></div>
                     </div>
                     
                     <div className="p-8 relative">
@@ -783,9 +784,10 @@ export default function Home() {
                     className="bg-white rounded-2xl shadow-[0_20px_50px_rgba(8,112,184,0.07)] overflow-hidden group hover:shadow-[0_30px_60px_rgba(8,112,184,0.12)] transition-all duration-500"
                   >
                     <div className="relative h-[240px] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10"></div>
-                      <div className="absolute inset-0 bg-green-900/20 z-[5] group-hover:opacity-0 transition-opacity duration-500"></div>
-                      <div className="absolute inset-0 bg-card-2 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 z-10"></div>
+                      <div className="absolute inset-0 bg-green-900/10 z-[5] group-hover:opacity-0 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
+                           style={{ backgroundImage: "url('/assets/Facility.png')" }}></div>
                     </div>
                     
                     <div className="p-8 relative">
@@ -819,9 +821,10 @@ export default function Home() {
                     className="bg-white rounded-2xl shadow-[0_20px_50px_rgba(8,112,184,0.07)] overflow-hidden group hover:shadow-[0_30px_60px_rgba(8,112,184,0.12)] transition-all duration-500"
                   >
                     <div className="relative h-[240px] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10"></div>
-                      <div className="absolute inset-0 bg-purple-900/20 z-[5] group-hover:opacity-0 transition-opacity duration-500"></div>
-                      <div className="absolute inset-0 bg-card-3 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 z-10"></div>
+                      <div className="absolute inset-0 bg-purple-900/10 z-[5] group-hover:opacity-0 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
+                           style={{ backgroundImage: "url('/assets/TailerBG.png')" }}></div>
                     </div>
                     
                     <div className="p-8 relative">

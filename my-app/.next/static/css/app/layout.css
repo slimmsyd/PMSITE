@@ -1889,6 +1889,15 @@ video {
 .bg-purple-500\/10 {
   background-color: rgb(168 85 247 / 0.1);
 }
+.bg-blue-900\/10 {
+  background-color: rgb(30 58 138 / 0.1);
+}
+.bg-green-900\/10 {
+  background-color: rgb(20 83 45 / 0.1);
+}
+.bg-purple-900\/10 {
+  background-color: rgb(88 28 135 / 0.1);
+}
 .bg-\[radial-gradient\(circle_at_top_right\2c rgba\(59\2c 130\2c 246\2c 0\.08\)\2c transparent\)\] {
   background-image: radial-gradient(circle at top right,rgba(59,130,246,0.08),transparent);
 }
@@ -2241,6 +2250,9 @@ video {
 }
 .to-indigo-700 {
   --tw-gradient-to: #4338ca var(--tw-gradient-to-position);
+}
+.to-black\/40 {
+  --tw-gradient-to: rgb(0 0 0 / 0.4) var(--tw-gradient-to-position);
 }
 .bg-cover {
   background-size: cover;
