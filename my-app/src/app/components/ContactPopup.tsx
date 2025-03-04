@@ -2,39 +2,42 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 interface ContactPopupProps {
   isOpen: boolean;
   togglePopup: () => void;
 }
 
+// Move initialFormData outside the component to prevent recreation on each render
+const defaultFormData = {
+  companyName: "",
+  email: "",
+  address: "",
+  phoneNumber: "",
+  industry: "",
+  location: "",
+  yearsInBusiness: "",
+  numberOfTechnicians: "",
+  numberOfCommercialVehicles: "",
+  reason: "",
+  selectedOption: "workWithUs", // Set default option
+  selectedServices: [] as string[],
+  regionsServed: "",
+  title: ""
+};
+
 const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
   // State to capture form values
-  const initialFormData = {
-    companyName: "",
-    email: "",
-    address: "",
-    phoneNumber: "",
-    industry: "",
-    location: "",
-    yearsInBusiness: "",
-    numberOfTechnicians: "",
-    numberOfCommercialVehicles: "",
-    reason: "",
-    selectedOption: "workWithUs", // Set default option
-    selectedServices: [] as string[],
-    regionsServed: "",
-    title: ""
-  };
-  const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState(defaultFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
-    setFormData(initialFormData);
+    // Reset form when popup opens/closes
+    setFormData({...defaultFormData});
     setSubmitSuccess(false);
-  }, [isOpen, initialFormData]);
+  }, [isOpen]); // Remove initialFormData from dependencies
 
   const formatPhoneNumber = (phoneNumber: string): string => {
     // Remove all non-numeric characters
@@ -137,7 +140,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
 
       if (adminEmailResponse.ok && clientEmailResponse.ok) {
         // Reset formData to initial state
-        setFormData(initialFormData);
+        setFormData(defaultFormData);
         setSubmitSuccess(true);
       }
       

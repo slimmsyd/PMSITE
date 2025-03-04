@@ -97,7 +97,7 @@ export default function Navigation({
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center space-x-8">
-          <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('about')}>ABOUT US</div>
+          <Link href = "/about" className="nav-link hover:text-gray-300 cursor-pointer" >ABOUT US</Link>
           <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('services')}>OUR SERVICES</div>
           <div className="nav-link hover:text-gray-300 cursor-pointer" onClick={() => mobileNavBtn('industries')}>INDUSTRIES WE SERVE</div>
           <Link 
@@ -134,12 +134,12 @@ export default function Navigation({
         {showBG && (
           <div className="absolute text-black top-16 left-0 right-0 bg-white p-4 md:hidden rounded-[10px] border border-[#F0F0F0] shadow-lg">
             <div className="flex flex-col space-y-4">
-              <div 
+              <Link 
+                href = "/about" 
                 className="nav-link hover:text-gray-300 cursor-pointer py-2"
-                onClick={() => mobileNavBtn('about')}
               >
                 About us
-              </div>
+              </Link>
               <div 
                 className="nav-link text-black hover:text-gray-300 cursor-pointer py-2"
                 onClick={() => mobileNavBtn('services')}
