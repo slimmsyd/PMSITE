@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface ContactPopupProps {
@@ -33,7 +34,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
   useEffect(() => {
     setFormData(initialFormData);
     setSubmitSuccess(false);
-  }, [isOpen]);
+  }, [isOpen, initialFormData]);
 
   const formatPhoneNumber = (phoneNumber: string): string => {
     // Remove all non-numeric characters
@@ -273,7 +274,13 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, togglePopup }) => {
                 
                 <div className="relative flex items-center mb-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                    <img src="/assets/Logo.png" alt="Logo" className="w-7 h-7 object-contain" />
+                    <Image 
+                      src="/assets/Logo.png" 
+                      alt="Logo" 
+                      width={28}
+                      height={28}
+                      className="object-contain" 
+                    />
                   </div>
                   <div>
                     <h2 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">Get in touch</h2>

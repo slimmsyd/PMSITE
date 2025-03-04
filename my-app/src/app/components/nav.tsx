@@ -82,7 +82,13 @@ export default function Navigation({
         {/* Logo */}
         <div className="flex items-center w-[55px]">
           <Link href = "/">
-          <img  src = "assets/Logo.png" />
+          <Image 
+            src="/assets/Logo.png" 
+            alt="Preeminent Professional Services Logo"
+            width={150}
+            height={50}
+            className="object-contain"
+          />
           </Link>
 
 

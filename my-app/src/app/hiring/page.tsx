@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hiring() {
 
@@ -10,7 +11,13 @@ export default function Hiring() {
       {/* Logo */}
       <div className="flex items-center w-[55px]">
         <Link href="/">
-          <img src="assets/Logo.png" />
+          <Image 
+            src="/assets/Logo.png" 
+            alt="Preeminent Professional Services Logo"
+            width={150}
+            height={50}
+            className="object-contain"
+          />
         </Link>
     </div>
       <header>

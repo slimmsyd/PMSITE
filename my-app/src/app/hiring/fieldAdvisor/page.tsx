@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { FormEvent, useState, useCallback } from "react";
 import HiringSubmitButton from "../../components/HiringSubmitButton";
 import { useDropzone } from 'react-dropzone';
@@ -59,7 +60,13 @@ export default function Hiring() {
                 <Link href="/"
                 className = "w-[55px]"
                 >
-                    <img src="../assets/Logo.png" />
+                    <Image 
+                        src="/assets/Logo.png" 
+                        alt="Preeminent Professional Services Logo"
+                        width={150}
+                        height={50}
+                        className="object-contain"
+                    />
                 </Link>
 
                 <Link
