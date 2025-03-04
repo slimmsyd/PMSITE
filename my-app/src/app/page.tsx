@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import ChatPopup from "./components/ChatPopup";
 
 function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -192,6 +193,7 @@ export default function Home() {
   return (
     <div className="">
       <Nav scrollToSection={scrollToSection} />
+      <ChatPopup />
 
       <main className="h-[100vh]">
         <ContactPopup isOpen={isOpen} togglePopup={togglePopup} />
