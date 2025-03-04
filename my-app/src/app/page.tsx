@@ -22,27 +22,32 @@ function ImageSlider() {
     {
       name: "Facility Management",
       description: "Professional environmental facilities maintenance services",
-      src: "/assets/Facility.png",
+      src: "/assets/Fac.png",
+      link: "/technicalServices"
     },
     {
       name: "Environmental Services",
       description: "Sustainable solutions for environmental needs",
-      src: "/assets/EnvironmentalServices.jpg",
+      src: "/assets/Janitor.png",
+      link: "/environmentServices"
     },
     {
-      name: "Professional Staffing",
-      description: "Event and security staffing services",
+      name: "Professional Events and Staffing",
+      description: "Temp Staffing for events either commercial or private",
       src: "/assets/Staffing.jpg",
+      link: "/eventAndStaffing"
     },
     {
       name: "EV Services",
       description: "Turn-key solutions for electrification needs",
-      src: "/assets/EnvironmentalServices.jpg",
+      src: "/assets/energy.png",
+      link: "/evServices"
     },
     {
       name: "Renewable Energy",
       description: "Consulting, design, engineering & installation",
       src: "/assets/energy.png",
+      link: "/evServices"
     },
   ];
 
@@ -80,7 +85,7 @@ function ImageSlider() {
       <div className="flex gap-4 overflow-hidden">
         {visibleServices.map((service, index) => (
           <Link
-            href="#services"
+            href={service.link}
             key={index}
             className={`${
               isMobile ? "w-full" : "w-1/2"
