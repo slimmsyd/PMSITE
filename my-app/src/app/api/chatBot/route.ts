@@ -1,134 +1,79 @@
 import { NextResponse } from 'next/server';
+import OpenAI from 'openai';
+
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+// System prompt to give context about Preeminent Professional Services
+const SYSTEM_PROMPT = `You are an AI assistant for Preeminent Professional Services, a company specializing in:
+
+1. Professional/Technical Services:
+- Property management
+- Real estate development
+- Industrial/commercial properties
+- Hot-spot discovery and evaluation
+
+2. Commercial Cleaning/Environmental Services:
+- Comprehensive cleaning solutions for commercial properties
+- Environmental services
+
+3. Professional Events and Staffing:
+- Temporary staffing for commercial events
+- Personnel for private/public functions
+- Quick response staffing solutions
+
+4. EV Services:
+- Turn-key services for commercial fleet electrification
+- Individual/company vehicle electrification
+- Charging infrastructure solutions
+
+Your role is to:
+- Provide detailed information about our services
+- Answer questions professionally and accurately
+- Maintain context throughout conversations
+- Guide users to appropriate services
+- Suggest booking consultations when relevant
+- Be helpful and friendly while maintaining professionalism
+
+Always format responses in a clear, organized manner using bullet points when listing information.`;
 
 export async function POST(request: Request) {
   try {
-    const { message } = await request.json();
-    
-    // Simple keyword-based response system
-    // In a production environment, you might want to use a more sophisticated NLP solution
-    // or integrate with a service like OpenAI's API
-    
-    const lowerCaseMessage = message.toLowerCase();
-    
-    // Check for different types of queries and generate appropriate responses
-    
-    // Services related queries
-    if (lowerCaseMessage.includes('services') || 
-        lowerCaseMessage.includes('offer') || 
-        lowerCaseMessage.includes('provide')) {
-      return NextResponse.json({
-        message: `Preeminent Professional Services offers a range of professional solutions:
+    const { messages } = await request.json();
 
-• Professional/Technical Services: Property management, real estate development, industrial/commercial properties, and hot-spot discovery and evaluation.
+    // Ensure messages array starts with system prompt
+    const conversationMessages = [
+      { role: "system", content: SYSTEM_PROMPT },
+      ...messages
+    ];
 
-• Commercial Cleaning/Environmental Services: Comprehensive cleaning solutions for commercial properties.
-
-• Professional Events and Staffing: Temporary staffing for commercial and private/public events with minimal notice.
-
-• EV Services: Turn-key services for the electrification of commercial fleets or individual/company vehicles.
-
-Would you like more information about any specific service?`
-      });
-    }
-    
-    // Technical services queries
-    if (lowerCaseMessage.includes('technical') || 
-        lowerCaseMessage.includes('property management') || 
-        lowerCaseMessage.includes('real estate')) {
-      return NextResponse.json({
-        message: `Our Professional/Technical Services include:
-
-• Property Management solutions for commercial and residential properties
-• Real Estate Development consulting and management
-• Industrial and Commercial property services
-• Hot-Spot Discovery and evaluation for optimal property investments
-
-Our team of experts brings years of experience to ensure your property needs are met with the highest standards of professionalism.
-
-Would you like to discuss your specific requirements with our team?`
-      });
-    }
-    
-    // Environmental services queries
-    if (lowerCaseMessage.includes('cleaning') || 
-        lowerCaseMessage.includes('environmental') || 
-        lowerCaseMessage.includes('janitorial')) {
-      return NextResponse.json({
-        message: `Our Commercial Cleaning/Environmental Services provide comprehensive solutions for:
-
-• Regular commercial cleaning and maintenance
-• Deep cleaning and sanitization
-• Specialized environmental services
-• Customized cleaning programs for your specific facility
-
-We use industry-leading techniques and environmentally friendly products to ensure your spaces are clean, safe, and healthy.
-
-Would you like to schedule a consultation for your cleaning needs?`
-      });
-    }
-    
-    // Staffing queries
-    if (lowerCaseMessage.includes('staffing') || 
-        lowerCaseMessage.includes('events') || 
-        lowerCaseMessage.includes('temporary')) {
-      return NextResponse.json({
-        message: `Our Professional Events and Staffing services provide:
-
-• Temporary staffing for commercial events
-• Personnel for private and public functions
-• Vetted and background-checked staff
-• Flexible scheduling with minimal notice required
-
-Our staffing solutions ensure your events run smoothly with professional, reliable personnel.
-
-Do you have an upcoming event that requires staffing support?`
-      });
-    }
-    
-    // EV services queries
-    if (lowerCaseMessage.includes('ev') || 
-        lowerCaseMessage.includes('electric') || 
-        lowerCaseMessage.includes('vehicle') ||
-        lowerCaseMessage.includes('fleet')) {
-      return NextResponse.json({
-        message: `Our EV Services provide turn-key solutions for:
-
-• Electrification of commercial fleets
-• Individual or company vehicle conversion
-• EV infrastructure planning and implementation
-• Charging station installation and maintenance
-
-We help businesses transition to sustainable transportation solutions with comprehensive support throughout the process.
-
-Would you like to learn more about how we can help with your electrification needs?`
-      });
-    }
-    
-    // Contact queries
-    if (lowerCaseMessage.includes('contact') || 
-        lowerCaseMessage.includes('talk to') || 
-        lowerCaseMessage.includes('speak with') ||
-        lowerCaseMessage.includes('get in touch')) {
-      return NextResponse.json({
-        message: `I'd be happy to help you get in touch with our team at Preeminent Professional Services.
-
-You can:
-• Call us directly at [PHONE NUMBER]
-• Email us at [EMAIL ADDRESS]
-• Fill out the contact form on our website
-• Book a consultation through our scheduling system
-
-Would you like me to help you schedule a consultation with our team?`
-      });
-    }
-    
-    // Default response for other queries
-    return NextResponse.json({
-      message: `Thank you for reaching out to Preeminent Professional Services. We specialize in Professional/Technical Services, Commercial Cleaning/Environmental Services, Professional Events and Staffing, and EV Services.
-
-How can we assist you today? Feel free to ask about any of our services or let me know if you'd like to speak with a member of our team.`
+    // Get response from OpenAI
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4-turbo-preview",
+      messages: conversationMessages,
+      temperature: 0.7,
+      max_tokens: 500,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
     });
-    
+
+    // Extract the response
+    const response = completion.choices[0].message.content;
+
+    // Check if response suggests scheduling a consultation
+    const suggestsConsultation = response?.toLowerCase().includes('consultation') || 
+                                response?.toLowerCase().includes('schedule') ||
+                                response?.toLowerCase().includes('contact') ||
+                                response?.toLowerCase().includes('book');
+
+    return NextResponse.json({
+      message: response,
+      suggestsConsultation
+    });
+
   } catch (error) {
     console.error('Error in chatBot API:', error);
     return NextResponse.json(

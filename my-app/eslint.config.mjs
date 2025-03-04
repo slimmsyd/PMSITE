@@ -19,6 +19,7 @@ const eslintConfig = [
       'react-hooks/exhaustive-deps': 'warn', // Change from 'error' to 'warn' for useEffect dependencies
       '@next/next/no-img-element': 'off', // Disable the warning for <img> elements
       'jsx-a11y/alt-text': 'warn', // Change from 'error' to 'warn' for alt text requirements
+      'prefer-const': 'error', // Enforce using const for variables that are never reassigned
     },
   },
 ];

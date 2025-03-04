@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ContactPopup from "./ContactPopup";  // Import ContactPopup component
 
 interface Message {
-  type: "user" | "assistant";
+  role: "user" | "assistant" | "system";
   content: string;
   timestamp: Date;
   includeContactButton?: boolean;
@@ -49,10 +49,10 @@ export default function ChatPopup() {
 
   const [messages, setMessages] = useState<Message[]>([
     {
-      type: "assistant",
+      role: "assistant",
       content: "👋 Hi! I'm the Preeminent Professional Services assistant. How can I help you today?",
       timestamp: new Date(),
-    },
+    }
   ]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -99,7 +99,7 @@ export default function ChatPopup() {
       
       setMessages(prev => [...prev, 
         {
-          type: "assistant",
+          role: "assistant",
           content: initialMessage,
           timestamp: new Date()
         }
@@ -114,33 +114,47 @@ export default function ChatPopup() {
 
   // Format message text with proper styling
   const formatMessageText = (text: string) => {
-    let formattedText = text
+    return text
       .replace(/• ([^:]+):/g, '• <strong>$1</strong>:')
+      .replace(/- ([^:]+):/g, '• <strong>$1</strong>:')
       .replace(/(Professional\/Technical Services|Commercial Cleaning|Environmental Services|Events and Staffing|EV Services):/g, '<strong>$1</strong>:');
-    
-    return formattedText;
   };
 
   const handleSendMessage = async () => {
     if (!message.trim() || isLoading) return;
 
     const userMessageText = message.trim();
-    const userMessage = {
-      type: "user" as const,
+    const userMessage: Message = {
+      role: "user",
       content: userMessageText,
       timestamp: new Date(),
     };
+
     setMessages((prev) => [...prev, userMessage]);
     setMessage("");
     setIsLoading(true);
 
     try {
+      // Prepare conversation history for the API
+      const conversationHistory = messages
+        .filter(msg => msg.role !== "system") // Exclude system messages
+        .map(msg => ({
+          role: msg.role,
+          content: msg.content
+        }));
+
+      // Add the new user message
+      conversationHistory.push({
+        role: "user",
+        content: userMessageText
+      });
+
       const response = await fetch('/api/chatBot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: userMessageText }),
+        body: JSON.stringify({ messages: conversationHistory }),
       });
 
       if (!response.ok) {
@@ -149,37 +163,30 @@ export default function ChatPopup() {
 
       const data = await response.json();
       
-      const responseText = data.message || "";
-      const includeContactButton = responseText.toLowerCase().includes('contact') || 
-                                 responseText.toLowerCase().includes('consultation') ||
-                                 responseText.toLowerCase().includes('team') ||
-                                 responseText.toLowerCase().includes('book');
-      
-      const assistantMessage = {
-        type: "assistant" as const,
-        content: responseText || "I apologize, but I'm having trouble connecting right now. Please try again later or contact us directly.",
+      const assistantMessage: Message = {
+        role: "assistant",
+        content: data.message,
         timestamp: new Date(),
-        includeContactButton
+        includeContactButton: data.suggestsConsultation
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
       
       // Send to webhook
-      sendToWebhook(userMessageText, responseText);
+      sendToWebhook(userMessageText, data.message);
     } catch (error) {
       console.error('Error:', error);
       
-      const errorMessageContent = "I apologize, but I'm having trouble connecting right now. Please try again later or contact us directly.";
-      const errorMessage = {
-        type: "assistant" as const,
-        content: errorMessageContent,
+      const errorMessage: Message = {
+        role: "assistant",
+        content: "I apologize, but I'm having trouble connecting right now. Please try again later or contact us directly.",
         timestamp: new Date(),
       };
       
       setMessages((prev) => [...prev, errorMessage]);
       
       // Send error to webhook
-      sendToWebhook(userMessageText, errorMessageContent);
+      sendToWebhook(userMessageText, "I apologize, but I'm having trouble connecting right now. Please try again later or contact us directly.");
     } finally {
       setIsLoading(false);
     }
@@ -287,12 +294,12 @@ export default function ChatPopup() {
                     <div
                       key={index}
                       className={`flex flex-col ${
-                        msg.type === "user" ? "items-end" : "items-start"
+                        msg.role === "user" ? "items-end" : "items-start"
                       }`}
                     >
                       <div
                         className={`max-w-[85%] p-3.5 ${
-                          msg.type === "user"
+                          msg.role === "user"
                             ? "bg-gradient-to-br from-blue-500/20 to-blue-600/10 text-white/90 rounded-2xl rounded-tr-sm backdrop-blur-xl border border-blue-500/10"
                             : "bg-gradient-to-br from-white/10 to-white/5 text-white/90 rounded-2xl rounded-tl-sm backdrop-blur-xl border border-white/10"
                         }`}
@@ -310,7 +317,7 @@ export default function ChatPopup() {
                       </div>
                       
                       {/* Contact Button */}
-                      {msg.includeContactButton && msg.type === "assistant" && (
+                      {msg.includeContactButton && msg.role === "assistant" && (
                         <button
                           onClick={handleContactButtonClick}
                           className="mt-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-2.5 rounded-full text-sm hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-md flex items-center gap-2"
