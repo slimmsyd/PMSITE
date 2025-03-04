@@ -279,7 +279,6 @@ export default function About() {
                     emoji: "👨‍💼",
                     bio: "A visionary leader with extensive experience in renewable energy and infrastructure development. Brett's innovative approach has revolutionized how we think about facility management.",
                     highlights: [
-                      "5+ years Project Management experience",
                       "DC commercial solar lead",
                       "Infrastructure & renewable energy expert",
                       "Pioneer in sustainable facility solutions",
@@ -331,7 +330,7 @@ export default function About() {
                   },
                   {
                     name: "Abdulrahman Dan Kargbo",
-                    title: "Manager, DER Engineering & Advanced Analytics",
+                    title: "Technical Advisor/Designer",
                     gradient: "from-blue-600 via-indigo-500 to-blue-700",
                     emoji: "👨‍💼",
                     bio: "A pioneering force in distributed energy resources and grid modernization. Abdulrahman's expertise drives our technological innovation and sustainable energy solutions.",
