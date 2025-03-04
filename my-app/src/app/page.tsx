@@ -5,123 +5,144 @@ import Nav from "../app/components/nav";
 import GlobalButton from "./components/button";
 import CheckBox from "./components/checkbox";
 import ContactPopup from "./components/ContactPopup";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ChatPopup from "./components/ChatPopup";
+import useMediaQuery from "./hooks/useMediaQuery";
 
 function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const itemsPerPage = isMobile ? 1 : 2;
+  
   const services = [
     {
-      src: "/assets/Fac.png",
-      name: "Professional/Technical Services",
-      description:
-        "Property Management Companies, Real Estate Developers, Industrial and/or commercial properties, Hot-Spot Discovery and evaluation",
-      link: "/technicalServices",
+      name: "Facility Management",
+      description: "Professional environmental facilities maintenance services",
+      src: "/assets/Facility.png",
     },
     {
-      src: "/assets/Janitor.png",
-      name: "Commericial Cleaning/Enviromental Services.",
-      description: "Commericial Cleaning/Enviromental Services.",
-      link: "/environmentServices",
-    },
-
-    {
-      src: "/assets/Staffing.png",
-      name: "Professional Events and Staffing",
-      description:
-        "Preeminet Professional Services is proud to provide staffing services for its clientel. We provide temporary staffing for events either commerical private/public with a minimum of notice.",
-      link: "/eventAndStaffing",
+      name: "Environmental Services",
+      description: "Sustainable solutions for environmental needs",
+      src: "/assets/EnvironmentalServices.jpg",
     },
     {
-      src: "/assets/energy.png",
+      name: "Professional Staffing",
+      description: "Event and security staffing services",
+      src: "/assets/Staffing.jpg",
+    },
+    {
       name: "EV Services",
-      description:
-        " We provide turn-key services for the Electification of your commerical fleet or individual/company vechicle(s). These services include (but not limited to)..",
-      link: "/evServices",
+      description: "Turn-key solutions for electrification needs",
+      src: "/assets/EnvironmentalServices.jpg",
+    },
+    {
+      name: "Renewable Energy",
+      description: "Consulting, design, engineering & installation",
+      src: "/assets/energy.png",
     },
   ];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 650);
-    };
-
-    handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const totalSlides = Math.ceil(services.length / itemsPerPage);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + services.length) % services.length
+    setCurrentIndex((prevIndex) => 
+      prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
     );
   };
 
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? totalSlides - 1 : prevIndex - 1
+    );
+  };
+
+  // Calculate visible services based on current index and items per page
+  const visibleServices = useMemo(() => {
+    const startIndex = currentIndex * itemsPerPage;
+    return services.slice(startIndex, startIndex + itemsPerPage);
+  }, [currentIndex, itemsPerPage, services]);
+
+  // Auto-advance the slider
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
   return (
-    <div className="relative w-full overflow-hidden my-[100px]">
-      <div
-        className={`flex transition-transform duration-300 ease-in-out ${
-          isMobile ? "" : "gap-[10px]"
-        }`}
-        style={{
-          transform: `translateX(-${
-            currentIndex * (isMobile ? 100 : 100 / 3)
-          }%)`,
-        }}
-      >
-        {services.map((service, index) => (
+    <div className="relative w-full">
+      <div className="flex gap-4 overflow-hidden">
+        {visibleServices.map((service, index) => (
           <Link
-            href={service.link}
+            href="#services"
             key={index}
             className={`${
-              isMobile ? "w-full" : "w-auto"
-            } h-[500px] relative flex-shrink-0 group`}
+              isMobile ? "w-full" : "w-1/2"
+            } h-[400px] relative flex-shrink-0 group rounded-xl overflow-hidden`}
           >
-            <div className="overlay"></div>
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-10 absolute bg-black/50 top-0 left-0 w-full h-full items-center justify-center flex">
-              <span className="text-[20px] font-bold text-white relative z-30">
-                {service.description}{" "}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10"></div>
+            
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 absolute bg-black/70 top-0 left-0 w-full h-full items-center justify-center flex z-20">
+              <span className="text-lg font-medium text-white text-center">
+                {service.description}
               </span>
             </div>
 
             <Image
-              className="h-[100%] servicesImage object-cover"
+              className="h-full w-full object-cover"
               src={service.src}
-              alt={`Slide ${index + 1}`}
+              alt={service.name}
               width={500}
-              height={500}
+              height={400}
             />
 
-            <div className="flex p-[10px] items-end justify-end absolute bottom-0 text-white">
-              <p className="mt-2 text-center font-semibold relative z-20">
+            <div className="absolute bottom-0 left-0 w-full p-4 text-white z-20">
+              <p className="text-xl font-semibold">
                 {service.name}
               </p>
             </div>
           </Link>
         ))}
       </div>
+      
+      {/* Navigation dots */}
+      <div className="flex justify-center mt-4 gap-2">
+        {Array.from({ length: totalSlides }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              currentIndex === index ? "bg-blue-600 w-4" : "bg-gray-300"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+      
+      {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute clickBtns left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-2 rounded-full shadow-lg z-30"
+        aria-label="Previous slide"
       >
-        &lt;
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+        </svg>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute clickBtns right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-2 rounded-full shadow-lg z-30"
+        aria-label="Next slide"
       >
-        &gt;
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+        </svg>
       </button>
     </div>
   );
@@ -502,7 +523,9 @@ export default function Home() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl transform rotate-3 scale-105 blur-xl opacity-30"></div>
                   <div className="bg-white rounded-3xl shadow-2xl overflow-hidden relative z-10">
-                    <ImageSlider />
+                    <div className="p-4">
+                      <ImageSlider />
+                    </div>
                   </div>
                   
                   {/* Floating badges */}
