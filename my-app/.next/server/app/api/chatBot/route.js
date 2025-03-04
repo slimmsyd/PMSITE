@@ -67,6 +67,149 @@ module.exports = require("next/dist/server/app-render/work-unit-async-storage.ex
 
 /***/ }),
 
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "http":
+/*!***********************!*\
+  !*** external "http" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");
+
+/***/ }),
+
+/***/ "punycode":
+/*!***************************!*\
+  !*** external "punycode" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("punycode");
+
+/***/ }),
+
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "url":
+/*!**********************!*\
+  !*** external "url" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("url");
+
+/***/ }),
+
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("util");
+
+/***/ }),
+
+/***/ "worker_threads":
+/*!*********************************!*\
+  !*** external "worker_threads" ***!
+  \*********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("worker_threads");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
+
+/***/ }),
+
+/***/ "node:fs":
+/*!**************************!*\
+  !*** external "node:fs" ***!
+  \**************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:fs");
+
+/***/ }),
+
+/***/ "node:stream":
+/*!******************************!*\
+  !*** external "node:stream" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:stream");
+
+/***/ }),
+
+/***/ "node:stream/web":
+/*!**********************************!*\
+  !*** external "node:stream/web" ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:stream/web");
+
+/***/ }),
+
 /***/ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2FchatBot%2Froute&page=%2Fapi%2FchatBot%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2FchatBot%2Froute.ts&appDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app%2Fsrc%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2FchatBot%2Froute&page=%2Fapi%2FchatBot%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2FchatBot%2Froute.ts&appDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app%2Fsrc%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! ***!
@@ -105,7 +248,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   POST: () => (/* binding */ POST)\n/* harmony export */ });\n/* harmony import */ var next_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/server */ \"(rsc)/./node_modules/next/dist/api/server.js\");\n\nasync function POST(request) {\n    try {\n        const { message } = await request.json();\n        // Simple keyword-based response system\n        // In a production environment, you might want to use a more sophisticated NLP solution\n        // or integrate with a service like OpenAI's API\n        const lowerCaseMessage = message.toLowerCase();\n        // Check for different types of queries and generate appropriate responses\n        // Services related queries\n        if (lowerCaseMessage.includes('services') || lowerCaseMessage.includes('offer') || lowerCaseMessage.includes('provide')) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                message: `Preeminent Professional Services offers a range of professional solutions:\n\n• Professional/Technical Services: Property management, real estate development, industrial/commercial properties, and hot-spot discovery and evaluation.\n\n• Commercial Cleaning/Environmental Services: Comprehensive cleaning solutions for commercial properties.\n\n• Professional Events and Staffing: Temporary staffing for commercial and private/public events with minimal notice.\n\n• EV Services: Turn-key services for the electrification of commercial fleets or individual/company vehicles.\n\nWould you like more information about any specific service?`\n            });\n        }\n        // Technical services queries\n        if (lowerCaseMessage.includes('technical') || lowerCaseMessage.includes('property management') || lowerCaseMessage.includes('real estate')) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                message: `Our Professional/Technical Services include:\n\n• Property Management solutions for commercial and residential properties\n• Real Estate Development consulting and management\n• Industrial and Commercial property services\n• Hot-Spot Discovery and evaluation for optimal property investments\n\nOur team of experts brings years of experience to ensure your property needs are met with the highest standards of professionalism.\n\nWould you like to discuss your specific requirements with our team?`\n            });\n        }\n        // Environmental services queries\n        if (lowerCaseMessage.includes('cleaning') || lowerCaseMessage.includes('environmental') || lowerCaseMessage.includes('janitorial')) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                message: `Our Commercial Cleaning/Environmental Services provide comprehensive solutions for:\n\n• Regular commercial cleaning and maintenance\n• Deep cleaning and sanitization\n• Specialized environmental services\n• Customized cleaning programs for your specific facility\n\nWe use industry-leading techniques and environmentally friendly products to ensure your spaces are clean, safe, and healthy.\n\nWould you like to schedule a consultation for your cleaning needs?`\n            });\n        }\n        // Staffing queries\n        if (lowerCaseMessage.includes('staffing') || lowerCaseMessage.includes('events') || lowerCaseMessage.includes('temporary')) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                message: `Our Professional Events and Staffing services provide:\n\n• Temporary staffing for commercial events\n• Personnel for private and public functions\n• Vetted and background-checked staff\n• Flexible scheduling with minimal notice required\n\nOur staffing solutions ensure your events run smoothly with professional, reliable personnel.\n\nDo you have an upcoming event that requires staffing support?`\n            });\n        }\n        // EV services queries\n        if (lowerCaseMessage.includes('ev') || lowerCaseMessage.includes('electric') || lowerCaseMessage.includes('vehicle') || lowerCaseMessage.includes('fleet')) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                message: `Our EV Services provide turn-key solutions for:\n\n• Electrification of commercial fleets\n• Individual or company vehicle conversion\n• EV infrastructure planning and implementation\n• Charging station installation and maintenance\n\nWe help businesses transition to sustainable transportation solutions with comprehensive support throughout the process.\n\nWould you like to learn more about how we can help with your electrification needs?`\n            });\n        }\n        // Contact queries\n        if (lowerCaseMessage.includes('contact') || lowerCaseMessage.includes('talk to') || lowerCaseMessage.includes('speak with') || lowerCaseMessage.includes('get in touch')) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                message: `I'd be happy to help you get in touch with our team at Preeminent Professional Services.\n\nYou can:\n• Call us directly at [PHONE NUMBER]\n• Email us at [EMAIL ADDRESS]\n• Fill out the contact form on our website\n• Book a consultation through our scheduling system\n\nWould you like me to help you schedule a consultation with our team?`\n            });\n        }\n        // Default response for other queries\n        return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n            message: `Thank you for reaching out to Preeminent Professional Services. We specialize in Professional/Technical Services, Commercial Cleaning/Environmental Services, Professional Events and Staffing, and EV Services.\n\nHow can we assist you today? Feel free to ask about any of our services or let me know if you'd like to speak with a member of our team.`\n        });\n    } catch (error) {\n        console.error('Error in chatBot API:', error);\n        return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n            error: 'Failed to process your request'\n        }, {\n            status: 500\n        });\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9zcmMvYXBwL2FwaS9jaGF0Qm90L3JvdXRlLnRzIiwibWFwcGluZ3MiOiI7Ozs7O0FBQTJDO0FBRXBDLGVBQWVDLEtBQUtDLE9BQWdCO0lBQ3pDLElBQUk7UUFDRixNQUFNLEVBQUVDLE9BQU8sRUFBRSxHQUFHLE1BQU1ELFFBQVFFLElBQUk7UUFFdEMsdUNBQXVDO1FBQ3ZDLHVGQUF1RjtRQUN2RixnREFBZ0Q7UUFFaEQsTUFBTUMsbUJBQW1CRixRQUFRRyxXQUFXO1FBRTVDLDBFQUEwRTtRQUUxRSwyQkFBMkI7UUFDM0IsSUFBSUQsaUJBQWlCRSxRQUFRLENBQUMsZUFDMUJGLGlCQUFpQkUsUUFBUSxDQUFDLFlBQzFCRixpQkFBaUJFLFFBQVEsQ0FBQyxZQUFZO1lBQ3hDLE9BQU9QLHFEQUFZQSxDQUFDSSxJQUFJLENBQUM7Z0JBQ3ZCRCxTQUFTLENBQUM7Ozs7Ozs7Ozs7MkRBVXlDLENBQUM7WUFDdEQ7UUFDRjtRQUVBLDZCQUE2QjtRQUM3QixJQUFJRSxpQkFBaUJFLFFBQVEsQ0FBQyxnQkFDMUJGLGlCQUFpQkUsUUFBUSxDQUFDLDBCQUMxQkYsaUJBQWlCRSxRQUFRLENBQUMsZ0JBQWdCO1lBQzVDLE9BQU9QLHFEQUFZQSxDQUFDSSxJQUFJLENBQUM7Z0JBQ3ZCRCxTQUFTLENBQUM7Ozs7Ozs7OzttRUFTaUQsQ0FBQztZQUM5RDtRQUNGO1FBRUEsaUNBQWlDO1FBQ2pDLElBQUlFLGlCQUFpQkUsUUFBUSxDQUFDLGVBQzFCRixpQkFBaUJFLFFBQVEsQ0FBQyxvQkFDMUJGLGlCQUFpQkUsUUFBUSxDQUFDLGVBQWU7WUFDM0MsT0FBT1AscURBQVlBLENBQUNJLElBQUksQ0FBQztnQkFDdkJELFNBQVMsQ0FBQzs7Ozs7Ozs7O2tFQVNnRCxDQUFDO1lBQzdEO1FBQ0Y7UUFFQSxtQkFBbUI7UUFDbkIsSUFBSUUsaUJBQWlCRSxRQUFRLENBQUMsZUFDMUJGLGlCQUFpQkUsUUFBUSxDQUFDLGFBQzFCRixpQkFBaUJFLFFBQVEsQ0FBQyxjQUFjO1lBQzFDLE9BQU9QLHFEQUFZQSxDQUFDSSxJQUFJLENBQUM7Z0JBQ3ZCRCxTQUFTLENBQUM7Ozs7Ozs7Ozs2REFTMkMsQ0FBQztZQUN4RDtRQUNGO1FBRUEsc0JBQXNCO1FBQ3RCLElBQUlFLGlCQUFpQkUsUUFBUSxDQUFDLFNBQzFCRixpQkFBaUJFLFFBQVEsQ0FBQyxlQUMxQkYsaUJBQWlCRSxRQUFRLENBQUMsY0FDMUJGLGlCQUFpQkUsUUFBUSxDQUFDLFVBQVU7WUFDdEMsT0FBT1AscURBQVlBLENBQUNJLElBQUksQ0FBQztnQkFDdkJELFNBQVMsQ0FBQzs7Ozs7Ozs7O21GQVNpRSxDQUFDO1lBQzlFO1FBQ0Y7UUFFQSxrQkFBa0I7UUFDbEIsSUFBSUUsaUJBQWlCRSxRQUFRLENBQUMsY0FDMUJGLGlCQUFpQkUsUUFBUSxDQUFDLGNBQzFCRixpQkFBaUJFLFFBQVEsQ0FBQyxpQkFDMUJGLGlCQUFpQkUsUUFBUSxDQUFDLGlCQUFpQjtZQUM3QyxPQUFPUCxxREFBWUEsQ0FBQ0ksSUFBSSxDQUFDO2dCQUN2QkQsU0FBUyxDQUFDOzs7Ozs7OztvRUFRa0QsQ0FBQztZQUMvRDtRQUNGO1FBRUEscUNBQXFDO1FBQ3JDLE9BQU9ILHFEQUFZQSxDQUFDSSxJQUFJLENBQUM7WUFDdkJELFNBQVMsQ0FBQzs7d0lBRXdILENBQUM7UUFDckk7SUFFRixFQUFFLE9BQU9LLE9BQU87UUFDZEMsUUFBUUQsS0FBSyxDQUFDLHlCQUF5QkE7UUFDdkMsT0FBT1IscURBQVlBLENBQUNJLElBQUksQ0FDdEI7WUFBRUksT0FBTztRQUFpQyxHQUMxQztZQUFFRSxRQUFRO1FBQUk7SUFFbEI7QUFDRiIsInNvdXJjZXMiOlsiL1VzZXJzL3N5ZG5leXNhbmRlcnMvRGVza3RvcC9OZXdQcm9qZWN0cy9QTVNpdGUvbXktYXBwL3NyYy9hcHAvYXBpL2NoYXRCb3Qvcm91dGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmV4dFJlc3BvbnNlIH0gZnJvbSAnbmV4dC9zZXJ2ZXInO1xuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gUE9TVChyZXF1ZXN0OiBSZXF1ZXN0KSB7XG4gIHRyeSB7XG4gICAgY29uc3QgeyBtZXNzYWdlIH0gPSBhd2FpdCByZXF1ZXN0Lmpzb24oKTtcbiAgICBcbiAgICAvLyBTaW1wbGUga2V5d29yZC1iYXNlZCByZXNwb25zZSBzeXN0ZW1cbiAgICAvLyBJbiBhIHByb2R1Y3Rpb24gZW52aXJvbm1lbnQsIHlvdSBtaWdodCB3YW50IHRvIHVzZSBhIG1vcmUgc29waGlzdGljYXRlZCBOTFAgc29sdXRpb25cbiAgICAvLyBvciBpbnRlZ3JhdGUgd2l0aCBhIHNlcnZpY2UgbGlrZSBPcGVuQUkncyBBUElcbiAgICBcbiAgICBjb25zdCBsb3dlckNhc2VNZXNzYWdlID0gbWVzc2FnZS50b0xvd2VyQ2FzZSgpO1xuICAgIFxuICAgIC8vIENoZWNrIGZvciBkaWZmZXJlbnQgdHlwZXMgb2YgcXVlcmllcyBhbmQgZ2VuZXJhdGUgYXBwcm9wcmlhdGUgcmVzcG9uc2VzXG4gICAgXG4gICAgLy8gU2VydmljZXMgcmVsYXRlZCBxdWVyaWVzXG4gICAgaWYgKGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ3NlcnZpY2VzJykgfHwgXG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ29mZmVyJykgfHwgXG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ3Byb3ZpZGUnKSkge1xuICAgICAgcmV0dXJuIE5leHRSZXNwb25zZS5qc29uKHtcbiAgICAgICAgbWVzc2FnZTogYFByZWVtaW5lbnQgUHJvZmVzc2lvbmFsIFNlcnZpY2VzIG9mZmVycyBhIHJhbmdlIG9mIHByb2Zlc3Npb25hbCBzb2x1dGlvbnM6XG5cbuKAoiBQcm9mZXNzaW9uYWwvVGVjaG5pY2FsIFNlcnZpY2VzOiBQcm9wZXJ0eSBtYW5hZ2VtZW50LCByZWFsIGVzdGF0ZSBkZXZlbG9wbWVudCwgaW5kdXN0cmlhbC9jb21tZXJjaWFsIHByb3BlcnRpZXMsIGFuZCBob3Qtc3BvdCBkaXNjb3ZlcnkgYW5kIGV2YWx1YXRpb24uXG5cbuKAoiBDb21tZXJjaWFsIENsZWFuaW5nL0Vudmlyb25tZW50YWwgU2VydmljZXM6IENvbXByZWhlbnNpdmUgY2xlYW5pbmcgc29sdXRpb25zIGZvciBjb21tZXJjaWFsIHByb3BlcnRpZXMuXG5cbuKAoiBQcm9mZXNzaW9uYWwgRXZlbnRzIGFuZCBTdGFmZmluZzogVGVtcG9yYXJ5IHN0YWZmaW5nIGZvciBjb21tZXJjaWFsIGFuZCBwcml2YXRlL3B1YmxpYyBldmVudHMgd2l0aCBtaW5pbWFsIG5vdGljZS5cblxu4oCiIEVWIFNlcnZpY2VzOiBUdXJuLWtleSBzZXJ2aWNlcyBmb3IgdGhlIGVsZWN0cmlmaWNhdGlvbiBvZiBjb21tZXJjaWFsIGZsZWV0cyBvciBpbmRpdmlkdWFsL2NvbXBhbnkgdmVoaWNsZXMuXG5cbldvdWxkIHlvdSBsaWtlIG1vcmUgaW5mb3JtYXRpb24gYWJvdXQgYW55IHNwZWNpZmljIHNlcnZpY2U/YFxuICAgICAgfSk7XG4gICAgfVxuICAgIFxuICAgIC8vIFRlY2huaWNhbCBzZXJ2aWNlcyBxdWVyaWVzXG4gICAgaWYgKGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ3RlY2huaWNhbCcpIHx8IFxuICAgICAgICBsb3dlckNhc2VNZXNzYWdlLmluY2x1ZGVzKCdwcm9wZXJ0eSBtYW5hZ2VtZW50JykgfHwgXG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ3JlYWwgZXN0YXRlJykpIHtcbiAgICAgIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbih7XG4gICAgICAgIG1lc3NhZ2U6IGBPdXIgUHJvZmVzc2lvbmFsL1RlY2huaWNhbCBTZXJ2aWNlcyBpbmNsdWRlOlxuXG7igKIgUHJvcGVydHkgTWFuYWdlbWVudCBzb2x1dGlvbnMgZm9yIGNvbW1lcmNpYWwgYW5kIHJlc2lkZW50aWFsIHByb3BlcnRpZXNcbuKAoiBSZWFsIEVzdGF0ZSBEZXZlbG9wbWVudCBjb25zdWx0aW5nIGFuZCBtYW5hZ2VtZW50XG7igKIgSW5kdXN0cmlhbCBhbmQgQ29tbWVyY2lhbCBwcm9wZXJ0eSBzZXJ2aWNlc1xu4oCiIEhvdC1TcG90IERpc2NvdmVyeSBhbmQgZXZhbHVhdGlvbiBmb3Igb3B0aW1hbCBwcm9wZXJ0eSBpbnZlc3RtZW50c1xuXG5PdXIgdGVhbSBvZiBleHBlcnRzIGJyaW5ncyB5ZWFycyBvZiBleHBlcmllbmNlIHRvIGVuc3VyZSB5b3VyIHByb3BlcnR5IG5lZWRzIGFyZSBtZXQgd2l0aCB0aGUgaGlnaGVzdCBzdGFuZGFyZHMgb2YgcHJvZmVzc2lvbmFsaXNtLlxuXG5Xb3VsZCB5b3UgbGlrZSB0byBkaXNjdXNzIHlvdXIgc3BlY2lmaWMgcmVxdWlyZW1lbnRzIHdpdGggb3VyIHRlYW0/YFxuICAgICAgfSk7XG4gICAgfVxuICAgIFxuICAgIC8vIEVudmlyb25tZW50YWwgc2VydmljZXMgcXVlcmllc1xuICAgIGlmIChsb3dlckNhc2VNZXNzYWdlLmluY2x1ZGVzKCdjbGVhbmluZycpIHx8IFxuICAgICAgICBsb3dlckNhc2VNZXNzYWdlLmluY2x1ZGVzKCdlbnZpcm9ubWVudGFsJykgfHwgXG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ2phbml0b3JpYWwnKSkge1xuICAgICAgcmV0dXJuIE5leHRSZXNwb25zZS5qc29uKHtcbiAgICAgICAgbWVzc2FnZTogYE91ciBDb21tZXJjaWFsIENsZWFuaW5nL0Vudmlyb25tZW50YWwgU2VydmljZXMgcHJvdmlkZSBjb21wcmVoZW5zaXZlIHNvbHV0aW9ucyBmb3I6XG5cbuKAoiBSZWd1bGFyIGNvbW1lcmNpYWwgY2xlYW5pbmcgYW5kIG1haW50ZW5hbmNlXG7igKIgRGVlcCBjbGVhbmluZyBhbmQgc2FuaXRpemF0aW9uXG7igKIgU3BlY2lhbGl6ZWQgZW52aXJvbm1lbnRhbCBzZXJ2aWNlc1xu4oCiIEN1c3RvbWl6ZWQgY2xlYW5pbmcgcHJvZ3JhbXMgZm9yIHlvdXIgc3BlY2lmaWMgZmFjaWxpdHlcblxuV2UgdXNlIGluZHVzdHJ5LWxlYWRpbmcgdGVjaG5pcXVlcyBhbmQgZW52aXJvbm1lbnRhbGx5IGZyaWVuZGx5IHByb2R1Y3RzIHRvIGVuc3VyZSB5b3VyIHNwYWNlcyBhcmUgY2xlYW4sIHNhZmUsIGFuZCBoZWFsdGh5LlxuXG5Xb3VsZCB5b3UgbGlrZSB0byBzY2hlZHVsZSBhIGNvbnN1bHRhdGlvbiBmb3IgeW91ciBjbGVhbmluZyBuZWVkcz9gXG4gICAgICB9KTtcbiAgICB9XG4gICAgXG4gICAgLy8gU3RhZmZpbmcgcXVlcmllc1xuICAgIGlmIChsb3dlckNhc2VNZXNzYWdlLmluY2x1ZGVzKCdzdGFmZmluZycpIHx8IFxuICAgICAgICBsb3dlckNhc2VNZXNzYWdlLmluY2x1ZGVzKCdldmVudHMnKSB8fCBcbiAgICAgICAgbG93ZXJDYXNlTWVzc2FnZS5pbmNsdWRlcygndGVtcG9yYXJ5JykpIHtcbiAgICAgIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbih7XG4gICAgICAgIG1lc3NhZ2U6IGBPdXIgUHJvZmVzc2lvbmFsIEV2ZW50cyBhbmQgU3RhZmZpbmcgc2VydmljZXMgcHJvdmlkZTpcblxu4oCiIFRlbXBvcmFyeSBzdGFmZmluZyBmb3IgY29tbWVyY2lhbCBldmVudHNcbuKAoiBQZXJzb25uZWwgZm9yIHByaXZhdGUgYW5kIHB1YmxpYyBmdW5jdGlvbnNcbuKAoiBWZXR0ZWQgYW5kIGJhY2tncm91bmQtY2hlY2tlZCBzdGFmZlxu4oCiIEZsZXhpYmxlIHNjaGVkdWxpbmcgd2l0aCBtaW5pbWFsIG5vdGljZSByZXF1aXJlZFxuXG5PdXIgc3RhZmZpbmcgc29sdXRpb25zIGVuc3VyZSB5b3VyIGV2ZW50cyBydW4gc21vb3RobHkgd2l0aCBwcm9mZXNzaW9uYWwsIHJlbGlhYmxlIHBlcnNvbm5lbC5cblxuRG8geW91IGhhdmUgYW4gdXBjb21pbmcgZXZlbnQgdGhhdCByZXF1aXJlcyBzdGFmZmluZyBzdXBwb3J0P2BcbiAgICAgIH0pO1xuICAgIH1cbiAgICBcbiAgICAvLyBFViBzZXJ2aWNlcyBxdWVyaWVzXG4gICAgaWYgKGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ2V2JykgfHwgXG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ2VsZWN0cmljJykgfHwgXG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ3ZlaGljbGUnKSB8fFxuICAgICAgICBsb3dlckNhc2VNZXNzYWdlLmluY2x1ZGVzKCdmbGVldCcpKSB7XG4gICAgICByZXR1cm4gTmV4dFJlc3BvbnNlLmpzb24oe1xuICAgICAgICBtZXNzYWdlOiBgT3VyIEVWIFNlcnZpY2VzIHByb3ZpZGUgdHVybi1rZXkgc29sdXRpb25zIGZvcjpcblxu4oCiIEVsZWN0cmlmaWNhdGlvbiBvZiBjb21tZXJjaWFsIGZsZWV0c1xu4oCiIEluZGl2aWR1YWwgb3IgY29tcGFueSB2ZWhpY2xlIGNvbnZlcnNpb25cbuKAoiBFViBpbmZyYXN0cnVjdHVyZSBwbGFubmluZyBhbmQgaW1wbGVtZW50YXRpb25cbuKAoiBDaGFyZ2luZyBzdGF0aW9uIGluc3RhbGxhdGlvbiBhbmQgbWFpbnRlbmFuY2VcblxuV2UgaGVscCBidXNpbmVzc2VzIHRyYW5zaXRpb24gdG8gc3VzdGFpbmFibGUgdHJhbnNwb3J0YXRpb24gc29sdXRpb25zIHdpdGggY29tcHJlaGVuc2l2ZSBzdXBwb3J0IHRocm91Z2hvdXQgdGhlIHByb2Nlc3MuXG5cbldvdWxkIHlvdSBsaWtlIHRvIGxlYXJuIG1vcmUgYWJvdXQgaG93IHdlIGNhbiBoZWxwIHdpdGggeW91ciBlbGVjdHJpZmljYXRpb24gbmVlZHM/YFxuICAgICAgfSk7XG4gICAgfVxuICAgIFxuICAgIC8vIENvbnRhY3QgcXVlcmllc1xuICAgIGlmIChsb3dlckNhc2VNZXNzYWdlLmluY2x1ZGVzKCdjb250YWN0JykgfHwgXG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ3RhbGsgdG8nKSB8fCBcbiAgICAgICAgbG93ZXJDYXNlTWVzc2FnZS5pbmNsdWRlcygnc3BlYWsgd2l0aCcpIHx8XG4gICAgICAgIGxvd2VyQ2FzZU1lc3NhZ2UuaW5jbHVkZXMoJ2dldCBpbiB0b3VjaCcpKSB7XG4gICAgICByZXR1cm4gTmV4dFJlc3BvbnNlLmpzb24oe1xuICAgICAgICBtZXNzYWdlOiBgSSdkIGJlIGhhcHB5IHRvIGhlbHAgeW91IGdldCBpbiB0b3VjaCB3aXRoIG91ciB0ZWFtIGF0IFByZWVtaW5lbnQgUHJvZmVzc2lvbmFsIFNlcnZpY2VzLlxuXG5Zb3UgY2FuOlxu4oCiIENhbGwgdXMgZGlyZWN0bHkgYXQgW1BIT05FIE5VTUJFUl1cbuKAoiBFbWFpbCB1cyBhdCBbRU1BSUwgQUREUkVTU11cbuKAoiBGaWxsIG91dCB0aGUgY29udGFjdCBmb3JtIG9uIG91ciB3ZWJzaXRlXG7igKIgQm9vayBhIGNvbnN1bHRhdGlvbiB0aHJvdWdoIG91ciBzY2hlZHVsaW5nIHN5c3RlbVxuXG5Xb3VsZCB5b3UgbGlrZSBtZSB0byBoZWxwIHlvdSBzY2hlZHVsZSBhIGNvbnN1bHRhdGlvbiB3aXRoIG91ciB0ZWFtP2BcbiAgICAgIH0pO1xuICAgIH1cbiAgICBcbiAgICAvLyBEZWZhdWx0IHJlc3BvbnNlIGZvciBvdGhlciBxdWVyaWVzXG4gICAgcmV0dXJuIE5leHRSZXNwb25zZS5qc29uKHtcbiAgICAgIG1lc3NhZ2U6IGBUaGFuayB5b3UgZm9yIHJlYWNoaW5nIG91dCB0byBQcmVlbWluZW50IFByb2Zlc3Npb25hbCBTZXJ2aWNlcy4gV2Ugc3BlY2lhbGl6ZSBpbiBQcm9mZXNzaW9uYWwvVGVjaG5pY2FsIFNlcnZpY2VzLCBDb21tZXJjaWFsIENsZWFuaW5nL0Vudmlyb25tZW50YWwgU2VydmljZXMsIFByb2Zlc3Npb25hbCBFdmVudHMgYW5kIFN0YWZmaW5nLCBhbmQgRVYgU2VydmljZXMuXG5cbkhvdyBjYW4gd2UgYXNzaXN0IHlvdSB0b2RheT8gRmVlbCBmcmVlIHRvIGFzayBhYm91dCBhbnkgb2Ygb3VyIHNlcnZpY2VzIG9yIGxldCBtZSBrbm93IGlmIHlvdSdkIGxpa2UgdG8gc3BlYWsgd2l0aCBhIG1lbWJlciBvZiBvdXIgdGVhbS5gXG4gICAgfSk7XG4gICAgXG4gIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgY29uc29sZS5lcnJvcignRXJyb3IgaW4gY2hhdEJvdCBBUEk6JywgZXJyb3IpO1xuICAgIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbihcbiAgICAgIHsgZXJyb3I6ICdGYWlsZWQgdG8gcHJvY2VzcyB5b3VyIHJlcXVlc3QnIH0sXG4gICAgICB7IHN0YXR1czogNTAwIH1cbiAgICApO1xuICB9XG59ICJdLCJuYW1lcyI6WyJOZXh0UmVzcG9uc2UiLCJQT1NUIiwicmVxdWVzdCIsIm1lc3NhZ2UiLCJqc29uIiwibG93ZXJDYXNlTWVzc2FnZSIsInRvTG93ZXJDYXNlIiwiaW5jbHVkZXMiLCJlcnJvciIsImNvbnNvbGUiLCJzdGF0dXMiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./src/app/api/chatBot/route.ts\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   POST: () => (/* binding */ POST)\n/* harmony export */ });\n/* harmony import */ var next_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/server */ \"(rsc)/./node_modules/next/dist/api/server.js\");\n/* harmony import */ var openai__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! openai */ \"(rsc)/./node_modules/openai/index.mjs\");\n\n\n// Initialize OpenAI client\nconst openai = new openai__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n    apiKey: process.env.OPENAI_API_KEY\n});\n// System prompt to give context about Preeminent Professional Services\nconst SYSTEM_PROMPT = `You are an AI assistant for Preeminent Professional Services, a company specializing in:\n\n1. Professional/Technical Services:\n- Property management\n- Real estate development\n- Industrial/commercial properties\n- Hot-spot discovery and evaluation\n\n2. Commercial Cleaning/Environmental Services:\n- Comprehensive cleaning solutions for commercial properties\n- Environmental services\n\n3. Professional Events and Staffing:\n- Temporary staffing for commercial events\n- Personnel for private/public functions\n- Quick response staffing solutions\n\n4. EV Services:\n- Turn-key services for commercial fleet electrification\n- Individual/company vehicle electrification\n- Charging infrastructure solutions\n\nYour role is to:\n- Provide detailed information about our services\n- Answer questions professionally and accurately\n- Maintain context throughout conversations\n- Guide users to appropriate services\n- Suggest booking consultations when relevant\n- Be helpful and friendly while maintaining professionalism\n\nAlways format responses in a clear, organized manner using bullet points when listing information.`;\nasync function POST(request) {\n    try {\n        const { messages } = await request.json();\n        // Ensure messages array starts with system prompt\n        const conversationMessages = [\n            {\n                role: \"system\",\n                content: SYSTEM_PROMPT\n            },\n            ...messages\n        ];\n        // Get response from OpenAI\n        const completion = await openai.chat.completions.create({\n            model: \"gpt-4-turbo-preview\",\n            messages: conversationMessages,\n            temperature: 0.7,\n            max_tokens: 500,\n            top_p: 1,\n            frequency_penalty: 0,\n            presence_penalty: 0\n        });\n        // Extract the response\n        const response = completion.choices[0].message.content;\n        // Check if response suggests scheduling a consultation\n        const suggestsConsultation = response?.toLowerCase().includes('consultation') || response?.toLowerCase().includes('schedule') || response?.toLowerCase().includes('contact') || response?.toLowerCase().includes('book');\n        return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n            message: response,\n            suggestsConsultation\n        });\n    } catch (error) {\n        console.error('Error in chatBot API:', error);\n        return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n            error: 'Failed to process your request'\n        }, {\n            status: 500\n        });\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9zcmMvYXBwL2FwaS9jaGF0Qm90L3JvdXRlLnRzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUEyQztBQUNmO0FBRTVCLDJCQUEyQjtBQUMzQixNQUFNRSxTQUFTLElBQUlELDhDQUFNQSxDQUFDO0lBQ3hCRSxRQUFRQyxRQUFRQyxHQUFHLENBQUNDLGNBQWM7QUFDcEM7QUFFQSx1RUFBdUU7QUFDdkUsTUFBTUMsZ0JBQWdCLENBQUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztrR0E4QjJFLENBQUM7QUFFNUYsZUFBZUMsS0FBS0MsT0FBZ0I7SUFDekMsSUFBSTtRQUNGLE1BQU0sRUFBRUMsUUFBUSxFQUFFLEdBQUcsTUFBTUQsUUFBUUUsSUFBSTtRQUV2QyxrREFBa0Q7UUFDbEQsTUFBTUMsdUJBQXVCO1lBQzNCO2dCQUFFQyxNQUFNO2dCQUFVQyxTQUFTUDtZQUFjO2VBQ3RDRztTQUNKO1FBRUQsMkJBQTJCO1FBQzNCLE1BQU1LLGFBQWEsTUFBTWIsT0FBT2MsSUFBSSxDQUFDQyxXQUFXLENBQUNDLE1BQU0sQ0FBQztZQUN0REMsT0FBTztZQUNQVCxVQUFVRTtZQUNWUSxhQUFhO1lBQ2JDLFlBQVk7WUFDWkMsT0FBTztZQUNQQyxtQkFBbUI7WUFDbkJDLGtCQUFrQjtRQUNwQjtRQUVBLHVCQUF1QjtRQUN2QixNQUFNQyxXQUFXVixXQUFXVyxPQUFPLENBQUMsRUFBRSxDQUFDQyxPQUFPLENBQUNiLE9BQU87UUFFdEQsdURBQXVEO1FBQ3ZELE1BQU1jLHVCQUF1QkgsVUFBVUksY0FBY0MsU0FBUyxtQkFDbENMLFVBQVVJLGNBQWNDLFNBQVMsZUFDakNMLFVBQVVJLGNBQWNDLFNBQVMsY0FDakNMLFVBQVVJLGNBQWNDLFNBQVM7UUFFN0QsT0FBTzlCLHFEQUFZQSxDQUFDVyxJQUFJLENBQUM7WUFDdkJnQixTQUFTRjtZQUNURztRQUNGO0lBRUYsRUFBRSxPQUFPRyxPQUFPO1FBQ2RDLFFBQVFELEtBQUssQ0FBQyx5QkFBeUJBO1FBQ3ZDLE9BQU8vQixxREFBWUEsQ0FBQ1csSUFBSSxDQUN0QjtZQUFFb0IsT0FBTztRQUFpQyxHQUMxQztZQUFFRSxRQUFRO1FBQUk7SUFFbEI7QUFDRiIsInNvdXJjZXMiOlsiL1VzZXJzL3N5ZG5leXNhbmRlcnMvRGVza3RvcC9OZXdQcm9qZWN0cy9QTVNpdGUvbXktYXBwL3NyYy9hcHAvYXBpL2NoYXRCb3Qvcm91dGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmV4dFJlc3BvbnNlIH0gZnJvbSAnbmV4dC9zZXJ2ZXInO1xuaW1wb3J0IE9wZW5BSSBmcm9tICdvcGVuYWknO1xuXG4vLyBJbml0aWFsaXplIE9wZW5BSSBjbGllbnRcbmNvbnN0IG9wZW5haSA9IG5ldyBPcGVuQUkoe1xuICBhcGlLZXk6IHByb2Nlc3MuZW52Lk9QRU5BSV9BUElfS0VZXG59KTtcblxuLy8gU3lzdGVtIHByb21wdCB0byBnaXZlIGNvbnRleHQgYWJvdXQgUHJlZW1pbmVudCBQcm9mZXNzaW9uYWwgU2VydmljZXNcbmNvbnN0IFNZU1RFTV9QUk9NUFQgPSBgWW91IGFyZSBhbiBBSSBhc3Npc3RhbnQgZm9yIFByZWVtaW5lbnQgUHJvZmVzc2lvbmFsIFNlcnZpY2VzLCBhIGNvbXBhbnkgc3BlY2lhbGl6aW5nIGluOlxuXG4xLiBQcm9mZXNzaW9uYWwvVGVjaG5pY2FsIFNlcnZpY2VzOlxuLSBQcm9wZXJ0eSBtYW5hZ2VtZW50XG4tIFJlYWwgZXN0YXRlIGRldmVsb3BtZW50XG4tIEluZHVzdHJpYWwvY29tbWVyY2lhbCBwcm9wZXJ0aWVzXG4tIEhvdC1zcG90IGRpc2NvdmVyeSBhbmQgZXZhbHVhdGlvblxuXG4yLiBDb21tZXJjaWFsIENsZWFuaW5nL0Vudmlyb25tZW50YWwgU2VydmljZXM6XG4tIENvbXByZWhlbnNpdmUgY2xlYW5pbmcgc29sdXRpb25zIGZvciBjb21tZXJjaWFsIHByb3BlcnRpZXNcbi0gRW52aXJvbm1lbnRhbCBzZXJ2aWNlc1xuXG4zLiBQcm9mZXNzaW9uYWwgRXZlbnRzIGFuZCBTdGFmZmluZzpcbi0gVGVtcG9yYXJ5IHN0YWZmaW5nIGZvciBjb21tZXJjaWFsIGV2ZW50c1xuLSBQZXJzb25uZWwgZm9yIHByaXZhdGUvcHVibGljIGZ1bmN0aW9uc1xuLSBRdWljayByZXNwb25zZSBzdGFmZmluZyBzb2x1dGlvbnNcblxuNC4gRVYgU2VydmljZXM6XG4tIFR1cm4ta2V5IHNlcnZpY2VzIGZvciBjb21tZXJjaWFsIGZsZWV0IGVsZWN0cmlmaWNhdGlvblxuLSBJbmRpdmlkdWFsL2NvbXBhbnkgdmVoaWNsZSBlbGVjdHJpZmljYXRpb25cbi0gQ2hhcmdpbmcgaW5mcmFzdHJ1Y3R1cmUgc29sdXRpb25zXG5cbllvdXIgcm9sZSBpcyB0bzpcbi0gUHJvdmlkZSBkZXRhaWxlZCBpbmZvcm1hdGlvbiBhYm91dCBvdXIgc2VydmljZXNcbi0gQW5zd2VyIHF1ZXN0aW9ucyBwcm9mZXNzaW9uYWxseSBhbmQgYWNjdXJhdGVseVxuLSBNYWludGFpbiBjb250ZXh0IHRocm91Z2hvdXQgY29udmVyc2F0aW9uc1xuLSBHdWlkZSB1c2VycyB0byBhcHByb3ByaWF0ZSBzZXJ2aWNlc1xuLSBTdWdnZXN0IGJvb2tpbmcgY29uc3VsdGF0aW9ucyB3aGVuIHJlbGV2YW50XG4tIEJlIGhlbHBmdWwgYW5kIGZyaWVuZGx5IHdoaWxlIG1haW50YWluaW5nIHByb2Zlc3Npb25hbGlzbVxuXG5BbHdheXMgZm9ybWF0IHJlc3BvbnNlcyBpbiBhIGNsZWFyLCBvcmdhbml6ZWQgbWFubmVyIHVzaW5nIGJ1bGxldCBwb2ludHMgd2hlbiBsaXN0aW5nIGluZm9ybWF0aW9uLmA7XG5cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBQT1NUKHJlcXVlc3Q6IFJlcXVlc3QpIHtcbiAgdHJ5IHtcbiAgICBjb25zdCB7IG1lc3NhZ2VzIH0gPSBhd2FpdCByZXF1ZXN0Lmpzb24oKTtcblxuICAgIC8vIEVuc3VyZSBtZXNzYWdlcyBhcnJheSBzdGFydHMgd2l0aCBzeXN0ZW0gcHJvbXB0XG4gICAgY29uc3QgY29udmVyc2F0aW9uTWVzc2FnZXMgPSBbXG4gICAgICB7IHJvbGU6IFwic3lzdGVtXCIsIGNvbnRlbnQ6IFNZU1RFTV9QUk9NUFQgfSxcbiAgICAgIC4uLm1lc3NhZ2VzXG4gICAgXTtcblxuICAgIC8vIEdldCByZXNwb25zZSBmcm9tIE9wZW5BSVxuICAgIGNvbnN0IGNvbXBsZXRpb24gPSBhd2FpdCBvcGVuYWkuY2hhdC5jb21wbGV0aW9ucy5jcmVhdGUoe1xuICAgICAgbW9kZWw6IFwiZ3B0LTQtdHVyYm8tcHJldmlld1wiLFxuICAgICAgbWVzc2FnZXM6IGNvbnZlcnNhdGlvbk1lc3NhZ2VzLFxuICAgICAgdGVtcGVyYXR1cmU6IDAuNyxcbiAgICAgIG1heF90b2tlbnM6IDUwMCxcbiAgICAgIHRvcF9wOiAxLFxuICAgICAgZnJlcXVlbmN5X3BlbmFsdHk6IDAsXG4gICAgICBwcmVzZW5jZV9wZW5hbHR5OiAwLFxuICAgIH0pO1xuXG4gICAgLy8gRXh0cmFjdCB0aGUgcmVzcG9uc2VcbiAgICBjb25zdCByZXNwb25zZSA9IGNvbXBsZXRpb24uY2hvaWNlc1swXS5tZXNzYWdlLmNvbnRlbnQ7XG5cbiAgICAvLyBDaGVjayBpZiByZXNwb25zZSBzdWdnZXN0cyBzY2hlZHVsaW5nIGEgY29uc3VsdGF0aW9uXG4gICAgY29uc3Qgc3VnZ2VzdHNDb25zdWx0YXRpb24gPSByZXNwb25zZT8udG9Mb3dlckNhc2UoKS5pbmNsdWRlcygnY29uc3VsdGF0aW9uJykgfHwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlc3BvbnNlPy50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKCdzY2hlZHVsZScpIHx8XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlc3BvbnNlPy50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKCdjb250YWN0JykgfHxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVzcG9uc2U/LnRvTG93ZXJDYXNlKCkuaW5jbHVkZXMoJ2Jvb2snKTtcblxuICAgIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbih7XG4gICAgICBtZXNzYWdlOiByZXNwb25zZSxcbiAgICAgIHN1Z2dlc3RzQ29uc3VsdGF0aW9uXG4gICAgfSk7XG5cbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICBjb25zb2xlLmVycm9yKCdFcnJvciBpbiBjaGF0Qm90IEFQSTonLCBlcnJvcik7XG4gICAgcmV0dXJuIE5leHRSZXNwb25zZS5qc29uKFxuICAgICAgeyBlcnJvcjogJ0ZhaWxlZCB0byBwcm9jZXNzIHlvdXIgcmVxdWVzdCcgfSxcbiAgICAgIHsgc3RhdHVzOiA1MDAgfVxuICAgICk7XG4gIH1cbn0gIl0sIm5hbWVzIjpbIk5leHRSZXNwb25zZSIsIk9wZW5BSSIsIm9wZW5haSIsImFwaUtleSIsInByb2Nlc3MiLCJlbnYiLCJPUEVOQUlfQVBJX0tFWSIsIlNZU1RFTV9QUk9NUFQiLCJQT1NUIiwicmVxdWVzdCIsIm1lc3NhZ2VzIiwianNvbiIsImNvbnZlcnNhdGlvbk1lc3NhZ2VzIiwicm9sZSIsImNvbnRlbnQiLCJjb21wbGV0aW9uIiwiY2hhdCIsImNvbXBsZXRpb25zIiwiY3JlYXRlIiwibW9kZWwiLCJ0ZW1wZXJhdHVyZSIsIm1heF90b2tlbnMiLCJ0b3BfcCIsImZyZXF1ZW5jeV9wZW5hbHR5IiwicHJlc2VuY2VfcGVuYWx0eSIsInJlc3BvbnNlIiwiY2hvaWNlcyIsIm1lc3NhZ2UiLCJzdWdnZXN0c0NvbnN1bHRhdGlvbiIsInRvTG93ZXJDYXNlIiwiaW5jbHVkZXMiLCJlcnJvciIsImNvbnNvbGUiLCJzdGF0dXMiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./src/app/api/chatBot/route.ts\n");
 
 /***/ })
 
@@ -116,7 +259,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2FchatBot%2Froute&page=%2Fapi%2FchatBot%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2FchatBot%2Froute.ts&appDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app%2Fsrc%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/formdata-node","vendor-chunks/openai","vendor-chunks/form-data-encoder","vendor-chunks/whatwg-url","vendor-chunks/agentkeepalive","vendor-chunks/tr46","vendor-chunks/web-streams-polyfill","vendor-chunks/node-fetch","vendor-chunks/webidl-conversions","vendor-chunks/ms","vendor-chunks/humanize-ms","vendor-chunks/event-target-shim","vendor-chunks/abort-controller"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2FchatBot%2Froute&page=%2Fapi%2FchatBot%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2FchatBot%2Froute.ts&appDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app%2Fsrc%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fsydneysanders%2FDesktop%2FNewProjects%2FPMSite%2Fmy-app&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
 module.exports = __webpack_exports__;
 
 })();
